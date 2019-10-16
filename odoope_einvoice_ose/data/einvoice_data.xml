@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        
+        <!-- OSE Suppliers -->
+        <record id="supplier_odoofact" model="einvoice.supplier"><field name="code">odoofact</field><field name="name">Odoofact</field><field name="invoice_url">https://odoo.pse.pe/buscar</field><field name="authorization_message">Emitido mediante PROVEEDOR Autorizado por la sunat  mediante Resolución de Intendencia No.034-005-0005315</field></record>
+
+        <!-- Catálogo No. 01 - Código de Tipo de documento -->
+        <record id="odoope_einvoice_base.e01_01" model="einvoice.catalog.01"><field name="type_of">1</field><field name="label">FACTURA ELECTRÓNICA</field><field name="name">Factura</field></record>
+        <record id="odoope_einvoice_base.e01_03" model="einvoice.catalog.01"><field name="type_of">2</field><field name="label">BOLETA ELECTRÓNICA</field><field name="name">Boleta de Venta</field></record>
+        <record id="odoope_einvoice_base.e01_07" model="einvoice.catalog.01"><field name="type_of">3</field><field name="label">NOTA DE CRÉDITO ELECTRÓNICA</field><field name="name">Nota de crédito</field></record>
+        <record id="odoope_einvoice_base.e01_08" model="einvoice.catalog.01"><field name="type_of">4</field><field name="label">NOTA DE DÉBITO ELECTRÓNICA</field><field name="name">Nota de débito</field></record>
+        <record id="odoope_einvoice_base.e01_09" model="einvoice.catalog.01"><field name="type_of"></field><field name="name">Guía de remisión - Remitente</field></record>
+        <record id="odoope_einvoice_base.e01_31" model="einvoice.catalog.01"><field name="type_of"></field><field name="name">Guía de Remisión - Transportista</field></record>
+        <record id="odoope_einvoice_base.e01_87" model="einvoice.catalog.01"><field name="type_of">3</field><field name="name">Nota de Crédito Especial</field></record>
+        <record id="odoope_einvoice_base.e01_88" model="einvoice.catalog.01"><field name="type_of">4</field><field name="name">Nota de Débito Especial</field></record>
+        <record id="odoope_einvoice_base.e01_97" model="einvoice.catalog.01"><field name="type_of">3</field><field name="name">Nota de Crédito - No Domiciliado</field></record>
+        <record id="odoope_einvoice_base.e01_98" model="einvoice.catalog.01"><field name="type_of">4</field><field name="name">Nota de Débito - No Domiciliado</field></record>
+        <record id="odoope_einvoice_base.e01_99" model="einvoice.catalog.01"><field name="type_of">2</field><field name="name">Otros -  Consolidado de Boletas de Venta</field></record>
+       
+        <!-- Catalogo 07  - Códigos de Tipo de Afectación del IGV  -->
+        <record id="odoope_einvoice_base.e07_10" model="einvoice.catalog.07"><field name="code_of">1</field><field name="name">Gravado - Operación Onerosa</field></record>
+        <record id="odoope_einvoice_base.e07_11" model="einvoice.catalog.07"><field name="code_of">2</field><field name="name">Gravado – Retiro por premio</field></record>
+        <record id="odoope_einvoice_base.e07_12" model="einvoice.catalog.07"><field name="code_of">3</field><field name="name">Gravado – Retiro por donación</field></record>
+        <record id="odoope_einvoice_base.e07_13" model="einvoice.catalog.07"><field name="code_of">4</field><field name="name">Gravado – Retiro</field></record>
+        <record id="odoope_einvoice_base.e07_14" model="einvoice.catalog.07"><field name="code_of">5</field><field name="name">Gravado – Retiro por publicidad</field></record>
+        <record id="odoope_einvoice_base.e07_15" model="einvoice.catalog.07"><field name="code_of">6</field><field name="name">Gravado – Bonificaciones</field></record>
+        <record id="odoope_einvoice_base.e07_16" model="einvoice.catalog.07"><field name="code_of">7</field><field name="name">Gravado – Retiro por entrega a trabajadores</field></record>
+        <record id="odoope_einvoice_base.e07_20" model="einvoice.catalog.07"><field name="code_of">8</field><field name="name">Exonerado - Operación Onerosa</field></record>
+        <record id="odoope_einvoice_base.e07_30" model="einvoice.catalog.07"><field name="code_of">9</field><field name="name">Inafecto - Operación Onerosa</field></record>
+        <record id="odoope_einvoice_base.e07_31" model="einvoice.catalog.07"><field name="code_of">10</field><field name="name">Inafecto – Retiro por Bonificación</field></record>
+        <record id="odoope_einvoice_base.e07_32" model="einvoice.catalog.07"><field name="code_of">11</field><field name="name">Inafecto – Retiro</field></record>
+        <record id="odoope_einvoice_base.e07_33" model="einvoice.catalog.07"><field name="code_of">12</field><field name="name">Inafecto – Retiro por Muestras Médicas</field></record>
+        <record id="odoope_einvoice_base.e07_34" model="einvoice.catalog.07"><field name="code_of">13</field><field name="name">Inafecto - Retiro por Convenio Colectivo</field></record>
+        <record id="odoope_einvoice_base.e07_35" model="einvoice.catalog.07"><field name="code_of">14</field><field name="name">Inafecto – Retiro por premio</field></record>
+        <record id="odoope_einvoice_base.e07_36" model="einvoice.catalog.07"><field name="code_of">15</field><field name="name">Inafecto - Retiro por publicidad</field></record>
+        <record id="odoope_einvoice_base.e07_40" model="einvoice.catalog.07"><field name="code_of">16</field><field name="name">Exportación</field></record>
+        
+    </data>
+</openerp>

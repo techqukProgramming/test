@@ -1,0 +1,77 @@
+<odoo>
+  <data>
+    <record model="ir.actions.act_window" id="techquk_requerimiento.action_requerimiento">
+      <field name="name">Requerimientos del Personal</field>
+      <field name="res_model">techquk_requerimiento.requerimiento</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Crea tu primera Requerimiento!
+        </p>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="techquk_requerimiento.action_items">
+      <field name="name">Items</field>
+      <field name="res_model">techquk_requerimiento.item</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Agrega mas items a tus requerimientos!
+        </p>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="techquk_requerimiento.action_documentos">
+      <field name="name">Documentos</field>
+      <field name="res_model">techquk_requerimiento.document</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Agrega mas documento a los requerimientos!
+        </p>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="techquk_requerimiento.action_area">
+      <field name="name">Area</field>
+      <field name="res_model">techquk_requerimiento.area</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Agrega mas áreas a los requerimientos!
+        </p>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="techquk_requerimiento.action_centro">
+      <field name="name">Centro de Costo</field>
+      <field name="res_model">techquk_requerimiento.centro</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Agrega mas centros de costos a los requerimientos!
+        </p>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="techquk_requerimiento.action_centro">
+      <field name="name">Centro de Costo</field>
+      <field name="res_model">techquk_requerimiento.centro</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Agrega mas centros de costos a los requerimientos!
+        </p>
+      </field>
+    </record>
+   
+    <!-- Top menu item -->
+    <menuitem name="Gestionar Requerimientos" id="techquk_requerimiento.menu_root"/>
+
+    <!-- menu categories -->
+    <menuitem name="Requerimientos" id="techquk_requerimiento.menu_requerimientos" parent="techquk_requerimiento.menu_root"/>
+    <menuitem name="Complementos" id="techquk_requerimiento.menu_complementos" parent="techquk_requerimiento.menu_root"/>
+
+    <!-- actions -->
+    <menuitem name="Realizar Requerimiento" id="techquk_requerimiento.menu_requerimientos_realizar" parent="techquk_requerimiento.menu_requerimientos" action="techquk_requerimiento.action_requerimiento"/>
+    <menuitem name="Items" id="techquk_requerimiento.menu_items" parent="techquk_requerimiento.menu_complementos" action="techquk_requerimiento.action_items"/>
+    <menuitem name="Documentos" id="techquk_requerimiento.menu_documentos" parent="techquk_requerimiento.menu_complementos" action="techquk_requerimiento.action_documentos"/>
+    <menuitem name="Area" id="techquk_requerimiento.menu_area" parent="techquk_requerimiento.menu_complementos" action="techquk_requerimiento.action_area"/>
+    <menuitem name="Centro de Costo" id="techquk_requerimiento.menu_centro" parent="techquk_requerimiento.menu_complementos" action="techquk_requerimiento.action_centro"/>
+  </data>
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_account_global_discount" model="ir.ui.view">
+            <field name="name">account.global.discount.form</field>
+            <field name="model">account.global.discount</field>
+            <field name="arch" type="xml">
+                <form string="Global discount">
+                    <group>
+                        <group>
+                            <h3>
+                                <label for="amount_untaxed" string="Amount invoice untaxed"/>
+                                <field name="amount_untaxed" readonly="True" force_save="True"/>
+                            </h3>
+                        </group>
+                        <group>
+                            <h3>
+                                <label for="amount_discount" string="Discount"/>
+                                <field name="amount_discount" readonly="True" force_save="True"/>
+                            </h3>
+                        </group>
+                    </group>                 
+                    <group>
+                         <group>
+                             <field name="product_id" options="{'no_create_edit': True,'no_open':True}"/>
+                             <field name="rate"/>
+                             <field name="type"/>                             
+                         </group>
+                         <group>
+                             <field name="description"/>
+                             <field name="account_id" options="{'no_create_edit': True,'no_open':True}"/>
+                             <field name="tax_ids" widget="many2many_tags"/>
+                         </group>
+                    </group>
+                    <footer>
+                        <button string='Apply discount' name="apply_discount" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_account_global_discount" model="ir.actions.act_window">
+            <field name="name">Global discount</field>
+            <field name="res_model">account.global.discount</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+           <field name="view_id" ref="view_account_global_discount"/>
+           <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

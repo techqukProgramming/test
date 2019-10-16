@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+    <record id="invoice_tree" model="ir.ui.view">
+        <field name="name">account.invoice.tree</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_tree"/>
+        <field name="arch" type="xml">
+            <field name="state" position="after">
+                <field name="einvoice_ose_accepted" />
+                <field name="einvoice_sunat_accepted" />
+                <field name="is_contingency" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="invoice_form_cancel_inherit_inherit">
+		<field name="name">invoice.form.cancel.inherit.inherit</field>
+		<field name="model">account.invoice</field>
+		<field name="inherit_id" ref="account_cancel.invoice_form_cancel_inherit"/>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+            <button name="action_invoice_cancel" position="replace">
+                <button name="action_invoice_cancel" type="object"  attrs="{'invisible':['|',('state', 'not in',['draft','proforma2','open']),('einvoice_ose_accepted','=',True)]}"  string="Cancel Invoice" groups="account.group_account_manager"/>
+                <field name="einvoice_ose_accepted" invisible="True"/>
+            </button>
+            <button name="%(account.action_account_invoice_refund)d" position="after">
+                <button name="%(action_account_invoice_debit)d" type='action' string='Ask for a Debit Note' groups="account.group_account_invoice" attrs="{'invisible': ['|',('type', 'in', ['in_refund','out_refund']),('state','not in',('open','in_payment','paid'))]}"/>
+            </button>  
+        </field>
+    </record>
+
+	<record model="ir.ui.view" id="einvoice_ose_account_invoice_inherit">
+		<field name="name">einvoice_account.invoice.inherit</field>
+		<field name="model">account.invoice</field>
+		<field name="inherit_id" ref="account.invoice_form"/>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+            <header position="after">
+				<div class="alert alert-danger" role="alert" style="margin-bottom:0px;" attrs="{'invisible': [('einvoice_error','=',False)]}">
+                    <span>The invoice has not send to OSE. <strong>ERROR : <field style="display:inline" name="einvoice_error"/></strong></span>
+                </div>
+			</header>
+			<button name="action_invoice_draft" position="after">                
+				<button name="action_invoice_check" string="CHECK CPE/OSE" type="object" attrs="{'invisible':['|',('einvoice_ose_accepted','=',False),('einvoice_sunat_accepted','=',True)]}"/>
+                <button name="%(send_invoice_cancel_action)d" string="Cancel in SUNAT" type="action" class="btn btn-danger" attrs="{'invisible':[('state','not in',['open','paid'])]}" groups="account.group_account_manager"/>
+			</button>  
+            <field name="payment_term_id" position="after">
+                <field name="detraction"/>
+            </field>              
+            <field name="date_invoice" position="before">
+                <field name="sunat_transaction"/>
+            </field>              
+            <page name="other_info" position="before">
+                <page name="einvoice_status" string="E-invoice status">
+                    <group name="einvoice_status">  
+                        <group name="states" string="States">
+                            <field name="einvoice_ose_accepted"/>
+                            <field name="einvoice_sunat_accepted" readonly="True"/>
+                            <field name="is_contingency" readonly="True"/>
+                            <field name="einvoice_sunat_responsecode" readonly="True"/>
+                            <field name="einvoice_sunat_soap_error" readonly="True"/>
+                            <field name="einvoice_sunat_note" readonly="True"/>                             
+                        </group>
+                        <group name="information" string="Information">
+                            <field name="einvoice_link_cdr" widget="url" readonly="True"/>
+                            <field name="einvoice_link_pdf" widget="url" readonly="True"/>
+                            <field name="einvoice_link_invoice" widget="url" readonly="True"/>
+                            <field name="einvoice_cdr_zip" readonly="True"/>
+                            <field name="einvoice_hash_code" readonly="True"/>
+                            <field name="is_einvoice" readonly="True"/>
+                        </group>
+                    </group>
+                    <label for="einvoice_log_ids" string="Status log"/>
+                    <field name="einvoice_log_ids" readonly="True">
+                        <form>
+                            <sheet>
+                                <group name="einvoice_status">  
+                                    <group name="states" string="States">
+                                        <field name="einvoice_sunat_accepted"/>
+                                        <field name="einvoice_sunat_responsecode"/>
+                                        <field name="einvoice_sunat_soap_error"/>  
+                                        <field name="einvoice_sunat_note"/>                            
+                                        <field name="einvoice_hash_code"/>                          
+                                    </group>
+                                    <group name="information" string="Information">
+                                        <field name="einvoice_link_cdr" widget="url"/>
+                                        <field name="einvoice_link_pdf" widget="url"/>
+                                        <field name="einvoice_link_invoice" widget="url"/>
+                                        <field name="einvoice_cdr_zip"/>
+                                    </group>                                  
+                                </group>
+                                <notebook name="other_info">
+                                    <page name="name" string="JSON">
+                                        <field name="json_sent"/>
+                                    </page>
+                                    <page name="name" string="Response">
+                                        <field name="json_response"/>
+                                    </page>
+                                </notebook>
+                            </sheet>
+                        </form>
+                        <tree>
+                            <field name="date"/>
+                            <field name="einvoice_sunat_responsecode"/>
+                            <field name="einvoice_sunat_accepted"/>
+                            <field name="response"/>
+                        </tree>
+                    </field>
+                </page>
+            </page>  
+            <xpath expr="//field[@name='comment']" position="before">
+                <field name="einv_amount_untaxed" invisible="True"/>
+                <button name="%(action_account_global_discount)d" type="action" string="Add global discount" context="{'default_amount_untaxed': einv_amount_untaxed}" class="btn btn-default" attrs="{'invisible':[('state','!=','draft')]}"/>
+            </xpath>            
+		</field>
+	</record>
+
+    <record model="ir.ui.view" id="einvoice_ose_account_invoice_button_inherit">
+		<field name="name">einvoice_account.invoice.button.inherit</field>
+		<field name="model">account.invoice</field>
+		<field name="inherit_id" ref="odoope_einvoice_base.einvoice_account_invoice_inherit"/>
+		<field name="type">form</field>
+        <field name="arch" type="xml">
+            <button name="%(odoope_einvoice_base.einvoice_ose_install_action)d" position="replace">
+                <button name="action_invoice_send" string="Send to PSE/OSE" type="object" class="btn btn-primary" attrs="{'invisible':['|',('einvoice_ose_accepted','=',True),('state','not in',['open','paid'])]}"/>
+                <field name="einvoice_ose_accepted" invisible="True"/>
+            </button>
+        </field>
+	</record>
+    
+    <record id="tree_einvoices_not_sent" model="ir.ui.view">
+        <field name="name">account.invoice</field>
+        <field name="model">account.invoice</field>
+        <field name="arch" type="xml">            
+            <tree decoration-info="state == 'draft'" decoration-muted="state == 'cancel'" string="Invoice">
+                <field name="shop_id"/>
+                <field name="date_invoice"/>
+                <field name="number"/>
+                <field name="partner_id" groups="base.group_user" string="Customer"/>
+                <field name="einvoice_vat"/>
+                <field name="state"/>
+                <field name="einvoice_error"/>
+                <field name="einvoice_sunat_accepted"/>
+                <field name="is_contingency"/>
+            </tree>            
+        </field>
+    </record>
+
+    <record id="view_filter_account_invoice_inherited" model="ir.ui.view">
+        <field name="name">Modificacion de busqueda comprobantes</field> 
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+            <field name="number" position="after">
+                <field name="shop_id"/>
+            </field>                            
+            <filter name="group_by_partner_id" position="after">                          
+                <filter name="shop" string="Shop" context="{'group_by':'shop_id'}"/>
+            </filter>              
+        </field> 
+    </record>
+
+    <act_window id="einvoice_not_sent_action"
+	        name="Electronic documents not sent"
+	        res_model="account.invoice"
+	        view_mode="tree,form" 
+            context="{'type':'out_invoice', 'journal_type': 'sale', 'search_default_shop':True}"
+            domain="[('is_einvoice','=',True),('state', 'not in', ['draft','cancel']),('einvoice_ose_accepted','=',False),('type','in',('out_invoice', 'out_refund'))]"/>
+
+    <record id="action_einvoice_tree1_view_1" model="ir.actions.act_window.view">
+        <field eval="1" name="sequence"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="tree_einvoices_not_sent"/>
+        <field name="act_window_id" ref="einvoice_not_sent_action"/>
+    </record>
+
+    <record id="action_einvoice_tree1_view2" model="ir.actions.act_window.view">
+        <field eval="2" name="sequence"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="account.invoice_form"/>
+        <field name="act_window_id" ref="einvoice_not_sent_action"/>
+    </record>
+
+    <menuitem id="einvoice_not_sent_menu"
+            name="Electronic documents not sent"
+            parent="account.menu_finance_receivables"
+            action="einvoice_not_sent_action"
+            sequence="111"/> 
+
+</odoo>

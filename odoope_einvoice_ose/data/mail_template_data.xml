@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+    <!-- Mail template are declared in a NOUPDATE block
+         so users can freely customize/delete them -->
+        <!--Email template -->
+        <record id="account.email_template_edi_invoice" model="mail.template">
+            <field name="report_template" ref="account_einvoice_report"/>
+            <field name="report_name">${(object.einv_number + '-' + object.einv_number or '').replace('/','_')}${object.state == 'draft' and '_draft' or ''}</field>
+        </record>
+    </data>
+</odoo>

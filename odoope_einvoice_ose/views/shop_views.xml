@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>	
+        <!-- Shop -->	
+        <record model="ir.ui.view" id="einvoice_shop_inherit">
+            <field name="name">einvoice.shop.inherit</field>
+            <field name="model">einvoice.shop</field>
+            <field name="inherit_id" ref="odoope_einvoice_base.view_shop_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml"> 
+                <field name="send_email" position="after">
+                    <field name="format_print"/>
+                </field>
+                <page name="journals" position="after">
+                    <page string="E-invoice configuration">
+                        <group>
+                            <field name="einvoice_supplier"/>
+                            <field name="einvoice_supplier_code"/>
+                        </group>
+                        <group string="Odoofact" attrs="{'invisible':[('einvoice_supplier_code','!=','odoofact')]}">
+                            <field name="einvoice_of_url"/>
+                            <field name="einvoice_of_token"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+	</data>
+</openerp>

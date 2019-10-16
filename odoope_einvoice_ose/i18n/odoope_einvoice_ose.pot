@@ -1,0 +1,1250 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* odoope_einvoice_ose
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-16 13:21+0000\n"
+"PO-Revision-Date: 2019-08-16 13:21+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account.py:69
+#, python-format
+msgid "%s Sequence"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid ". Visit"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account.py:67
+#, python-format
+msgid ": Debit"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.res_config_settings_view_form
+msgid "<i class=\"fa fa-fw fa-arrow-right\"/>Request an account"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<span>Disc.(%)</span>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "<span>Phone:</span>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<span>Price unit</span>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong style=\"text-transform: uppercase;\">CLIENT: </strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong style=\"text-transform: uppercase;\">Currency:</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong style=\"text-transform: uppercase;\">Due date:</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong style=\"text-transform: uppercase;\">IGV:</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong style=\"text-transform: uppercase;\">Invoice date:</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong style=\"text-transform: uppercase;\">Payment term:</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong style=\"text-transform: uppercase;\">Picking:</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong style=\"text-transform: uppercase;\">Related document:</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong>AMOUNT IN WORDS: </strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong>Amount total:</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong>Amount untaxed:</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong>COMMENTS: </strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong>Discount:</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong>Exonerated:</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong>Global Discount:</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong>I.G.V.:</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "<strong>Unaffected:</strong>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:einvoice.shop,format_print:0
+msgid "A4"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "AMOUNT EXONERATED"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "AMOUNT IGV"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "AMOUNT TO PAY"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "AMOUNT UNAFFECTED"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__einvoice_ose_accepted
+msgid "Accepted by OSE"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__einvoice_sunat_accepted
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__einvoice_sunat_accepted
+msgid "Accepted by SUNAT"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount__account_id
+msgid "Account"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice_debit__date
+msgid "Accounting Date"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.view_account_invoice_debit
+msgid "Add Debit Note"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.einvoice_ose_account_invoice_inherit
+msgid "Add global discount"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:account.global.discount,type:0
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "Amount"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.view_account_global_discount
+msgid "Amount invoice untaxed"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.view_account_global_discount
+msgid "Apply discount"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount__product_id
+msgid "Apply discount as"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.invoice_form_cancel_inherit_inherit
+msgid "Ask for a Debit Note"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_supplier__authorization_message
+msgid "Authorization Message"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:einvoice.catalog.01,type_of:0
+msgid "BOLETA"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:account.invoice,sunat_transaction:0
+msgid "BOLETA DE VENTA - COMPROBANTE DE PERCEPCION"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__einvoice_link_cdr
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__einvoice_link_cdr
+msgid "CDR link"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__einvoice_cdr_zip
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__einvoice_cdr_zip
+msgid "CDR zip"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.einvoice_ose_account_invoice_inherit
+msgid "CHECK CPE/OSE"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "CLIENT:"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.send_invoice_cancel_form
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.send_multi_sunat_form
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.view_account_global_discount
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.view_account_invoice_debit
+msgid "Cancel"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.invoice_form_cancel_inherit_inherit
+msgid "Cancel Invoice"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.actions.act_window,name:odoope_einvoice_ose.send_invoice_cancel_action
+msgid "Cancel Invoices"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.einvoice_ose_account_invoice_inherit
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.send_invoice_cancel_form
+msgid "Cancel in SUNAT"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.send_invoice_cancel_form
+msgid "Cancel invoices"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.send_invoice_cancel_form
+msgid "Cancel the invoice in SUNAT. <span class=\"font-weight-bold text-danger\"> The invoice will be sent to SUNAT and canceled. After pressing the button there is no backward movement.</span>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/wizard/account_invoice_debit.py:63
+#, python-format
+msgid "Cannot create debit note for the draft/cancelled invoice."
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,help:odoope_einvoice_ose.field_account_invoice_refund__credit_note_type
+msgid "Catalog 09: Type of Credit note"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,help:odoope_einvoice_ose.field_account_invoice_debit__debit_note_type
+msgid "Catalog 10: Type of Debit note"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.actions.act_window,name:odoope_einvoice_ose.action_check_multi_sunat
+msgid "Check status SUNAT"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,help:odoope_einvoice_ose.field_account_journal__debit_sequence
+msgid "Check this box if you don't want to share the same sequence for invoices and debit notes made from this journal"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_supplier__code
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "Code"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_catalog_07__code_of
+msgid "Code by Odoo Fact"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_shop__einvoice_supplier_code
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_res_config_settings__einvoice_supplier_code
+msgid "Code of supplier"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_einvoice_catalog_01
+msgid "Codigo de Tipo de documento"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_einvoice_catalog_07
+msgid "Codigos de Tipo de Afectacion del IGV"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "Comments :"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.res_config_settings_view_form
+msgid "Configure Shops and keys"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__create_uid
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount__create_uid
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice_debit__create_uid
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_supplier__create_uid
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_invoice_cancel__create_uid
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_multi_sunat__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__create_date
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount__create_date
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice_debit__create_date
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_supplier__create_date
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_invoice_cancel__create_date
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_multi_sunat__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_account_invoice_refund
+msgid "Credit Note"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice_refund__credit_note_type
+msgid "Credit note type"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_res_currency
+msgid "Currency"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:118
+#, python-format
+msgid "Currency '%s, %s' is not available for Electronic invoice. Contact to the Administrator."
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.tree_einvoices_not_sent
+msgid "Customer"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "DATE:"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "DESCRIPTION"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "DIRECCION:"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "DISCOUNT"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__date
+msgid "Date"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__debit_invoice_ids
+msgid "Debit Invoices"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.actions.act_window,name:odoope_einvoice_ose.action_account_invoice_debit
+#: model:ir.model,name:odoope_einvoice_ose.model_account_invoice_debit
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.view_account_invoice_debit
+msgid "Debit Note"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice_debit__date_invoice
+msgid "Debit Note Date"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_journal__debit_sequence_id
+msgid "Debit Note Entry Sequence"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_journal__debit_sequence_number_next
+msgid "Debit Notes: Next Number"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice_debit__debit_note_type
+msgid "Debit note type"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_journal__debit_sequence
+msgid "Dedicated Debit Note Sequence"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,help:odoope_einvoice_ose.field_account_invoice__sunat_transaction
+msgid "Default 1, the others are for very special types of operations, do not hesitate to consult with us for more information"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__response
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "Description"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__detraction
+msgid "Detraction"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.view_account_global_discount
+msgid "Discount"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount__rate
+msgid "Discount Amount"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount__type
+msgid "Discount Type"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount__description
+msgid "Discount description"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount__amount_discount
+msgid "Discount untaxed"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/wizard/account_global_discount.py:48
+#, python-format
+msgid "Discount: "
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__display_name
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount__display_name
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice_debit__display_name
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_supplier__display_name
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_invoice_cancel__display_name
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_multi_sunat__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.einvoice_shop_inherit
+msgid "E-invoice configuration"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__einvoice_log_ids
+msgid "E-invoice log"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.einvoice_ose_account_invoice_inherit
+msgid "E-invoice status"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.einvoice_ose_account_invoice_inherit
+msgid "ERROR :"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:account.invoice,sunat_transaction:0
+msgid "EXPORTACION"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.view_form_company_inherited
+msgid "Electronic Invoicing (PE)"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.actions.report,name:odoope_einvoice_ose.account_einvoice_report_ticket
+msgid "Electronic Ticket"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.actions.report,name:odoope_einvoice_ose.account_einvoice_report
+msgid "Electronic document"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.actions.act_window,name:odoope_einvoice_ose.einvoice_not_sent_action
+#: model:ir.ui.menu,name:odoope_einvoice_ose.einvoice_not_sent_menu
+msgid "Electronic documents not sent"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__edocument_type_code
+msgid "Electronic invoice type code"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:275
+#, python-format
+msgid "Electrónic document <span style='color: #21b799;'>%s</span> has sent to PSE/OSE"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "Email:"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__einvoice_error
+msgid "Error"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:einvoice.catalog.01,type_of:0
+msgid "FACTURA"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:account.invoice,sunat_transaction:0
+msgid "FACTURA - COMPROBANTE DE PERCEPCION"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:account.invoice,sunat_transaction:0
+msgid "FACTURA - GUIA REMITENTE"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:account.invoice,sunat_transaction:0
+msgid "FACTURA - GUIA TRANSPORTISTA"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:account.invoice,sunat_transaction:0
+msgid "FACTURA GUIA"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "FREE AMOUNT"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_shop__format_print
+msgid "Format print"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:account.invoice,sunat_transaction:0
+msgid "GASTO DEDUCIBLE PERSONA NATURAL"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "GLOBAL DISCOUNT"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_account_global_discount
+msgid "Global Discount"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.actions.act_window,name:odoope_einvoice_ose.action_account_global_discount
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.view_account_global_discount
+msgid "Global discount"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__einvoice_hash_code
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__einvoice_hash_code
+msgid "Hash code"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__id
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount__id
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice_debit__id
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_supplier__id
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_invoice_cancel__id
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_multi_sunat__id
+msgid "ID"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.einvoice_ose_account_invoice_inherit
+msgid "Information"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_account_invoice
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__invoice_id
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.tree_einvoices_not_sent
+msgid "Invoice"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:316
+#, python-format
+msgid "Invoice <span style='color: #21b799;'>%s-%s</span> nulled by SUNAT"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_account_invoice_line
+msgid "Invoice Line"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount__amount_untaxed
+msgid "Invoice amount untaxed"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__debit_invoice_id
+msgid "Invoice for which this invoice is the debit note"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__einvoice_link_invoice
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__einvoice_link_invoice
+msgid "Invoice link"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__is_contingency
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_journal__is_contingency
+msgid "Is Contingency"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__is_einvoice
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_journal__is_einvoice
+msgid "Is E-invoice"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:319
+#, python-format
+msgid "It's not possible to cancel the invoice. Please check the log details \n"
+" Invoice: %s-%s"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.einvoice_ose_account_invoice_inherit
+msgid "JSON"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__json_response
+msgid "JSON response"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__json_sent
+msgid "JSON sent"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_account_journal
+msgid "Journal"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_account_move
+msgid "Journal Entries"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log____last_update
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount____last_update
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice_debit____last_update
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_supplier____last_update
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_invoice_cancel____last_update
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_multi_sunat____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__write_uid
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount__write_uid
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice_debit__write_uid
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_supplier__write_uid
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_invoice_cancel__write_uid
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_multi_sunat__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__write_date
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount__write_date
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice_debit__write_date
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_supplier__write_date
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_invoice_cancel__write_date
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_multi_sunat__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_account_einvoice_log
+msgid "Log response"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "Logo"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:account.invoice,sunat_transaction:0
+msgid "NO DOMICILIADO"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:einvoice.catalog.01,type_of:0
+msgid "NOTA DE CREDITO"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:einvoice.catalog.01,type_of:0
+msgid "NOTA DE DEBITO"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_supplier__name
+msgid "Name"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__einvoice_sunat_note
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__einvoice_sunat_note
+msgid "Notes by SUNAT"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:331
+#, python-format
+msgid "Null document"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_einvoice_supplier
+msgid "OSE Supplier"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.actions.act_window,name:odoope_einvoice_ose.einvoice_supplier_action
+msgid "OSE Suppliers"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.einvoice_shop_inherit
+msgid "Odoofact"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/wizard/account_global_discount.py:48
+#, python-format
+msgid "Others"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "P.U."
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__einvoice_link_pdf
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__einvoice_link_pdf
+msgid "PDF link"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_shop__einvoice_supplier
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_res_company__einvoice_supplier
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_res_config_settings__einvoice_supplier
+msgid "PSE / OSE"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.view_einvoice_supplier_form
+msgid "PSE/OSE Supplier"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.ui.menu,name:odoope_einvoice_ose.einvoice_supplier_menu
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.view_einvoice_supplier_tree
+msgid "PSE/OSE Suppliers"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "Page: <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "Payment term:"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:account.global.discount,type:0
+msgid "Percentage"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "Phone:"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:113
+#, python-format
+msgid "Please define Edocument type on the journal related to this invoice."
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_move.py:51
+#, python-format
+msgid "Please define a sequence for the credit notes"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_move.py:46
+#, python-format
+msgid "Please define a sequence for the debit notes"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_move.py:56
+#, python-format
+msgid "Please define a sequence on the journal."
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:115
+#, python-format
+msgid "Please define the 'Document type' on the 'Edocument type' of the journal related to this invoice."
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:99
+#, python-format
+msgid "Please select a OSE supplier for the company %s"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:97
+#, python-format
+msgid "Please select a Shop for the journal '%s'"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "Printed representation of"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "QTY."
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "Qty"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "RUC"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__einvoice_vat
+msgid "RUC/DNI"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "RUC/DNI:"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "RUC:"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice_debit__description
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_send_invoice_cancel__description
+msgid "Reason"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.einvoice_ose_account_invoice_inherit
+msgid "Response"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:218
+#, python-format
+msgid "Review URL settings and token for billing. \n"
+" %s"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "SELLER:"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "SUB-TOTAL"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__einvoice_sunat_responsecode
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__einvoice_sunat_responsecode
+msgid "SUNAT Response code"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__einvoice_sunat_soap_error
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__einvoice_sunat_soap_error
+msgid "SUNAT SOAP error"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.send_multi_sunat_form
+msgid "Send"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_send_invoice_cancel
+msgid "Send invoice cancel"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.send_multi_sunat_form
+msgid "Send invoices"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.actions.server,name:odoope_einvoice_ose.cron_send_invoices_per_day_ir_actions_server
+#: model:ir.cron,cron_name:odoope_einvoice_ose.cron_send_invoices_per_day
+#: model:ir.cron,name:odoope_einvoice_ose.cron_send_invoices_per_day
+msgid "Send invoices per day"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_send_multi_sunat
+msgid "Send invoices to SUNAT"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.send_multi_sunat_form
+msgid "Send the selected invoices to SUNAT."
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.actions.act_window,name:odoope_einvoice_ose.action_send_multi_sunat
+msgid "Send to OSE/SUNAT"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.einvoice_ose_account_invoice_button_inherit
+msgid "Send to PSE/OSE"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__einvoice_ose_accepted
+msgid "Sent to PSE/OSE"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice_debit__shop_id
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice_refund__shop_id
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.view_filter_account_invoice_inherited
+msgid "Shop"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model,name:odoope_einvoice_ose.model_einvoice_shop
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.view_form_company_inherited
+msgid "Shops"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.einvoice_ose_account_invoice_inherit
+msgid "States"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.einvoice_ose_account_invoice_inherit
+msgid "Status log"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_ticket_document
+msgid "TOTAL"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_global_discount__tax_ids
+msgid "Taxes"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:101
+#, python-format
+msgid "The company of the invoice (%s) is different to the Shop company (%s)"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:121
+#, python-format
+msgid "The currency rate should be different to 0.0, Please check the rate at %s"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.einvoice_ose_account_invoice_inherit
+msgid "The invoice has not send to OSE."
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:267
+#, python-format
+msgid "The invoice is not a Electronic document"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:213
+#, python-format
+msgid "The invoice is not assigned to a store"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,help:odoope_einvoice_ose.field_einvoice_supplier__authorization_message
+msgid "The message will be printed on the invoice"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,help:odoope_einvoice_ose.field_account_journal__debit_sequence_number_next
+msgid "The next sequence number will be used for the next debit note."
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:463
+#, python-format
+msgid "This customer invoice debit note has been created from: <a href=# data-oe-model=account.invoice data-oe-id=%d>%s</a><br>Reason: %s"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,help:odoope_einvoice_ose.field_account_journal__debit_sequence_id
+msgid "This field contains the information related to the numbering of the debit note entries of this journal."
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:465
+#, python-format
+msgid "This vendor bill debit note has been created from: <a href=# data-oe-model=account.invoice data-oe-id=%d>%s</a><br>Reason: %s"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:einvoice.shop,format_print:0
+msgid "Ticket"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_shop__einvoice_of_token
+msgid "Token"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__sunat_transaction
+msgid "Transaction type"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_catalog_01__type_of
+msgid "Type of document"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_shop__einvoice_of_url
+msgid "URL"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_einvoice_supplier__invoice_url
+msgid "URL for invoices"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "UoM"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,help:odoope_einvoice_ose.field_einvoice_catalog_01__type_of
+msgid "Used by Odoo Fact. \n"
+"1 = FACTURA \n"
+"2 = BOLETA \n"
+"3 = NOTA DE CRÉDITO \n"
+"4 = NOTA DE DÉBITO \n"
+""
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:account.invoice,sunat_transaction:0
+msgid "VENTA ARROZ PILADO"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:account.invoice,sunat_transaction:0
+msgid "VENTA INTERNA"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:account.invoice,sunat_transaction:0
+msgid "VENTA INTERNA - ANTICIPOS"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: selection:account.invoice,sunat_transaction:0
+msgid "VENTA ITINERANTE"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.actions.server,name:odoope_einvoice_ose.cron_verify_invoices_per_day_ir_actions_server
+#: model:ir.cron,cron_name:odoope_einvoice_ose.cron_verify_invoices_per_day
+#: model:ir.cron,name:odoope_einvoice_ose.cron_verify_invoices_per_day
+msgid "Verify invoices per day"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
+msgid "Web:"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_einvoice_log__einvoice_link_xml
+#: model:ir.model.fields,field_description:odoope_einvoice_ose.field_account_invoice__einvoice_link_xml
+msgid "XML link"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/account_invoice.py:309
+#, python-format
+msgid "You need to send the invoice to SUNAT before cancel it. \n"
+" Invoice: %s-%s"
+msgstr ""
+
+#. module: odoope_einvoice_ose
+#: code:addons/odoope_einvoice_ose/models/res_currency.py:46
+#, python-format
+msgid "with"
+msgstr ""
+

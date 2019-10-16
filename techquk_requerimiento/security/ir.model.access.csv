@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_techquk_requerimiento_requerimiento,techquk_requerimiento.requerimiento,model_techquk_requerimiento_requerimiento,base.group_user,1,1,1,1
+access_techquk_requerimiento_item,techquk_requerimiento.item,model_techquk_requerimiento_item,base.group_user,1,1,1,1
+access_techquk_requerimiento_document,techquk_requerimiento.document,model_techquk_requerimiento_document,base.group_user,1,1,1,1
+access_techquk_requerimiento_area,techquk_requerimiento.area,model_techquk_requerimiento_area,base.group_user,1,1,1,1
+access_techquk_requerimiento_centro,techquk_requerimiento.centro,model_techquk_requerimiento_centro,base.group_user,1,1,1,1

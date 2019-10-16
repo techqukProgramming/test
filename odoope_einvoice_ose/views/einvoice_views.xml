@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>    }
+
+	<!-- OSE Suppliers -->	
+	<record id="view_einvoice_supplier_tree" model="ir.ui.view">
+		<field name="name">OSE Suppliers</field>
+		<field name="model">einvoice.supplier</field>
+		<field name="arch" type="xml">
+			<tree string="PSE/OSE Suppliers">
+				<field name="code"/>
+				<field name="name"/>
+			</tree>
+		</field>
+	</record>        
+	<record id="view_einvoice_supplier_form" model="ir.ui.view">
+		<field name="name">OSE Suppliers</field>
+		<field name="model">einvoice.supplier</field>            
+		<field name="arch" type="xml">
+			<form string="PSE/OSE Supplier">
+				<group>
+					<group>
+						<field name="code"/>
+						<field name="name"/>
+						<field name="invoice_url"/>
+						<field name="authorization_message"/>
+					</group>
+				</group>                    
+			</form>	
+		</field>
+	</record>        
+	<record model="ir.actions.act_window" id="einvoice_supplier_action">
+		<field name="name">OSE Suppliers</field>
+		<field name="res_model">einvoice.supplier</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<menuitem name="PSE/OSE Suppliers" id="einvoice_supplier_menu" parent="base.menu_users" action="einvoice_supplier_action" sequence="20"/>
+		
+
+	<record model="ir.ui.view" id="view_catalog_01_form_inherit">
+		<field name="name">einvoice.catalog.01.form.inherit</field>
+		<field name="model">einvoice.catalog.01</field>
+		<field name="inherit_id" ref="odoope_einvoice_base.view_catalog_01_form"/>
+		<field name="arch" type="xml">
+			<field name="name" position="after">
+                <field name="type_of"/>
+            </field>               
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_catalog_07_form_inherit">
+		<field name="name">einvoice.catalog.07.form.inherit</field>
+		<field name="model">einvoice.catalog.07</field>
+		<field name="inherit_id" ref="odoope_einvoice_base.view_catalog_07_form"/>
+		<field name="arch" type="xml">
+			<field name="code" position="after">
+                <field name="code_of"/>
+            </field>               
+		</field>
+	</record>
+		 
+</odoo>

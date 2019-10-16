@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.einvoice.ose</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="odoope_einvoice_base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='msg_module_odoope_einvoice_ose']" position="replace">
+                <div class="content-group" id="einvoice_supplier">
+                    <div class="row mt16">
+                        <label for="einvoice_supplier" class="col-lg-3 o_light_label"/>
+                        <field name="einvoice_supplier" options="{'no_create': True}"/>
+                        <field name="einvoice_supplier_code" invisible="True"/>
+                    </div>
+                </div>
+                <div class="content-group" attrs="{'invisible': [('einvoice_supplier_code','!=', 'odoofact')]}" id="odoofact">
+                    <div class="mt16">
+                        <div>
+                            <a  href="http://www.odooperu.pe/contactus" class="oe-link" target="_blank"><i class="fa fa-fw fa-arrow-right"/>Request an account</a>
+                        </div>
+                        <div>
+                            <button name="%(odoope_einvoice_base.einvoice_shop_action)d" icon="fa-arrow-right" type="action" string="Configure Shops and keys" class="btn-link"/>
+                        </div>
+                    </div>
+                </div>                    
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

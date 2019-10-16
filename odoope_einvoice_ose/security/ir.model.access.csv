@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_einvoice_log,account.einvoice.log,model_account_einvoice_log,base.group_user,1,1,1,0
+access_account_einvoice_log_manager,account.einvoice.log.manager,model_account_einvoice_log,base.group_erp_manager,1,1,1,1
+access_account_einvoice_log_account_manager,account.einvoice.log.manager,model_account_einvoice_log,account.group_account_manager,1,1,1,1
+access_einvoice_supplier,einvoice.supplier,model_einvoice_supplier,base.group_user,1,1,1,0
+access_einvoice_supplier_manager,einvoice.supplier.manager,model_einvoice_supplier,base.group_erp_manager,1,1,1,1
+access_einvoice_supplier_account_manager,einvoice.supplier.manager,model_einvoice_supplier,account.group_account_manager,1,1,1,1

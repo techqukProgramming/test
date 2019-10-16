@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="report_ticket_document">
+            
+            <div class="article o_report_layout_standard" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+                <div class="page">
+                    <div id="header">
+                        <div id="header_company" style="text-align:center; font-size:small" class="soticket-header">
+                            <div class="company-data">
+                                <t t-if='o.company_id'>
+                                    <tr t-if="o.company_id.logo">
+                                        <div class="text-center">
+                                            <br/>
+                                            <img style="width:234px;height:60px" t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" />
+                                            <br/>
+                                        </div>
+                                    </tr>
+                                    <div class="text-center">
+                                        <b><t t-esc='o.company_id.name'/></b><br/>
+                                        <t t-if='o.company_id.vat'>
+                                            RUC: <t t-esc='o.company_id.vat'/><br/>
+                                        </t>                                        
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        <div id="header_address" style="text-align:center; font-size:small">
+                            <div style="text-transform: uppertext;" class="company-data">
+                                <t t-if='o.shop_id'>
+                                    <t t-if='o.journal_id'>
+                                        DIRECCION: <t t-esc='o.shop_id.partner_id.street'/>, 
+                                        <!-- <t t-esc='o.shop_id.partner_id.street2'/> -->
+                                    </t>
+                                    <t t-if='o.shop_id.partner_id.state_id'>
+                                        <span> - </span><t t-esc='o.shop_id.partner_id.state_id.name'/>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="title">
+                        <div style="text-align:center; font-size:small" class="soticket-header">
+                            <t t-if='o.shop_id'>
+                                <div><span>Phone:</span><t t-if="o.shop_id.partner_id" t-esc='o.shop_id.partner_id.phone'/></div>
+                                <br/>
+                            </t>
+                            <div id="doc_title">
+                                <span t-if="o.edocument_type" t-field="o.edocument_type.label"/>
+                            </div>
+                            <div>
+                                <t t-esc='o.move_id.name'/>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <table id="invoice_data" style="font-size:small" class="uppercase">
+                        <tr>
+                            <th class="set-value-left">
+                                DATE: <t t-esc="o.date_invoice"/>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                SELLER: <t t-esc='o.user_id.name'/>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                CLIENT: <t t-esc="o.partner_id.name"/>
+                            </th>
+                        </tr>
+                        <tr t-if="o.partner_id.vat">
+                            <th class="set-value-left">
+                                <span><t t-esc="o.partner_id.catalog_06_id.name"/> -</span>:<t t-esc="o.partner_id.vat"/>
+                            </th>
+                        </tr>
+                        <tr t-if="o.partner_id.street">
+                            <th>
+                                DIRECCION:<span><t t-esc="o.partner_id.street"/></span> - <t t-esc="o.partner_id.district_id.name"/>
+                            </th>
+                        </tr>
+                        
+                    </table>
+                    <br/>
+                    <div style="padding-left:10px">
+                        <div class="row top-dashed" style="font-size: 5px; border-top:1px dashed black; border-bottom:1px dashed black;font-size: small; font-weight: bold">
+                            <div class="col-2">
+                                QTY.
+                            </div>
+                            <div class="col-5">
+                                DESCRIPTION
+                            </div>
+                            <div class="col-2">
+                                P.U.
+                            </div>
+                            <div class="col-3">
+                                TOTAL
+                            </div>
+                        </div>
+                    </div>
+                    <div id="products_list" style="padding-left:10px">
+                        <t t-foreach="o.invoice_line_ids" t-as="line">
+                            <div class="row top-dashed" style="font-size: 5px; font-size: small;">
+                                <div class="col-2" style="padding-left:1px; padding-right:1px">
+                                    <t t-esc="line.quantity"/>
+                                </div>
+                                <div class="col-5" style="padding-left:1px; padding-right:1px,line-height: 5px;">
+                                    <t t-esc="line.name"/>
+                                </div>
+                                <div class="col-2 text-right" style="padding-left:1px; padding-right:1px">
+                                    <t t-esc="line.price_unit" t-esc-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </div>
+                                <div class="col-3 text-right" style="padding-left:1px; padding-right:1px">
+                                    
+                                    <t t-esc="line.price_total" t-esc-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                    <br/>
+                    <div id="totals" style="padding-left:10px">
+                        <div class="row" style="font-size: 6px; font-size: small; border-top:1px dashed black;">
+                            <div class="col-8" style="padding-left:1px; padding-right:1px">
+                                SUB-TOTAL
+                            </div>
+                            <div class="col-4 text-right" style="padding-left:1px; padding-right:1px">
+                                <t t-esc="o.amount_base" t-esc-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </div>
+                        </div>
+                        <div t-if="o.einv_amount_free" class="row" style="font-size: 6px; font-size: small; border-top:1px dashed black;">
+                            <div class="col-8" style="padding-left:1px; padding-right:1px">
+                                FREE AMOUNT
+                            </div>
+                            <div class="col-4 text-right" style="padding-left:1px; padding-right:1px">
+                                <t t-esc="o.einv_amount_free" t-esc-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </div>
+                        </div>
+                        <div t-if="o.amount_discount" class="row" style="font-size: 6px; font-size: small; border-top:1px dashed black;">
+                            <div class="col-8" style="padding-left:1px; padding-right:1px">
+                                DISCOUNT
+                            </div>
+                            <div class="col-4 text-right" style="padding-left:1px; padding-right:1px">
+                                <t t-esc="o.amount_discount * -1" t-esc-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </div>
+                        </div>
+                        <div t-if="o.global_discount" class="row" style="font-size: 6px; font-size: small; border-top:1px dashed black;">
+                            <div class="col-8" style="padding-left:1px; padding-right:1px">
+                                GLOBAL DISCOUNT
+                            </div>
+                            <div class="col-4 text-right" style="padding-left:1px; padding-right:1px">
+                                <t t-esc="o.global_discount * -1" t-esc-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </div>
+                        </div>
+                        <div t-if="o.einv_amount_exonerated" class="row" style="font-size: 6px; font-size: small; border-top:1px dashed black;">
+                            <div class="col-8" style="padding-left:1px; padding-right:1px">
+                                AMOUNT EXONERATED
+                            </div>
+                            <div class="col-4 text-right" style="padding-left:1px; padding-right:1px">
+                                <t t-esc="o.einv_amount_exonerated" t-esc-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </div>
+                        </div>
+                        <div t-if="o.einv_amount_unaffected" class="row" style="font-size: 6px; font-size: small; border-top:1px dashed black;">
+                            <div class="col-8" style="padding-left:1px; padding-right:1px">
+                                AMOUNT UNAFFECTED
+                            </div>
+                            <div class="col-4 text-right" style="padding-left:1px; padding-right:1px">
+                                <t t-esc="o.einv_amount_unaffected" t-esc-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </div>
+                        </div>
+                        <div class="row" style="font-size: 6px; font-size: small; border-top:1px dashed black;">
+                            <div class="col-8" style="padding-left:1px; padding-right:1px">
+                                AMOUNT IGV
+                            </div>
+                            <div class="col-4 text-right" style="padding-left:1px; padding-right:1px">
+                                <t t-esc="o.einv_amount_igv" t-esc-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </div>
+                        </div>
+                        <div class="row" style="font-size: 6px; font-size: small; border-top:1px dashed black; font-weight: bold">
+                            <div class="col-8" style="padding-left:1px; padding-right:1px">
+                                AMOUNT TO PAY
+                            </div>
+                            <div class="col-4 text-right" style="padding-left:1px; padding-right:1px">
+                                <t t-esc="o.amount_total" t-esc-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div id="footer">       
+                        <div id="footer" class="text-center" style="font-size: small">
+                            <p>Printed representation of <span t-if="o.edocument_type" t-field="o.edocument_type.label"/>. Visit <strong><span t-if="o.shop_id and o.shop_id.einvoice_supplier" t-field="o.shop_id.einvoice_supplier.invoice_url" />.</strong></p>       
+                        </div>
+                        <div id="qr_code" class="text-center">
+                            <div class="inm-qr" style="text-align:center;">                
+                                <img t-att-src="'/report/barcode/QR/%s|%s|%s|%s|%s|%s|%s|%s|%s|'%(o.company_id.vat,o.edocument_type.code,o.einv_serie,o.einv_number,o.einv_amount_igv,o.amount_total,o.date_invoice,o.partner_id.catalog_06_id.code,o.partner_id.vat)"  style="width:140px;height:140px;"/>
+                            </div>
+                        </div>                     
+                        <div id="information" class="text-center" style="font-size: small">
+                            <span t-if="o.comment">Comments : <span t-field="o.comment"/></span><br/>
+                            <span t-if="o.payment_term_id">Payment term: <span t-field="o.payment_term_id.name"/></span><br/>
+                        </div>
+                        <div id="extra_information" class="text-left" style="font-size: small">
+                            <p><span t-if="o.shop_id and o.shop_id.einvoice_supplier" t-field="o.shop_id.einvoice_supplier.authorization_message" /></p>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </template>
+        
+         <template id="report_einvoice_ticket">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang" t-value="o.user_id.lang if o.type in ('in_invoice', 'in_refund') else o.partner_id.lang"/>
+                    <t t-call="odoope_einvoice_ose.report_ticket_document" t-lang="o.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

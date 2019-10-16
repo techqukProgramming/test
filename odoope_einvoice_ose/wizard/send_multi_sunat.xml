@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="send_multi_sunat_form" model="ir.ui.view">
+        <field name="name">send.multi.sunat.form</field>
+        <field name="model">send.multi.sunat</field>
+        <field name="arch" type="xml">
+            <form string="Send invoices" class="o_sale_order">
+                <p class="oe_grey">
+                    Send the selected invoices to SUNAT.
+                </p>
+                <footer>
+                    <button name="send_multi_sunat" string="Send" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>               
+        </field>
+    </record>
+
+    <act_window
+        id="action_send_multi_sunat"
+        res_model="send.multi.sunat"
+        src_model="account.invoice"
+        target="new"
+        multi="True"
+        view_mode="form"
+        context="{'type':'send'}"
+        name="Send to OSE/SUNAT"/>
+
+    <act_window
+        id="action_check_multi_sunat"
+        res_model="send.multi.sunat"
+        src_model="account.invoice"
+        target="new"
+        multi="True"
+        view_mode="form"
+        context="{'type':'check'}"
+        name="Check status SUNAT"/>
+
+</odoo>

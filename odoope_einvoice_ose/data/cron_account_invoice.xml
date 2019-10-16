@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<odoo>
+    <record model="ir.cron" id="cron_send_invoices_per_day">
+        <field name="name">Send invoices per day</field>
+        <field name="model_id" ref="account.model_account_invoice"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_send_invoices()</field>
+    </record>
+    <record model="ir.cron" id="cron_verify_invoices_per_day">
+        <field name="name">Verify invoices per day</field>
+        <field name="model_id" ref="account.model_account_invoice"/>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_check_invoice_ose()</field>
+    </record>
+</odoo>

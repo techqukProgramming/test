@@ -1,0 +1,267 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="techquk_requerimiento.tree_document">
+            <field name="name">Lista de Documentos</field>
+            <field name="model">techquk_requerimiento.document</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="descripcion"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="techquk_requerimiento.tree_item">
+            <field name="name">Lista de Items</field>
+            <field name="model">techquk_requerimiento.item</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="numeroparte"/>
+                    <field name="unidad"/>
+                    <field name="cantidad"/>
+                    <field name="fechaentrega"/>
+                    <field name="tiporequerimiento"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="techquk_requerimiento.tree_requerimiento">
+            <field name="name">Lista de Requerimientos</field>
+            <field name="model">techquk_requerimiento.requerimiento</field>
+            <field name="arch" type="xml">
+                <tree string="Requerimiento" decoration-danger="state=='observado'">
+                    <field name="name"/>
+                    <field name="area"/>
+                    <field name="centrocosto"/>
+                    <field name="fecha_inicio"/>
+                    <field name="state"/>
+                    <field name="observador"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="techquk_requerimiento.group_auth" model="res.groups">
+            <field name="name">Jefe de Requerimientos</field>
+        </record>
+
+        <record model="ir.ui.view" id="techquk_requerimiento.form_requerimiento">
+            <field name="name">Formulario de Requerimientos</field>
+            <field name="model">techquk_requerimiento.requerimiento</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar="realizado,revisado,autorizado,atendido"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="N° de Requerimiento"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="area"/>
+                            </group>
+                            <group>
+                                <field name="centrocosto"/>
+                            </group>
+                            <group>
+                                <field name="fecha_inicio"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="items_ids"/>
+                        </group>
+                        <notebook>
+                            <page string="Realizado">
+                                <group>
+                                    <group>
+                                        <field name="rnombre" options="{'no_create': True, 'no_create_edit':True}"/>
+                                    </group>
+                                    <group>
+                                        <field name="realizado"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Revisado" groups="techquk_requerimiento.group_auth">
+                                <group>
+                                    <group>
+                                        <field name="renombre"/>
+                                    </group>
+                                    <group>
+                                        <field name="revisado"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Autorizado" groups="techquk_requerimiento.group_auth">
+                                <group>
+                                    <group>
+                                        <field name="anombre"/>
+                                    </group>
+                                    <group>
+                                        <field name="autorizado"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Atendido" groups="techquk_requerimiento.group_auth">
+                                <group>
+                                    <group>
+                                        <field name="atnombre"/>
+                                    </group>
+                                    <group>
+                                        <field name="atendido"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Observación" groups="techquk_requerimiento.group_auth">
+                                <group>
+                                    <group>
+                                        <field name="observador"/>
+                                    </group>
+                                    <group>
+                                        <field name="observacion"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="techquk_requerimiento.form_item">
+            <field name="name">Formulario de Items</field>
+            <field name="model">techquk_requerimiento.item</field>
+            <field name="arch" type="xml">
+                <form string="Crear Items">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="numeroparte"/>
+                            </group>
+                            <group>
+                                <field name="unidad"/>
+                            </group>
+                            <group>
+                                <field name="cantidad"/>
+                            </group>
+                            <group>
+                                <field name="fechaentrega"/>
+                            </group>
+                            <group>
+                                <field name="tiporequerimiento"/>
+                            </group>
+                            <group>
+                                <field name="proveedorsugerido"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="observaciones"/>
+                        </group>
+                        <group>
+                            <field name="documentacion" widget="many2many_binary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="techquk_requerimiento.form_document">
+            <field name="name">Formulario del Documento</field>
+            <field name="model">techquk_requerimiento.document</field>
+            <field name="arch" type="xml">
+                <form string="Crear Documento">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="descripcion"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="techquk_requerimiento.form_area">
+            <field name="name">Formulario del Area</field>
+            <field name="model">techquk_requerimiento.area</field>
+            <field name="arch" type="xml">
+                <form string="Crear Area">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="descripcion"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="techquk_requerimiento.form_centro">
+            <field name="name">Formulario del Centro de Costo</field>
+            <field name="model">techquk_requerimiento.centro</field>
+            <field name="arch" type="xml">
+                <form string="Crear Centro de Costo">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="descripcion"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="techquk_requerimiento.search_requerimiento">
+            <field name="name">Buscar Requerimiento</field>
+            <field name="model">techquk_requerimiento.requerimiento</field>
+            <field name="arch" type="xml">
+                <search string="Requerimiento">
+                    <field name="name" string="N° de Requerimiento" filter_domain="[('name', 'ilike', self)]"/>
+                    <field name="rnombre" string="Realido por" filter_domain="[('rnombre', 'ilike', self)]"/>
+                    <field name="renombre" string="Revisado por" filter_domain="[('renombre', 'ilike', self)]"/>
+                    <field name="anombre" string="Autorizado por" filter_domain="[('anombre', 'ilike', self)]"/>
+                    <field name="atnombre" string="Atendido por" filter_domain="[('atnombre', 'ilike', self)]"/>
+                    <field name="observador" string="Observado por" filter_domain="[('observador', 'ilike', self)]"/>
+                    <filter name="state" string="Observado" domain="[('state', '=', 'observado')]"/>
+                    <group string="Agrupado por">
+                        <filter name="group_by_area" string="Area" context="{'group_by': 'area'}"/>
+                        <filter name="group_by_centrocosto" string="Centro de Costo" context="{'group_by': 'centrocosto'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="techquk_requerimiento.search_item">
+            <field name="name">Buscar Item</field>
+            <field name="model">techquk_requerimiento.item</field>
+            <field name="arch" type="xml">
+                <search string="Item">
+                    <field name="name" string="Descripción" filter_domain="[('name', 'ilike', self)]"/>
+                    <field name="numeroparte" string="Número de parte" filter_domain="[('numeroparte', 'ilike', self)]"/>
+                    <field name="fechaentrega" string="Fecha" filter_domain="[('fechaentrega', 'ilike', self)]"/>
+                    <filter name="tiporequerimiento" string="Prestamo" domain="[('tiporequerimiento', '=', 'prestamo')]"/>
+                    <filter name="tiporequerimiento" string="Abastecimiento" domain="[('tiporequerimiento', '=', 'abastecimiento')]"/>
+                    <filter name="tiporequerimiento" string="Servicio" domain="[('tiporequerimiento', '=', 'servicio')]"/>
+                    <group string="Agrupado por">
+                        <filter name="group_by_tiporequerimiento" string="Tipo de Requerimiento" context="{'group_by': 'tiporequerimiento'}"/>
+                        <filter name="group_by_proveedorsugerido" string="Proveedor Sugerido" context="{'group_by': 'proveedorsugerido'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

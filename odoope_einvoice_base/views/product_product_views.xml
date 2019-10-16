@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="product_normal_form_view_inherit">
+        <field name="name">product.product.form.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <field name="supplier_taxes_id" position="before">
+                <field name="igv_type"/>
+            </field>
+            <field name="default_code" position="after">
+                <field name="product_code_sunat" options="{'no_create': True,'no_open':True}" required="True"/>
+            </field>
+            <field name="product_code_sunat" position="after">
+                <field name="product_code" options="{'no_create_edit': True,'no_open':True}" required="True"/>
+            </field>
+            <field name="product_code" position="after">
+                <field name="product_marca" options="{'no_create_edit': True,'no_open':True}" required="True"/>
+            </field>
+            <field name="standard_price" position="after">
+                <field name="margen"/>
+            </field>
+            <field name="margen" position="after">
+                <field name="descuento"/>
+            </field>
+            <field name="descuento" position="after">
+                <field name="gasto_administrativo"/>
+            </field>
+            <field name="gasto_administrativo" position="after">
+                <field name="costo_flete"/>
+            </field>
+            <field name="costo_flete" position="after">
+                <field name="ganancia"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_only_form_view_inherit">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <field name="type" position="after">
+                <field name="product_code_sunat" options="{'no_create_edit': True,'no_open':True}" required="True"/>
+            </field>
+            <field name="product_code_sunat" position="after">
+                <field name="product_code" options="{'no_create_edit': True,'no_open':True}" required="True"/>
+            </field>
+            <field name="product_code" position="after">
+                <field name="product_marca" options="{'no_create_edit': True,'no_open':True}" required="True"/>
+            </field>
+            <field name="taxes_id" position="after">
+                <field name="margen"/>
+            </field>
+            <field name="margen" position="after">
+                <field name="descuento"/>
+            </field>
+            <field name="descuento" position="after">
+                <field name="gasto_administrativo"/>
+            </field>
+            <field name="gasto_administrativo" position="after">
+                <field name="costo_flete"/>
+            </field>
+            <field name="costo_flete" position="after">
+                <field name="ganancia"/>
+            </field>
+
+        </field>
+    </record>
+</odoo>

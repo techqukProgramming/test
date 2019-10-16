@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_requeriment" model="ir.sequence">
+            <field name="name">nrequerimiento</field>
+            <field name="code">techquk_requerimiento.requerimiento</field>
+            <field name="padding">8</field>
+            <field name="prefix">R</field>
+            <field name="company_id" eval="False"/> 
+        </record>
+    </data>
+</odoo>
