@@ -88,10 +88,6 @@
                                     <strong style="text-transform: uppercase;">Currency:</strong>
                                     <span t-field="o.currency_id.currency_unit_label"/>
                             </div>
-                            <div t-if="o.igv_percent" >
-                                    <strong style="text-transform: uppercase;">IGV:</strong>
-                                    <span  t-field="o.igv_percent"/><span> %</span>  
-                            </div>
                             <div name="payment_term_id" t-if="o.payment_term_id" >
                                     <strong style="text-transform: uppercase;">Payment term:</strong>
                                     <span t-field="o.payment_term_id"/><span></span>  
@@ -220,7 +216,7 @@
                                 </div>                                    
                             </div>
                             <div>
-                                <div style="width: 52%; display: inline-block; text-align:left;"><strong>I.G.V.:</strong></div>
+                                <div style="width: 52%; display: inline-block; text-align:left;"><strong>I.G.V. (<span  t-field="o.igv_percent"/><span>%</span>):</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
                                     <span t-esc="'%.2f'% o.einv_amount_igv" t-options='{"widget": "False"}'/>
@@ -240,7 +236,7 @@
                     <br/>
                     <div class="inm-dato-final" style="display: -webkit-box;">
                         <div class="" style="width: 80%; font-size: 13px; padding-top: 15px;">
-                            <p>Printed representation of <span t-if="o.edocument_type" t-field="o.edocument_type.label"/>. Visit <strong><span t-if="o.shop_id and o.shop_id.einvoice_supplier" t-field="o.shop_id.einvoice_supplier.invoice_url" />.</strong></p>      
+                            <p>Printed representation of <span t-if="o.edocument_type" t-field="o.edocument_type.label"/>. Visit <strong><span>https://www.pse.pe/buscar</span>.</strong></p>      
                             <p><span t-if="o.shop_id and o.shop_id.einvoice_supplier" t-field="o.shop_id.einvoice_supplier.authorization_message" /></p>                                       
                         </div>
                         <div style="width: 20%; text-align: right;">
