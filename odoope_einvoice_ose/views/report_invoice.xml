@@ -108,20 +108,20 @@
                     
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
 
-                    <table style="margin-top:12px;margin-bottom:0px;font-size: 12px;border:1px solid #dddddd;width:100%;border-bottom:none !important;" >
+                    <table style="margin-top:12px;margin-bottom:0px;font-size: 12px;border:1px solid #2E3D4B;width:100%;border-bottom:none !important;" >
                         <thead>
-                            <tr style="font-size: 12px; text-transform: uppercase; padding: 6px; text-align: center; border:1px solid #dddddd;">
+                            <tr style="font-size: 12px; text-transform: uppercase; padding: 6px; text-align: center; border:1px solid #2E3D4B;">
                                 <t t-set="colspan" t-value="7"/>
                                 <th style="padding: 6px;width:10%;">Code</th>
-                                <th style="padding: 6px;width:7%;border-left:1px solid #dddddd">UoM</th>                                
-                                <th style="padding: 6px;width:47.6%;border-left:1px solid #dddddd">Description</th>
-                                <th style="padding: 6px;width:6%;border-left:1px solid #dddddd">Qty</th>
-                                <th t-attf-class="{{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="border-left:1px solid #dddddd;width:14.7%"><span>Precio</span></th>                                
-                                <th t-if="display_discount" t-attf-class=" {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="border-left:1px solid #dddddd">
+                                <th style="padding: 6px;width:7%;border-left:1px solid #2E3D4B">UoM</th>                                
+                                <th style="padding: 6px;width:47.6%;border-left:1px solid #2E3D4B">Description</th>
+                                <th style="padding: 6px;width:6%;border-left:1px solid #2E3D4B">Qty</th>
+                                <th t-attf-class="{{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="border-left:1px solid #2E3D4B;width:14.7%"><span>Precio</span></th>                                
+                                <th t-if="display_discount" t-attf-class=" {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="border-left:1px solid #2E3D4B">
                                     <span>Disc.(%)</span>
                                     <t t-set="colspan" t-value="colspan+1"/>
                                 </th>                                
-                                <th style="padding: 6px;padding-right:10px;border-left:1px solid #dddddd;width:14.7%">Amount</th>   
+                                <th style="padding: 6px;padding-right:10px;border-left:1px solid #2E3D4B;width:14.7%">Amount</th>   
                             </tr>
                         </thead>
 
@@ -134,37 +134,37 @@
                                 <tr t-att-class="'font-weight-bold' if line.display_type == 'line_section' else 'font-italic' if line.display_type == 'line_note' else ''" style="height:20px;">
                                     <t t-if="not line.display_type" name="account_invoice_line_accountable">
                                         <td t-if="line.product_id" style="padding-left:5px;"><span t-field="line.product_id.default_code"/></td> 
-                                        <td style="border-left:1px solid #dddddd;padding-left:5px;" t-if="not line.product_id"><span>-</span></td>               
-                                        <td style="border-left:1px solid #dddddd;padding-left:5px;"><span t-field="line.uom_id.name"/></td>      
-                                        <td style="border-left:1px solid #dddddd;padding-left:5px;" name="account_invoice_line_name"><span t-field="line.name"/></td>
-                                        <td style="border-left:1px solid #dddddd;padding-right:5px;" class="text-right"><span t-esc="int(round(line.quantity,0))"/></td>   
-                                        <td style="border-left:1px solid #dddddd;padding-right:5px;" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                        <td style="border-left:1px solid #2E3D4B;padding-left:5px;" t-if="not line.product_id"><span>-</span></td>               
+                                        <td style="border-left:1px solid #2E3D4B;padding-left:5px;"><span t-field="line.uom_id.name"/></td>      
+                                        <td style="border-left:1px solid #2E3D4B;padding-left:5px;" name="account_invoice_line_name"><span t-field="line.name"/></td>
+                                        <td style="border-left:1px solid #2E3D4B;padding-right:5px;" class="text-right"><span t-esc="int(round(line.quantity,0))"/></td>   
+                                        <td style="border-left:1px solid #2E3D4B;padding-right:5px;" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
                                             <span t-field="line.price_unit"/>
                                         </td>                                       
-                                        <td style="border-left:1px solid #dddddd;padding-right:5px;" t-if="display_discount" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                        <td style="border-left:1px solid #2E3D4B;padding-right:5px;" t-if="display_discount" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
                                             <span t-field="line.discount"/>
                                         </td>
-                                        <td style="border-left:1px solid #dddddd;padding-right:5px;" class="text-right">
+                                        <td style="border-left:1px solid #2E3D4B;padding-right:5px;" class="text-right">
                                             <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
                                             <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
                                         </td>
                                     </t>                                    
                                     <t t-if="line.display_type == 'line_section'">
-                                        <td t-att-colspan="colspan" style="border-left:1px solid #dddddd;padding-left:5px;">
+                                        <td t-att-colspan="colspan" style="border-left:1px solid #2E3D4B;padding-left:5px;">
                                             <span t-field="line.name"/>
                                         </td>
                                         <t t-set="current_section" t-value="line"/>
                                         <t t-set="current_subtotal" t-value="0"/>
                                     </t>
                                     <t t-if="line.display_type == 'line_note'">
-                                        <td t-att-colspan="colspan" style="border-left:1px solid #dddddd;padding-left:5px;">
+                                        <td t-att-colspan="colspan" style="border-left:1px solid #2E3D4B;padding-left:5px;">
                                             <span t-field="line.name"/>
                                         </td>
                                     </t>
                                 </tr>
                                 <t t-if="current_section and (line_last or o.invoice_line_ids[line_index+1].display_type == 'line_section')">
                                     <tr class="is-subtotal text-right"> 
-                                        <td t-att-colspan="colspan" style="border-left:1px solid #dddddd;padding-right:5px;">
+                                        <td t-att-colspan="colspan" style="border-left:1px solid #2E3D4B;padding-right:5px;">
                                             <strong class="mr16">Subtotal</strong>
                                             <span
                                                 t-esc="current_subtotal"
@@ -174,38 +174,38 @@
                                 </t>
                             </t>
                             <tr style="width:100%;height:20px;">
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
                             </tr>
                             <tr style="width:100%;height:20px;">
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
                             </tr>
-                            <tr style="border-bottom:1px solid #dddddd;width:100%;height:20px;">
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
-                                <td style="border-left:1px solid #dddddd;"></td>
+                            <tr style="border-bottom:1px solid #2E3D4B;width:100%;height:20px;">
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
                             </tr>
                         </tbody>
                     </table>
                     <!-- # INM -->
                     <div class="panel panel-default" style="display: -webkit-box;padding:0;">
-                        <div style="width:65%;border:1px solid #dddddd;margin-top:5px;" >
-                            <div style="font-size:12px;border-bottom:1px solid #dddddd;padding:10px;"><strong>AMOUNT IN WORDS: </strong><span t-esc="o.currency_id.amount_to_text(o.amount_total)"/></div>                            
+                        <div style="width:65%;border:1px solid #2E3D4B;margin-top:5px;" >
+                            <div style="font-size:12px;border-bottom:1px solid #2E3D4B;padding:10px;"><strong>AMOUNT IN WORDS: </strong><span t-esc="o.currency_id.amount_to_text(o.amount_total)"/></div>                            
                             <div style="font-size:12px;padding:10px;"><strong>COMMENTS: </strong><span t-field="o.comment"/></div>
                         </div>
-                        <div style="width: 35%; text-align: right; padding: 10px; font-size: 13px;border-right:1px solid #dddddd;border-bottom:1px solid #dddddd;border-top:1px solid #dddddd;margin-top:5px;">
+                        <div style="width: 35%; text-align: right; padding: 10px; font-size: 13px;border-right:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;border-top:1px solid #2E3D4B;margin-top:5px;">
                             <div>
                                 <div style="width: 52%; display: inline-block; text-align:left;"><strong>Amount untaxed:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
@@ -258,7 +258,7 @@
                         </div>
                     </div>
                     <div class="panel panel-default" style="display: -webkit-box;padding:0;margin-top:5px;">
-                             <div style="font-size:12px;border-left: 1px solid #dddddd;border-top: 1px solid #dddddd;border-bottom: 1px solid #dddddd;padding:10px;width:50%">
+                             <div style="font-size:12px;border-left: 1px solid #2E3D4B;border-top: 1px solid #2E3D4B;border-bottom: 1px solid #2E3D4B;padding:10px;width:50%">
                                 <p>Los pagos se realizarán mediante depósito o transferencia electrónica a nuestras CUENTAS CORRIENTES:</p>
                                 <ul>
                                     SOLES
@@ -273,9 +273,9 @@
                                     <li>SCOTIABANK: 000-4991620 CCI: 00917400000499162048</li>
                                 </ul>
                             </div>
-                            <div class="inm-dato-final" style="display: -webkit-box;font-size: 12px;border-top: 1px solid #dddddd;border-left: 1px solid #dddddd;border-bottom: 1px solid #dddddd;border-right: 1px solid #dddddd;padding:10px;width:50%">
+                            <div class="inm-dato-final" style="display: -webkit-box;font-size: 12px;border-top: 1px solid #2E3D4B;border-left: 1px solid #2E3D4B;border-bottom: 1px solid #2E3D4B;border-right: 1px solid #2E3D4B;padding:10px;width:50%">
                                 <div style="text-align:center;">
-                                    <p>Printed representation of <span t-if="o.edocument_type" t-field="o.edocument_type.label"/>. Visit <strong><span t-if="o.shop_id and o.shop_id.einvoice_supplier" t-field="o.shop_id.einvoice_supplier.invoice_url" />.</strong></p>      
+                                    <p>Printed representation of <span t-if="o.edocument_type" t-field="o.edocument_type.label"/>. Visit <strong><span>http://www.nubefact.com/20487913791</span>.</strong></p>      
                                     <p><span t-if="o.shop_id and o.shop_id.einvoice_supplier" t-field="o.shop_id.einvoice_supplier.authorization_message" /></p>
                                     <div>
                                         <img t-att-src="'/report/barcode/QR/%s|%s|%s|%s|%s|%s|%s|%s|%s|'%(o.company_id.vat,o.edocument_type.code,o.einv_serie,o.einv_number,o.einv_amount_igv,o.amount_total,o.date_invoice,o.partner_id.catalog_06_id.code,o.partner_id.vat)"  style="width:100px;height:100px;"/>
