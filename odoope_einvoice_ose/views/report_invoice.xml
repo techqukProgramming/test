@@ -37,15 +37,15 @@
                             </div>
                         </div>                                
                     </div>
-                    <div class="col-4" style="text-align: right; border: 1px solid #dddddd; border-radius: 10px">
+                    <div class="col-4" style="text-align: right; border-radius: 10px; border:1px solid #2E3D4B;">
                         <div class="text-center" style="border-radius: 6px; width:100%; display: inline-block; margin-top:20px">
                             <div class="">
                                 <div class="card-body">
                                     <h3 class="card-title pricing-card-title" style="font-size:16px" >RUC <span t-field="o.company_id.vat" style="font-size:16px"/></h3>
                                     <t t-if="o.edocument_type">
-                                        <h4 class="my-0 font-weight-normal" style="padding-bottom: 10px; font-size:16px;" t-field="o.edocument_type.label"/>
+                                        <h4 class="my-0 font-weight-bold" style="padding-bottom: 10px; font-size:16px;" t-field="o.edocument_type.label"/>
                                     </t>
-                                    <h3 class="card-title pricing-card-title" style="font-weight:bold; font-size:22px;" t-field="o.number"/>                                        
+                                    <h3 class="card-title pricing-card-title" style="font-weight:bold; font-size:22px;color:#D83310" t-field="o.number"/>                                        
                                 </div>
                             </div>
                         </div>
@@ -68,11 +68,13 @@
                             </div>
                             <div>
                                 <span t-field="o.partner_id.street"/>, <span t-field="o.partner_id.street2"/>
-                            </div>
-                            <div >
                                 <span t-if="o.partner_id.zip" t-field="o.partner_id.zip"/> -
                                 <span t-if="o.partner_id.state_id" t-field="o.partner_id.state_id.name"/>
                             </div>
+                            <!--<div >
+                                <span t-if="o.partner_id.zip" t-field="o.partner_id.zip"/> -
+                                <span t-if="o.partner_id.state_id" t-field="o.partner_id.state_id.name"/>
+                            </div>-->
                         </div>
 
                         <div class="col-4">
@@ -88,16 +90,16 @@
                                     <strong style="text-transform: uppercase;">Currency:</strong>
                                     <span t-field="o.currency_id.currency_unit_label"/>
                             </div>
+                            <div t-if="o.picking_number" >
+                                    <strong style="text-transform: uppercase;">Guía de Remision:</strong>
+                                    <span  t-field="o.picking_number"/><span></span>  
+                            </div>
                             <div name="payment_term_id" t-if="o.payment_term_id" >
-                                    <strong style="text-transform: uppercase;">Payment term:</strong>
+                                    <strong style="text-transform: uppercase;">Condición de Pago:</strong>
                                     <span t-field="o.payment_term_id"/><span></span>  
                             </div>
-                            <div name="picking_number" t-if="o.picking_number" >
-                                    <strong style="text-transform: uppercase;">Picking:</strong>
-                                    <span t-field="o.picking_number"/><span></span>  
-                            </div>
                             <div name="origin_document_serie" t-if="o.origin_document_serie" >
-                                    <strong style="text-transform: uppercase;">Related document:</strong>
+                                    <strong style="text-transform: uppercase;">Referencia:</strong>
                                     <span t-field="o.origin_document_serie"/>-<span t-field="o.origin_document_number"/>
                             </div>
                         </div>                        
@@ -106,20 +108,20 @@
                     
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
 
-                    <table t-attf-class="table table-sm" name="invoice_line_table" style="margin-top:12px; font-size: 12px; min-height: 250px">
+                    <table style="margin-top:12px;margin-bottom:0px;font-size: 12px;border:1px solid #dddddd;width:100%;border-bottom:none !important;" >
                         <thead>
-                            <tr style="font-size: 12px; text-transform: uppercase; padding: 6px; text-align: left">
+                            <tr style="font-size: 12px; text-transform: uppercase; padding: 6px; text-align: center; border:1px solid #dddddd;">
                                 <t t-set="colspan" t-value="7"/>
-                                <th style="padding: 6px">Code</th>
-                                <th style="padding: 6px">Qty</th>
-                                <th style="padding: 6px">UoM</th>                                
-                                <th style="padding: 6px">Description</th>                                                                
-                                <th style="text-align: right;" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"><span>Price unit</span></th>                                
-                                <th style="text-align: right;" t-if="display_discount" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                <th style="padding: 6px;width:10%;">Code</th>
+                                <th style="padding: 6px;width:7%;border-left:1px solid #dddddd">UoM</th>                                
+                                <th style="padding: 6px;width:47.6%;border-left:1px solid #dddddd">Description</th>
+                                <th style="padding: 6px;width:6%;border-left:1px solid #dddddd">Qty</th>
+                                <th t-attf-class="{{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="border-left:1px solid #dddddd;width:14.7%"><span>Precio</span></th>                                
+                                <th t-if="display_discount" t-attf-class=" {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="border-left:1px solid #dddddd">
                                     <span>Disc.(%)</span>
                                     <t t-set="colspan" t-value="colspan+1"/>
                                 </th>                                
-                                <th style="padding: 6px" class="text-right">Amount</th>   
+                                <th style="padding: 6px;padding-right:10px;border-left:1px solid #dddddd;width:14.7%">Amount</th>   
                             </tr>
                         </thead>
 
@@ -129,40 +131,40 @@
                                 <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
                                 <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
 
-                                <tr t-att-class="'bg-200 font-weight-bold' if line.display_type == 'line_section' else 'font-italic' if line.display_type == 'line_note' else ''">
+                                <tr t-att-class="'font-weight-bold' if line.display_type == 'line_section' else 'font-italic' if line.display_type == 'line_note' else ''" style="height:20px;">
                                     <t t-if="not line.display_type" name="account_invoice_line_accountable">
-                                        <td t-if="line.product_id"><span t-field="line.product_id.default_code"/></td> 
-                                        <td t-if="not line.product_id"><span>-</span></td> 
-                                        <td><span t-field="line.quantity"/></td>                                        
-                                        <td><span t-field="line.uom_id.name"/></td>      
-                                        <td name="account_invoice_line_name"><span t-field="line.name"/></td>                                                                
-                                        <td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                        <td t-if="line.product_id" style="padding-left:5px;"><span t-field="line.product_id.default_code"/></td> 
+                                        <td style="border-left:1px solid #dddddd;padding-left:5px;" t-if="not line.product_id"><span>-</span></td>               
+                                        <td style="border-left:1px solid #dddddd;padding-left:5px;"><span t-field="line.uom_id.name"/></td>      
+                                        <td style="border-left:1px solid #dddddd;padding-left:5px;" name="account_invoice_line_name"><span t-field="line.name"/></td>
+                                        <td style="border-left:1px solid #dddddd;padding-right:5px;" class="text-right"><span t-esc="int(round(line.quantity,0))"/></td>   
+                                        <td style="border-left:1px solid #dddddd;padding-right:5px;" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
                                             <span t-field="line.price_unit"/>
                                         </td>                                       
-                                        <td t-if="display_discount" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                        <td style="border-left:1px solid #dddddd;padding-right:5px;" t-if="display_discount" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
                                             <span t-field="line.discount"/>
                                         </td>
-                                        <td class="text-right">
-                                            <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"  t-options='{"widget": "False"}'/>
-                                            <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"  t-options='{"widget": "False"}'/>
+                                        <td style="border-left:1px solid #dddddd;padding-right:5px;" class="text-right">
+                                            <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                                            <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
                                         </td>
                                     </t>                                    
                                     <t t-if="line.display_type == 'line_section'">
-                                        <td t-att-colspan="colspan">
+                                        <td t-att-colspan="colspan" style="border-left:1px solid #dddddd;padding-left:5px;">
                                             <span t-field="line.name"/>
                                         </td>
                                         <t t-set="current_section" t-value="line"/>
                                         <t t-set="current_subtotal" t-value="0"/>
                                     </t>
                                     <t t-if="line.display_type == 'line_note'">
-                                        <td t-att-colspan="colspan">
+                                        <td t-att-colspan="colspan" style="border-left:1px solid #dddddd;padding-left:5px;">
                                             <span t-field="line.name"/>
                                         </td>
                                     </t>
                                 </tr>
                                 <t t-if="current_section and (line_last or o.invoice_line_ids[line_index+1].display_type == 'line_section')">
-                                    <tr class="is-subtotal text-right">
-                                        <td t-att-colspan="colspan">
+                                    <tr class="is-subtotal text-right"> 
+                                        <td t-att-colspan="colspan" style="border-left:1px solid #dddddd;padding-right:5px;">
                                             <strong class="mr16">Subtotal</strong>
                                             <span
                                                 t-esc="current_subtotal"
@@ -171,88 +173,125 @@
                                     </tr>
                                 </t>
                             </t>
+                            <tr style="width:100%;height:20px;">
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                            </tr>
+                            <tr style="width:100%;height:20px;">
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #dddddd;width:100%;height:20px;">
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                                <td style="border-left:1px solid #dddddd;"></td>
+                            </tr>
                         </tbody>
                     </table>
                     <!-- # INM -->
                     <div class="panel panel-default" style="display: -webkit-box;padding:0;">
-                        <div style="width:65%; padding:10px" >
-                            <div style="font-size:12px"><strong>AMOUNT IN WORDS: </strong><span t-esc="o.currency_id.amount_to_text(o.amount_total)"/></div>                            
-                            <div style="font-size:12px"><strong>COMMENTS: </strong><span t-field="o.comment"/></div>
+                        <div style="width:65%;border:1px solid #dddddd;margin-top:5px;" >
+                            <div style="font-size:12px;border-bottom:1px solid #dddddd;padding:10px;"><strong>AMOUNT IN WORDS: </strong><span t-esc="o.currency_id.amount_to_text(o.amount_total)"/></div>                            
+                            <div style="font-size:12px;padding:10px;"><strong>COMMENTS: </strong><span t-field="o.comment"/></div>
                         </div>
-                        <div style="width: 35%; text-align: right; padding: 10px; font-size: 13px;">
+                        <div style="width: 35%; text-align: right; padding: 10px; font-size: 13px;border-right:1px solid #dddddd;border-bottom:1px solid #dddddd;border-top:1px solid #dddddd;margin-top:5px;">
                             <div>
                                 <div style="width: 52%; display: inline-block; text-align:left;"><strong>Amount untaxed:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
-                                    <span t-esc="'%.2f'% o.einv_amount_base" t-options='{"widget": "False"}'/>
+                                    <span t-esc="'{0:,.2f}'.format(int(o.einv_amount_base))" />
                                 </div>
                             </div>
                             <div>
                                 <div style="width: 52%; display: inline-block; text-align:left;"><strong>Discount:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
-                                    <span t-esc="'%.2f'% o.amount_discount" t-options='{"widget": "False"}'/>
+                                    <span t-esc="'{0:,.2f}'.format(int(o.amount_discount))" />
                                 </div>                                    
                             </div>  
                             <div>
                                 <div style="width: 52%; display: inline-block; text-align:left;"><strong>Global Discount:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
-                                    <span t-esc="'%.2f'% o.global_discount" t-options='{"widget": "False"}'/>
+                                    <span t-esc="'{0:,.2f}'.format(int(o.global_discount))" />
                                 </div>                                    
                             </div>                             
                             <div>
                                 <div style="width: 52%; display: inline-block; text-align:left;"><strong>Unaffected:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
-                                    <span t-esc="'%.2f'% o.einv_amount_unaffected" t-options='{"widget": "False"}'/>
+                                    <span t-esc="'{0:,.2f}'.format(int(o.einv_amount_unaffected))" />
                                 </div>                                    
                             </div>
                             <div>
                                 <div style="width: 52%; display: inline-block; text-align:left;"><strong>Exonerated:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
-                                    <span t-esc="'%.2f'% o.einv_amount_exonerated" t-options='{"widget": "False"}'/>
+                                    <span t-esc="'{0:,.2f}'.format(int(o.einv_amount_exonerated))" />
                                 </div>                                    
                             </div>
                             <div>
-                                <div style="width: 52%; display: inline-block; text-align:left;"><strong>I.G.V. (<span  t-field="o.igv_percent"/><span>%</span>):</strong></div>
+                                <div style="width: 52%; display: inline-block; text-align:left;"><strong>I.G.V.:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
-                                    <span t-esc="'%.2f'% o.einv_amount_igv" t-options='{"widget": "False"}'/>
+                                    <span t-esc="'{0:,.2f}'.format(int(o.einv_amount_igv))" />
                                 </div>                                    
                             </div>
                             <div style="border-top: 1px solid;">
                                 <div style="width: 52%; display: inline-block; text-align:left;"><strong>Amount total:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
-                                    <span t-esc="'%.2f'% o.amount_total" t-options='{"widget": "False"}'/>
+                                    <span t-esc="'{0:,.2f}'.format(int(o.amount_total))" />
                                 </div>                                    
                             </div>                            
                         </div>
                     </div>
-                    <br/>
-
-                    <br/>
-                    <div class="inm-dato-final" style="display: -webkit-box;">
-                        <div class="" style="width: 80%; font-size: 13px; padding-top: 15px;">
-                            <p>Printed representation of <span t-if="o.edocument_type" t-field="o.edocument_type.label"/>. Visit <strong><span>https://www.pse.pe/buscar</span>.</strong></p>      
-                            <p><span t-if="o.shop_id and o.shop_id.einvoice_supplier" t-field="o.shop_id.einvoice_supplier.authorization_message" /></p>                                       
-                        </div>
-                        <div style="width: 20%; text-align: right;">
-                            <img t-att-src="'/report/barcode/QR/%s|%s|%s|%s|%s|%s|%s|%s|%s|'%(o.company_id.vat,o.edocument_type.code,o.einv_serie,o.einv_number,o.einv_amount_igv,o.amount_total,o.date_invoice,o.partner_id.catalog_06_id.code,o.partner_id.vat)"  style="width:100px;height:100px;"/>
-                        </div>                        
-                    </div>                    
+                    <div class="panel panel-default" style="display: -webkit-box;padding:0;margin-top:5px;">
+                             <div style="font-size:12px;border-left: 1px solid #dddddd;border-top: 1px solid #dddddd;border-bottom: 1px solid #dddddd;padding:10px;width:50%">
+                                <p>Los pagos se realizarán mediante depósito o transferencia electrónica a nuestras CUENTAS CORRIENTES:</p>
+                                <ul>
+                                    SOLES
+                                    <li>BCP: 305-2119425-0-40 CCI: 00230500211942504019</li>
+                                    <li>BBVA: 0011-0285-0100136032 CCI: 01128500010013603248</li>
+                                    <li>SCOTIABANK: 000-9009892 CCI: 00917400000900989242</li>
+                                </ul>
+                                <ul>
+                                    DOLARES
+                                    <li>BCP: 305-2113383-1-20 CCI: 00230500211338312012</li>
+                                    <li>SCOTIABANK: 000-4991620 CCI: 00917400000499162048</li>
+                                </ul>
+                            </div>
+                            <div class="inm-dato-final" style="display: -webkit-box;font-size: 12px;border-top: 1px solid #dddddd;border-left: 1px solid #dddddd;border-bottom: 1px solid #dddddd;border-right: 1px solid #dddddd;padding:10px;width:50%">
+                                <div style="text-align:center;">
+                                    <p>Printed representation of <span t-if="o.edocument_type" t-field="o.edocument_type.label"/>. Visit <strong><span t-if="o.shop_id and o.shop_id.einvoice_supplier" t-field="o.shop_id.einvoice_supplier.invoice_url" />.</strong></p>      
+                                    <p><span t-if="o.shop_id and o.shop_id.einvoice_supplier" t-field="o.shop_id.einvoice_supplier.authorization_message" /></p>
+                                    <div>
+                                        <img t-att-src="'/report/barcode/QR/%s|%s|%s|%s|%s|%s|%s|%s|%s|'%(o.company_id.vat,o.edocument_type.code,o.einv_serie,o.einv_number,o.einv_amount_igv,o.amount_total,o.date_invoice,o.partner_id.catalog_06_id.code,o.partner_id.vat)"  style="width:100px;height:100px;"/>
+                                    </div>
+                                </div>                 
+                            </div>    
+                    </div>         
                 </div>
             </div>
 
             <div class="footer o_standard_footer">
-                <div class="text-center" style="border-top: 1px solid black;">
+                <div class="text-center" style="border-top: 1px solid black;font-size:14px;">
                     <ul class="list-inline mb4">
                         <li t-if="company.phone" class="list-inline-item">Phone: <span t-field="company.phone"/></li>
                         <li t-if="company.email" class="list-inline-item">Email: <span t-field="company.email"/></li>
                         <li t-if="company.website" class="list-inline-item">Web: <span t-field="company.website"/></li>
-                        <li t-if="company.vat" class="list-inline-item">RUC: <span t-field="company.vat"/></li>
+                        <li t-if="company.vat" class="list-inline-item"><t t-esc="company.country_id.vat_label or 'RUC'"/>: <span t-field="company.vat"/></li>
                     </ul>
 
                     <div name="financial_infos">
