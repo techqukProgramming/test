@@ -87,6 +87,13 @@ class Requeriment(models.Model):
             elif self.realizado == True:
                 self.state = 'realizado'
 
+    @api.onchange('centrocosto')
+    def _get_partner_id(self):
+        context = self._context
+        current_uid = context.get('uid')
+        user = self.env['res.users'].browse(current_uid)
+        return {'domain':{'rnombre':[('id','=',user.id)]}}
+
 class Item(models.Model):
 
     _name = 'techquk_requerimiento.item'

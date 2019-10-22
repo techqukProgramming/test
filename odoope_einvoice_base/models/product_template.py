@@ -20,6 +20,7 @@
 ###############################################################################
 
 from odoo import api, fields, models
+from random import randrange,choice
 
 class ProductTemplate(models.Model):
         _name = 'product.template'
@@ -28,12 +29,21 @@ class ProductTemplate(models.Model):
         igv_type = fields.Many2one("einvoice.catalog.07", string='IGV type')
         product_code_sunat = fields.Many2one("einvoice.catalog.25", string='Product code SUNAT')
         product_code = fields.Char("Codigo")
-        product_marca = fields.Char("Marca")
+        product_marca = fields.Char("Marca",default='-')
         margen = fields.Float(string="Margen(%)",digits=(10,2),default='20')
         descuento = fields.Float(string="Descuento(%)",digits=(10,2),default='0')
         gasto_administrativo = fields.Float(string="Gasto Adm.(%)",digits=(10,2),default='2')
         costo_flete = fields.Float(string="Costo Flete",digits=(10,2),default='0')
         ganancia = fields.Float(string="Ganancia",digits=(10,2),default='0')
+
+        @api.onchange('type')
+        def _get_number_aleatory(self):
+                value = ''
+                for val in range(0,6):
+                        a = randrange(10)
+                        value += str(a)
+                        extra = choice(["TQA", "TQB"])
+                self.product_code = extra+'-'+value
 
         @api.onchange('standard_price')
         def calcularPrecioVenta0(self):

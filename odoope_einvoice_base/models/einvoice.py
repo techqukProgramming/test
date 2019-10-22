@@ -160,7 +160,7 @@ class EinvoiceCatalog25(models.Model):
     _description = 'Codigos - Producto SUNAT'
     _inherit = 'einvoice.catalog.tmpl'
 
-    code = fields.Char(string='Code', size=12, index=True, required=True)
+    code = fields.Char(string='Code', size=12, index=True, required=False)
 
 class EinvoiceCatalog51(models.Model):
     _name = "einvoice.catalog.51"
