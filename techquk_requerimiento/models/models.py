@@ -87,7 +87,7 @@ class Requeriment(models.Model):
             elif self.realizado == True:
                 self.state = 'realizado'
 
-    @api.one
+    @api.multi
     def _get_partner_id(self):
         context = self._context
         current_uid = context.get('uid')
