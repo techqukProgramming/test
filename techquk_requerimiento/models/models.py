@@ -13,7 +13,7 @@ class Requeriment(models.Model):
     name = fields.Char("N° de Requerimiento",readonly=True,default=lambda self: self.env['ir.sequence'].next_by_code('techquk_requerimiento.requerimiento'))
     fecha_inicio = fields.Date("Fecha de Creación", required=True,default=fields.Date.today())
 
-    rnombre = fields.Many2one("res.users","Nombre",default=lambda self: self.env['res.users'].search([]))
+    rnombre = fields.Many2one("res.users","Nombre")
     realizado = fields.Boolean("",default=False)
     renombre = fields.Many2one("res.users","Nombre")
     revisado = fields.Boolean("",default=False)
