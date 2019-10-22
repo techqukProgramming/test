@@ -13,7 +13,7 @@ class Requeriment(models.Model):
     name = fields.Char("N° de Requerimiento",readonly=True,default=lambda self: self.env['ir.sequence'].next_by_code('techquk_requerimiento.requerimiento'))
     fecha_inicio = fields.Date("Fecha de Creación", required=True,default=fields.Date.today())
 
-    rnombre = fields.Many2one("res.users","Nombre",default=lambda self: self.env['res.users'].search([]),compute='_get_partner_id')
+    rnombre = fields.Many2one("res.users","Nombre",default=lambda self: self.env['res.users'].search([]))
     realizado = fields.Boolean("",default=False)
     renombre = fields.Many2one("res.users","Nombre")
     revisado = fields.Boolean("",default=False)
@@ -87,7 +87,7 @@ class Requeriment(models.Model):
             elif self.realizado == True:
                 self.state = 'realizado'
 
-    @api.multi
+    @api.onchange('centrocosto')
     def _get_partner_id(self):
         context = self._context
         current_uid = context.get('uid')
