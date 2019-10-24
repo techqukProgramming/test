@@ -14,4 +14,6 @@ class AccountInvoiceLineInherit(models.Model):
                             arr.append('X')
             if len(arr) > 0:
                 self.comment = 'OPERACIÓN SUJETA AL SPOT - DL 940 BANCO DE LA NACIÓN CTA.CTE. MN 00-231-155910'
+            else:
+                self.comment = ''
                 
