@@ -274,9 +274,10 @@
                                 </ul>
                             </div>
                             <div class="inm-dato-final" style="display: -webkit-box;font-size: 12px;border-top: 1px solid #2E3D4B;border-left: 1px solid #2E3D4B;border-bottom: 1px solid #2E3D4B;border-right: 1px solid #2E3D4B;padding:10px;width:50%">
-                                <div style="text-align:center;">
-                                    <p>Printed representation of <span t-if="o.edocument_type" t-field="o.edocument_type.label"/>. Visit <strong><span>http://www.nubefact.com/20487913791</span></strong></p>      
+                                <div style="text-align:left;">
+                                    <p>Printed representation of <span t-if="o.edocument_type" t-field="o.edocument_type.label"/>. Visita <strong><span>http://www.nubefact.com/20487913791</span></strong></p>      
                                     <p><span t-if="o.shop_id and o.shop_id.einvoice_supplier" t-field="o.shop_id.einvoice_supplier.authorization_message" /></p>
+                                    <p>Resumen: <string><span t-if="o.edocument_type" t-field="o.einvoice_hash_code"/></string></p>     
                                     <div>
                                         <img t-att-src="'/report/barcode/QR/%s|%s|%s|%s|%s|%s|%s|%s|%s|'%(o.company_id.vat,o.edocument_type.code,o.einv_serie,o.einv_number,o.einv_amount_igv,o.amount_total,o.date_invoice,o.partner_id.catalog_06_id.code,o.partner_id.vat)"  style="width:100px;height:100px;"/>
                                     </div>
