@@ -7,8 +7,26 @@
             <field name="inherit_id" ref="purchase.purchase_order_form"/>
             <field name="arch" type="xml">
                 <field name="date_order" position="after">
-                    <field name="id_requerimiento" required="True"/>
+                    <field name="id_requerimiento"/>
                 </field>
+                <xpath expr="//field[@name='price_unit']" position="after">
+                    <field name="standard_price"/>
+                </xpath>
+                <xpath expr="//field[@name='standard_price']" position="after">
+                    <field name="margen"/>
+                </xpath>
+                <xpath expr="//field[@name='margen']" position="after">
+                    <field name="gasto_administrativo"/>
+                </xpath>
+                <xpath expr="//field[@name='gasto_administrativo']" position="after">
+                    <field name="costo_flete"/>
+                </xpath>
+                <xpath expr="//field[@name='costo_flete']" position="after">
+                    <field name="descuento"/>
+                </xpath>
+                <xpath expr="//field[@name='descuento']" position="after">
+                    <field name="ganancia"/>
+                </xpath>
             </field>
         </record>
     </data>
