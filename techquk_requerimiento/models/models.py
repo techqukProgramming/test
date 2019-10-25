@@ -94,6 +94,18 @@ class Requeriment(models.Model):
         user = self.env['res.users'].browse(current_uid)
         return {'domain':{'rnombre':[('id','=',user.id)]}}
 
+    @api.model
+    def _get_next_requerimentname(self):
+        sequence = self.env['ir.sequence'].search([('code','=','techquk_requerimiento.requerimiento')]) #next = 8
+        next= sequence.get_next_char(sequence.number_next_actual) #next = 9
+        return next #retorno 9
+
+    @api.model
+    def create(self, vals):
+        vals['name'] = self.env['ir.sequence'].next_by_code('techquk_requerimiento.requerimiento') #10
+        result = super(Requeriment, self).create(vals) #se crea el nuevo requerimiento con el name 10 por defecto
+        return result   
+
 class Item(models.Model):
 
     _name = 'techquk_requerimiento.item'

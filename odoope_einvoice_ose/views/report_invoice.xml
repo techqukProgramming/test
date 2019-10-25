@@ -210,49 +210,49 @@
                                 <div style="width: 52%; display: inline-block; text-align:left;"><strong>Amount untaxed:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
-                                    <span t-esc="'{0:,.2f}'.format(int(o.einv_amount_base))" />
+                                    <span t-esc="'{0:,.2f}'.format(float(o.einv_amount_base))" />
                                 </div>
                             </div>
                             <div>
                                 <div style="width: 52%; display: inline-block; text-align:left;"><strong>Discount:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
-                                    <span t-esc="'{0:,.2f}'.format(int(o.amount_discount))" />
+                                    <span t-esc="'{0:,.2f}'.format(float(o.amount_discount))" />
                                 </div>                                    
                             </div>  
                             <div>
                                 <div style="width: 52%; display: inline-block; text-align:left;"><strong>Global Discount:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
-                                    <span t-esc="'{0:,.2f}'.format(int(o.global_discount))" />
+                                    <span t-esc="'{0:,.2f}'.format(float(o.global_discount))" />
                                 </div>                                    
                             </div>                             
                             <div>
                                 <div style="width: 52%; display: inline-block; text-align:left;"><strong>Unaffected:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
-                                    <span t-esc="'{0:,.2f}'.format(int(o.einv_amount_unaffected))" />
+                                    <span t-esc="'{0:,.2f}'.format(float(o.einv_amount_unaffected))" />
                                 </div>                                    
                             </div>
                             <div>
                                 <div style="width: 52%; display: inline-block; text-align:left;"><strong>Exonerated:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
-                                    <span t-esc="'{0:,.2f}'.format(int(o.einv_amount_exonerated))" />
+                                    <span t-esc="'{0:,.2f}'.format(float(o.einv_amount_exonerated))" />
                                 </div>                                    
                             </div>
                             <div>
                                 <div style="width: 52%; display: inline-block; text-align:left;"><strong>I.G.V.:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
-                                    <span t-esc="'{0:,.2f}'.format(int(o.einv_amount_igv))" />
+                                    <span t-esc="'{0:,.2f}'.format(float(o.einv_amount_igv))" />
                                 </div>                                    
                             </div>
                             <div style="border-top: 1px solid;">
                                 <div style="width: 52%; display: inline-block; text-align:left;"><strong>Amount total:</strong></div>
                                 <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
                                 <div style="display: inline-block; width: 30%;">
-                                    <span t-esc="'{0:,.2f}'.format(int(o.amount_total))" />
+                                    <span t-esc="'{0:,.2f}'.format(float(o.amount_total))" />
                                 </div>                                    
                             </div>                            
                         </div>
