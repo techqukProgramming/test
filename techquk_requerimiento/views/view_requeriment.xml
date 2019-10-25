@@ -29,7 +29,7 @@
             <field name="name">Lista de Requerimientos</field>
             <field name="model">techquk_requerimiento.requerimiento</field>
             <field name="arch" type="xml">
-                <tree string="Requerimiento" decoration-danger="state=='observado'">
+                <tree string="Requerimiento" decoration-danger="state=='observado'" decoration-bf="state=='realizado'" decoration-warning="state=='revisado'" decoration-success="state=='autorizado'"  decoration-info="state=='atendido'">
                     <field name="name"/>
                     <field name="area"/>
                     <field name="centrocosto"/>
@@ -101,6 +101,15 @@
                                     </group>
                                     <group>
                                         <field name="autorizado"/>
+                                    </group>
+                                    <group>
+                                        <field name="forma_pago"/>
+                                    </group>
+                                    <group>
+                                        <field name="is_abastecimiento" />
+                                    </group>
+                                    <group>
+                                        <field name="guia_remision" attrs="{'required':[('is_abastecimiento', '=', True)],'invisible':[('is_abastecimiento', '!=', True)]}"/>
                                     </group>
                                 </group>
                             </page>
