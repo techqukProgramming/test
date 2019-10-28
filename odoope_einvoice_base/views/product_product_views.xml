@@ -51,7 +51,7 @@
                 <field name="product_code" options="{'no_create_edit': True,'no_open':True}" required="True"/>
             </field>
             <field name="default_code" position="replace">
-                <field name="default_code" readonly="1"/>
+                <field name="default_code" required="True"/>
             </field>
             <field name="product_code" position="after">
                 <field name="product_marca" options="{'no_create_edit': True,'no_open':True}" required="True"/>
