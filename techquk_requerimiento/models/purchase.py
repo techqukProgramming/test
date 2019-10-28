@@ -7,6 +7,10 @@ class PurchaseInherit(models.Model):
         _inherit = 'purchase.order'
 
         id_requerimiento = fields.Many2one("techquk_requerimiento.requerimiento","Requerimiento")
+        referencia = fields.Char("Referencia")
+        firma_1 = fields.Boolean("Firma Logistica",default=True)
+        firma_2 = fields.Boolean("Firma Finanzas")
+        firma_3 = fields.Boolean("Firma Gerencia General")
 
         @api.onchange('id_requerimiento')
         def _get_suppliers(self):

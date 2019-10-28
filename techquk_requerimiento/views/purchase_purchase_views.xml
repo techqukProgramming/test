@@ -27,6 +27,20 @@
                 <xpath expr="//field[@name='descuento']" position="after">
                     <field name="ganancia"/>
                 </xpath>
+                <xpath expr="//page[1]" position='after'>
+                    <page string="Campos Adicionales">
+                    <group>
+                        <group>
+                            <field name="firma_1"/>
+                            <field name="firma_2"/>
+                            <field name="firma_3"/>
+                        </group>
+                        <group>
+                            <field name="referencia"/>
+                        </group>
+                    </group> 
+                    </page>
+                </xpath>
             </field>
         </record>
     </data>
