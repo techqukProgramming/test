@@ -10,7 +10,7 @@ class Requeriment(models.Model):
 
     area = fields.Many2one("techquk_requerimiento.area","Area",required=True)
     centrocosto = fields.Many2one("techquk_requerimiento.centro","Centro de Costo",required=True)
-    name = fields.Char("N° de Requerimiento",readonly=True,default=lambda self: self.env['ir.sequence'].next_by_code('techquk_requerimiento.requerimiento'))
+    name = fields.Char("N° de Requerimiento",default=lambda self: self._get_next_requerimentname(), store=True, readonly=True)
     fecha_inicio = fields.Date("Fecha de Creación", required=True,default=fields.Date.today())
 
     rnombre = fields.Many2one("res.users","Nombre",default=lambda self: self.env.user)
@@ -26,7 +26,6 @@ class Requeriment(models.Model):
 
     items_id = fields.One2many('techquk_requerimiento.item','requerimiento_id',string="Items")
     items_ids = fields.Many2many('techquk_requerimiento.item','items_id',string="Items")
-
     guia_remision = fields.Char("N° Guia",required=True,store=False)
     is_abastecimiento = fields.Boolean("Es almacenable?",default=False,readonly=True)
 
@@ -44,7 +43,6 @@ class Requeriment(models.Model):
     ('efectivo', 'Efectivo'),
     ('transferencia', 'Transferencia')
     ], string='Forma de Pago')
-
 
     @api.onchange('realizado')
     def _change_state_realizado(self):
@@ -128,7 +126,8 @@ class Requeriment(models.Model):
                 self.is_abastecimiento = True
             else:
                 self.is_abastecimiento = False
-
+                
+                
 class Item(models.Model):
 
     _name = 'techquk_requerimiento.item'
