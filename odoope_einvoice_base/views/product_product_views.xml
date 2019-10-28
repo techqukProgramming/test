@@ -10,7 +10,10 @@
                 <field name="igv_type"/>
             </field>
             <field name="default_code" position="after">
-                <field name="product_code_sunat" options="{'no_create': True,'no_open':True}" required="True"/>
+                <field name="product_code_sunat" options="{'no_create': True,'no_open':True}"/>
+            </field>
+            <field name="default_code" position="replace">
+                <field name="default_code" readonly="1"/>
             </field>
             <field name="product_code_sunat" position="after">
                 <field name="product_code" options="{'no_create_edit': True,'no_open':True}" required="True"/>
@@ -42,10 +45,13 @@
         <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
             <field name="type" position="after">
-                <field name="product_code_sunat" options="{'no_create_edit': True,'no_open':True}" required="True"/>
+                <field name="product_code_sunat" options="{'no_create_edit': True,'no_open':True}"/>
             </field>
             <field name="product_code_sunat" position="after">
                 <field name="product_code" options="{'no_create_edit': True,'no_open':True}" required="True"/>
+            </field>
+            <field name="default_code" position="replace">
+                <field name="default_code" readonly="1"/>
             </field>
             <field name="product_code" position="after">
                 <field name="product_marca" options="{'no_create_edit': True,'no_open':True}" required="True"/>

@@ -45,7 +45,7 @@ class PurchaseInherit(models.Model):
                         for x in self.id_requerimiento:      
                                 for item in x.items_ids:
                                         if self.partner_id.id == item.proveedorsugerido.id:
-                                                arr.append((0, 0, {'product_id': item.name.id,'name': item.name.name,'date_planned': datetime.now(),'product_qty': item.cantidad,'product_uom':item.unidad,'price_unit':item.name.list_price,'standard_price':item.name.standard_price,'margen':item.name.margen,'gasto_administrativo':item.name.gasto_administrativo,'costo_flete':item.name.costo_flete,'descuento':item.name.descuento,'ganancia':item.name.ganancia}))
+                                                arr.append((0, 0, {'product_id': item.name.id,'name': item.name.name,'date_planned': datetime.now(),'product_qty': item.cantidad,'product_uom':item.unidad,'price_unit':item.name.list_price,'standard_price':item.name.standard_price,'margen':item.name.margen,'gasto_administrativo':item.name.gasto_administrativo,'costo_flete':item.name.costo_flete,'descuento':item.name.descuento,'ganancia':item.name.ganancia,'taxes_id':item.name.supplier_taxes_id}))
                         self.order_line = arr
 
 class PurchaseOrderLineInherit(models.Model):
