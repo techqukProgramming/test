@@ -6,11 +6,22 @@
             id="account_einvoice_report"
             model="account.invoice"
             string="Electronic document"
-            report_type="qweb-html"
+            report_type="qweb-pdf"
             name="odoope_einvoice_ose.report_einvoice"
             file="odoope_einvoice_ose.report_einvoice"
             attachment="(object.state in ('open','paid')) and ('EINV'+(object.number or '').replace('/','')+'.pdf')"            
             groups="account.group_account_invoice"
+        />
+
+        <report 
+            id="account_einvoice_report_ticket"
+            model="account.invoice"
+            string="Electronic Ticket"
+            report_type="qweb-pdf"
+            name="odoope_einvoice_ose.report_einvoice_ticket"
+            file="odoope_einvoice_ose.report_einvoice_ticket"
+            attachment="(object.state in ('open','paid')) and ('EINV'+(object.number or '').replace('/','')+'.pdf')"            
+            groups="account.group_account_invoice"            
         />
 
         <record id="paperformat_ticket" model="report.paperformat"> 
@@ -28,19 +39,27 @@
           <field name="dpi">100</field> 
         </record>
 
-        <report 
-            id="account_einvoice_report_ticket"
-            model="account.invoice"
-            string="Electronic Ticket"
-            report_type="qweb-pdf"
-            name="odoope_einvoice_ose.report_einvoice_ticket"
-            file="odoope_einvoice_ose.report_einvoice_ticket"
-            attachment="(object.state in ('open','paid')) and ('EINV'+(object.number or '').replace('/','')+'.pdf')"            
-            groups="account.group_account_invoice"            
-        />
+        <record id="paperformat_A4" model="report.paperformat"> 
+          <field name="name">Einvoice A4</field>
+          <field name="format">custom</field> 
+          <field name="page_height">297</field> 
+          <field name="page_width">210</field> 
+          <field name="orientation">Portrait</field> 
+          <field name="margin_top">8</field> 
+          <field name="margin_bottom">14</field> 
+          <field name="margin_left">4</field> 
+          <field name="margin_right">4</field> 
+          <field name="header_line" eval="False" /> 
+          <field name="header_spacing">1</field> 
+          <field name="dpi">100</field> 
+        </record>
 
         <record id="account_einvoice_report_ticket" model="ir.actions.report">
             <field name="paperformat_id" ref="odoope_einvoice_ose.paperformat_ticket"/>
+        </record>
+
+        <record id="account_einvoice_report" model="ir.actions.report">
+            <field name="paperformat_id" ref="odoope_einvoice_ose.paperformat_A4"/>
         </record>
 
     </data>

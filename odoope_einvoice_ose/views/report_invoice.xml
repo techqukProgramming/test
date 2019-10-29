@@ -17,8 +17,7 @@
                     <t t-set="company" t-value="res_company"/>
                 </t>
             </t>
-
-            <div class="header">                    
+            <div class="header o_report_layout_standard">                    
                 <div class="row">
                     <div class="col-8">
                         <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 90px;" alt="Logo"/>    
@@ -37,15 +36,17 @@
                             </div>
                         </div>                                
                     </div>
-                    <div class="col-4" style="text-align: right; border-radius: 10px; border:1px solid #2E3D4B;">
-                        <div class="text-center" style="border-radius: 6px; width:100%; display: inline-block; margin-top:20px">
-                            <div class="">
-                                <div class="card-body">
-                                    <h3 class="card-title pricing-card-title" style="font-size:16px" >RUC <span t-field="o.company_id.vat" style="font-size:16px"/></h3>
-                                    <t t-if="o.edocument_type">
-                                        <h4 class="my-0 font-weight-bold" style="padding-bottom: 10px; font-size:16px;" t-field="o.edocument_type.label"/>
-                                    </t>
-                                    <h3 class="card-title pricing-card-title" style="font-weight:bold; font-size:22px;color:#D83310" t-field="o.number"/>                                        
+                    <div class="col-4">
+                        <div class="col-12" style="text-align: right; border-radius: 10px; border:1px solid #2E3D4B;margin-right:10px;margin-top:50px">
+                            <div class="text-center" style="border-radius: 6px; width:100%; display: inline-block;">
+                                <div class="">
+                                    <div class="card-body">
+                                        <h3 class="card-title pricing-card-title" style="font-size:16px" >RUC <span t-field="o.company_id.vat" style="font-size:16px"/></h3>
+                                        <t t-if="o.edocument_type">
+                                            <h4 class="my-0 font-weight-bold" style="padding-bottom: 10px; font-size:16px;" t-field="o.edocument_type.label"/>
+                                        </t>
+                                        <h3 class="card-title pricing-card-title" style="font-weight:bold; font-size:22px;color:#D83310" t-field="o.number"/>                                        
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +58,7 @@
             <div class="article o_report_layout_standard"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
                 <t t-call="web.address_layout"/>
                 <div class="page">
-                    <div class="row" style="padding: 10px; font-size: 12px;">
+                    <div class="row" style="padding: 100px; font-size: 12px;">
                         <div class="col-8" >
                             <strong style="text-transform: uppercase;">CLIENT: </strong> 
                             <div >
@@ -71,10 +72,6 @@
                                 <span t-if="o.partner_id.zip" t-field="o.partner_id.zip"/> -
                                 <span t-if="o.partner_id.state_id" t-field="o.partner_id.state_id.name"/>
                             </div>
-                            <!--<div >
-                                <span t-if="o.partner_id.zip" t-field="o.partner_id.zip"/> -
-                                <span t-if="o.partner_id.state_id" t-field="o.partner_id.state_id.name"/>
-                            </div>-->
                         </div>
 
                         <div class="col-4">
@@ -265,7 +262,7 @@
                                     <li>BCP: 305-2119425-0-40 CCI: 00230500211942504019</li>
                                     <li>BBVA: 0011-0285-0100136032 CCI: 01128500010013603248</li>
                                     <li>SCOTIABANK: 000-9009892 CCI: 00917400000900989242</li>
-                                    <!-- <li>BN (DETRACCIONES): 00-231-155910</li> -->
+                                    <li>BN (DETRACCIONES): 00-231-155910</li>
                                 </ul>
                                 <ul>
                                     DOLARES
@@ -274,11 +271,10 @@
                                 </ul>
                             </div>
                             <div class="inm-dato-final" style="display: -webkit-box;font-size: 12px;border-top: 1px solid #2E3D4B;border-left: 1px solid #2E3D4B;border-bottom: 1px solid #2E3D4B;border-right: 1px solid #2E3D4B;padding:10px;width:50%">
-                                <div>
-                                    <p style="text-align:left;">Printed representation of <span t-if="o.edocument_type" t-field="o.edocument_type.label"/>. Visita <strong><span>http://www.nubefact.com/20487913791</span></strong></p>      
-                                    <p style="text-align:left;"><span t-if="o.shop_id and o.shop_id.einvoice_supplier" t-field="o.shop_id.einvoice_supplier.authorization_message" /></p>
-                                    <p style="text-align:left;">Resumen: <strong><span t-if="o.edocument_type" t-field="o.einvoice_hash_code"/></strong></p>     
-                                    <div style="text-align:center;">
+                                <div style="text-align:center;">
+                                    <p>Printed representation of <span t-if="o.edocument_type" t-field="o.edocument_type.label"/>. Visit <strong><span>http://www.nubefact.com/20487913791</span></strong></p>      
+                                    <p><span t-if="o.shop_id and o.shop_id.einvoice_supplier" t-field="o.shop_id.einvoice_supplier.authorization_message" /></p>
+                                    <div>
                                         <img t-att-src="'/report/barcode/QR/%s|%s|%s|%s|%s|%s|%s|%s|%s|'%(o.company_id.vat,o.edocument_type.code,o.einv_serie,o.einv_number,o.einv_amount_igv,o.amount_total,o.date_invoice,o.partner_id.catalog_06_id.code,o.partner_id.vat)"  style="width:100px;height:100px;"/>
                                     </div>
                                 </div>                 
@@ -309,9 +305,11 @@
 
         <template id="report_einvoice">
             <t t-call="web.report_layout">
+            <!-- <t t-call="web.html_container"> -->
                 <t t-foreach="docs" t-as="o">
                     <t t-call="odoope_einvoice_ose.report_einvoice_document" t-lang="o.partner_id.lang"/>
                 </t>
+            <!-- </t> -->
             </t>
         </template>
 
