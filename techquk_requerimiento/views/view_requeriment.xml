@@ -44,6 +44,10 @@
             <field name="name">Jefe de Requerimientos</field>
         </record>
 
+        <record id="techquk_requerimiento.group_auth_finanzas" model="res.groups">
+            <field name="name">Jefe de Finanzas</field>
+        </record>
+
         <record model="ir.ui.view" id="techquk_requerimiento.form_requerimiento">
             <field name="name">Formulario de Requerimientos</field>
             <field name="model">techquk_requerimiento.requerimiento</field>
@@ -94,7 +98,7 @@
                                     </group>
                                 </group>
                             </page>
-                            <page string="Autorizado" groups="techquk_requerimiento.group_auth">
+                            <page string="Autorizado" groups="techquk_requerimiento.group_auth_finanzas">
                                 <group>
                                     <group>
                                         <field name="anombre"/>
@@ -105,12 +109,6 @@
                                     <group>
                                         <field name="forma_pago"/>
                                     </group>
-                                    <group>
-                                        <field name="is_abastecimiento" />
-                                    </group>
-                                    <group>
-                                        <field name="guia_remision" attrs="{'required':[('is_abastecimiento', '=', True)],'invisible':[('is_abastecimiento', '!=', True)]}"/>
-                                    </group>
                                 </group>
                             </page>
                             <page string="Atendido" groups="techquk_requerimiento.group_auth">
@@ -120,6 +118,12 @@
                                     </group>
                                     <group>
                                         <field name="atendido"/>
+                                    </group>
+                                    <group>
+                                        <field name="is_abastecimiento" />
+                                    </group>
+                                    <group>
+                                        <field name="guia_remision" attrs="{'required':[('is_abastecimiento', '=', True)],'invisible':[('is_abastecimiento', '!=', True)]}"/>
                                     </group>
                                 </group>
                             </page>
