@@ -9,7 +9,8 @@
             report_type="qweb-pdf"
             name="odoope_einvoice_ose.report_einvoice"
             file="odoope_einvoice_ose.report_einvoice"
-            attachment="(object.state in ('open','paid')) and ('EINV'+(object.number or '').replace('/','')+'.pdf')"            
+            attachment="(object.state in ('open','paid')) and ('EINV'+(object.number or '').replace('/','')+'.pdf')"
+            print_report_name="((object.number or '').replace('/','')+(object.partner_id.name or ''))"             
             groups="account.group_account_invoice"
         />
 
@@ -20,7 +21,8 @@
             report_type="qweb-pdf"
             name="odoope_einvoice_ose.report_einvoice_ticket"
             file="odoope_einvoice_ose.report_einvoice_ticket"
-            attachment="(object.state in ('open','paid')) and ('EINV'+(object.number or '').replace('/','')+'.pdf')"            
+            attachment="(object.state in ('open','paid')) and ('EINV'+(object.number or '').replace('/','')+'.pdf')"
+            print_report_name="((object.number or '').replace('/','')+(object.partner_id.name or ''))"          
             groups="account.group_account_invoice"            
         />
 
