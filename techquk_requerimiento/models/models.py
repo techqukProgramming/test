@@ -26,8 +26,7 @@ class Requeriment(models.Model):
 
     items_id = fields.One2many('techquk_requerimiento.item','requerimiento_id',string="Items")
     items_ids = fields.Many2many('techquk_requerimiento.item','items_id',string="Items")
-    guia_remision = fields.Char("N° Guia",required=True,store=False)
-    is_abastecimiento = fields.Boolean("Es almacenable?",default=False,readonly=True)
+    condicion_pago = fields.Char("Condición de Pago",required=True)
 
     state = fields.Selection([
     ('observado', 'Observado'),
@@ -114,18 +113,6 @@ class Requeriment(models.Model):
         vals['name'] = self.env['ir.sequence'].next_by_code('techquk_requerimiento.requerimiento') #10
         result = super(Requeriment, self).create(vals) #se crea el nuevo requerimiento con el name 10 por defecto
         return result   
-
-    @api.onchange('items_ids')
-    def _set_is_abastecimiento(self):
-            arr = []        
-            if self.items_ids:
-                for x in self.items_ids:      
-                        if x.tiporequerimiento == 'abastecimiento':
-                            arr.append('X')
-            if len(arr) > 0:
-                self.is_abastecimiento = True
-            else:
-                self.is_abastecimiento = False
                 
                 
 class Item(models.Model):

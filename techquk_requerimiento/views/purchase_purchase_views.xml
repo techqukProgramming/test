@@ -12,6 +12,12 @@
                 <xpath expr="//field[@name='price_unit']" position="after">
                     <field name="standard_price"/>
                 </xpath>
+                <xpath expr="//field[@name='incoterm_id']" position="after">
+                    <field name="is_abastecimiento"/>
+                </xpath>
+                <xpath expr="//field[@name='is_abastecimiento']" position="after">
+                    <field name="guia_remision" attrs="{'required':[('is_abastecimiento', '=', True)],'invisible':[('is_abastecimiento', '!=', True)]}"/>
+                </xpath>
                 <xpath expr="//field[@name='standard_price']" position="after">
                     <field name="margen"/>
                 </xpath>
@@ -29,19 +35,309 @@
                 </xpath>
                 <xpath expr="//page[1]" position='after'>
                     <page string="Campos Adicionales">
-                    <group>
                         <group>
-                            <field name="firma_1"/>
-                            <field name="firma_2"/>
-                            <field name="firma_3"/>
+                            <group string="Firmas">
+                                <field name="firma_1"/>
+                                <field name="firma_2"/>
+                                <field name="firma_3"/>
+                                <field name="referencia"/>
+                                <field name="lugar_entrega"/>
+                            </group>
+                            <group string="Documentos del Proveedor">
+                                <field name="doc1"/>
+                                <field name="doc2"/>
+                                <field name="doc3"/>
+                                <field name="doc4"/>
+                                <field name="doc5"/>
+                                <field name="doc6"/>
+                            </group>
                         </group>
-                        <group>
-                            <field name="referencia"/>
-                        </group>
-                    </group> 
                     </page>
                 </xpath>
             </field>
         </record>
+
+        <template id="report_purchaseorder_document_inherit" inherit_id="purchase.report_purchaseorder_document">
+            <xpath expr="//t[@t-call='web.external_layout']" position="replace">
+                <t t-if="not o" t-set="o" t-value="doc"/>
+                <t t-if="not company">
+                    <!-- Multicompany -->
+                    <t t-if="company_id">
+                        <t t-set="company" t-value="company_id"/>
+                    </t>
+                    <t t-elif="o and 'company_id' in o">
+                        <t t-set="company" t-value="o.company_id.sudo()"/>
+                    </t>
+                    <t t-else="else">
+                        <t t-set="company" t-value="res_company"/>
+                    </t>
+                </t>
+            <div class="header o_report_layout_standard" style="padding-top:18px;">                    
+                <div class="row">
+                    <div class="col-8" style="padding-left:0px;">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 90px;" alt="Logo"/>    
+                        <div class="col-7" name="company_address" style="font-size: 13px;">
+                            <div>
+                                <strong t-field="company.partner_id.name"/>
+                            </div>
+                            <div>
+                                <t t-if="'company_id' in o.fields_get()">
+                                    <span t-field="company.partner_id.street"/>
+                                    <div >
+                                        <span t-if="company.partner_id.zip" t-field="company.partner_id.zip"/> -
+                                        <span t-if="company.partner_id.state_id" t-field="company.partner_id.state_id.name"/>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>                                
+                    </div>
+                    <div class="col-4">
+                        <div class="col-12" style="text-align: right; border-radius: 10px; border:1px solid #2E3D4B;">
+                            <div class="text-center" style="border-radius: 6px; width:100%; display: inline-block;">
+                                <div class="">
+                                    <div class="card-body">
+                                        <h3 class="card-title pricing-card-title" style="font-size:16px" >RUC <span t-field="o.company_id.vat" style="font-size:16px"/></h3>
+                                            <h4 class="my-0 font-weight-bold" style="padding-bottom: 10px; font-size:16px;">ORDEN DE COMPRA</h4>
+                                        <h3 class="card-title pricing-card-title" style="font-weight:bold; font-size:22px;color:#D83310" t-field="o.name"/>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="article o_report_layout_standard"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+                <t t-call="web.address_layout"/>
+                <div class="page">
+                    <div class="row" style="font-size: 12px;">
+                        <div class="col-8" >
+                            <strong>PROVEEDOR: </strong> 
+                            <div >
+                                <span t-field="o.partner_id.name" style="text-transform: uppercase;"/>
+                            </div>
+                            <div>
+                                <strong>RUC/DNI: </strong>
+                                <span t-if="o.partner_id.vat" t-field="o.partner_id.vat" style="text-transform: uppercase;"/>
+                            </div>
+                            <strong>DIRECCION: </strong> 
+                            <div>
+                                <span t-field="o.partner_id.street" style="text-transform: uppercase;"/>, <span t-field="o.partner_id.street2" style="text-transform: uppercase;"/>
+                                <span t-if="o.partner_id.zip" t-field="o.partner_id.zip" style="text-transform: uppercase;"/> -
+                                <span t-if="o.partner_id.state_id" t-field="o.partner_id.state_id.name" style="text-transform: uppercase;"/>
+                            </div>
+                            <div>
+                                <strong>PROYECTO: </strong>
+                                <span style="text-transform: uppercase;" t-if="o.id_requerimiento.centrocosto" t-field="o.id_requerimiento.centrocosto"/>
+                            </div>
+                            <div>
+                                <strong>COTIZACION DEL PROVEEDOR: </strong>
+                                <span style="text-transform: uppercase;" t-if="o.partner_ref" t-field="o.partner_ref"/>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div t-if="o.referencia" >
+                                    <strong>REFERENCIA:</strong>
+                                    <span style="text-transform: uppercase;" t-field="o.referencia"/>
+                            </div>
+                            <div t-if="o.currency_id">
+                                    <strong>MONEDA:</strong>
+                                    <span style="text-transform: uppercase;" t-field="o.currency_id.currency_unit_label"/>
+                            </div>
+                            <div  t-if="o.date_order">
+                                    <strong>FECHA:</strong>
+                                    <span t-field="o.date_order"/>
+                            </div>
+                        </div>                                      
+                    </div>
+                    <table style="margin-top:12px;margin-bottom:0px;font-size: 12px;border:1px solid #2E3D4B;width:100%;border-bottom:none !important;" >
+                        <thead>
+                            <tr style="font-size: 12px; text-transform: uppercase; padding: 6px; text-align: center; border:1px solid #2E3D4B;">
+                                <!-- <t t-set="colspan" t-value="7"/> -->
+                                <th style="padding: 6px;width:3%;">ITEM</th>
+                                <th style="padding: 6px;width:9%;border-left:1px solid #2E3D4B">CANT.</th>                                
+                                <th style="padding: 6px;width:9%;border-left:1px solid #2E3D4B">UND.</th>
+                                <th style="padding: 6px;width:12%;border-left:1px solid #2E3D4B">CODIGO</th>
+                                <th style="padding: 6px;width:43%;border-left:1px solid #2E3D4B">DESCRIPCION</th>
+                                <th style="padding: 6px;width:12%;border-left:1px solid #2E3D4B"><span>PRECIO UNIT.</span></th>                                                  
+                                <th style="padding: 6px;width:12%;padding-right:10px;border-left:1px solid #2E3D4B;">IMPORTE</th>   
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <t t-set="index" t-value="0"/>
+                            <t t-set="current_subtotal" t-value="0"/>
+                            <t t-foreach="o.order_line" t-as="order_line">
+                                <t t-set="current_subtotal" t-value="current_subtotal + order_line.price_subtotal"/>
+                                <!-- <t t-set="current_subtotal" t-value="current_subtotal + order_line.price_total"/> -->
+                                 <t t-set="index" t-value="index + 1"/>
+
+                                <tr style="height:20px;">
+                                        <td t-if="order_line.product_id" style="padding-right:5px;" class="text-right"><span t-esc="index"/></td>
+                                        <td style="border-left:1px solid #2E3D4B;padding-right:5px;" class="text-right"><span t-esc="'{0:,.2f}'.format(float(order_line.product_qty))"/></td>               
+                                        <td style="border-left:1px solid #2E3D4B;padding-left:5px;"><span t-field="order_line.product_uom"/></td>      
+                                        <td style="border-left:1px solid #2E3D4B;padding-left:5px;"><span t-field="order_line.product_id.default_code"/></td>
+                                        <td style="border-left:1px solid #2E3D4B;padding-left:5px;"><span t-field="order_line.product_id.name"/></td>   
+                                        <td style="border-left:1px solid #2E3D4B;padding-right:5px;" class="text-right"><span t-field="order_line.price_unit"/></td>                                       
+                                        <td style="border-left:1px solid #2E3D4B;padding-right:5px;" class="text-right">
+                                            <span t-field="order_line.price_subtotal"/>
+                                        </td>                                  
+                                </tr>
+                            </t>
+                            <tr style="width:100%;height:20px;">
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                            </tr>
+                            <tr style="width:100%;height:20px;">
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #2E3D4B;width:100%;height:20px;">
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                                <td style="border-left:1px solid #2E3D4B;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="panel panel-default" style="display: -webkit-box;padding:0;">
+                        <div style="width:65%;border:1px solid #2E3D4B;margin-top:5px;" >
+                            <div style="font-size:12px;padding:10px;"><strong>SON: </strong><span t-esc="o.currency_id.amount_to_text(o.amount_total)"/></div>                            
+                        </div>
+                        <div style="width: 35%; text-align: right; padding: 10px; font-size: 13px;border-right:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;border-top:1px solid #2E3D4B;margin-top:5px;">
+                            <div>
+                                <div style="width: 52%; display: inline-block; text-align:left;"><strong>BASE IMPONIBLE:</strong></div>
+                                <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
+                                <div style="display: inline-block; width: 30%;">
+                                    <span t-esc="'{0:,.2f}'.format(float(o.amount_untaxed))" />
+                                </div>
+                            </div>
+                            <div>
+                                <div style="width: 52%; display: inline-block; text-align:left;"><strong>I.G.V.:</strong></div>
+                                <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
+                                <div style="display: inline-block; width: 30%;">
+                                    <span t-esc="'{0:,.2f}'.format(float(o.amount_tax))" />
+                                </div>                                    
+                            </div>
+                            <div style="border-top: 1px solid;">
+                                <div style="width: 52%; display: inline-block; text-align:left;"><strong>MONTO TOTAL:</strong></div>
+                                <div style="width: 14%; display: inline-block; text-align:left;"><span t-field="o.currency_id.symbol"/></div>
+                                <div style="display: inline-block; width: 30%;">
+                                    <span t-esc="'{0:,.2f}'.format(float(o.amount_total))" />
+                                </div>                                    
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="panel panel-default" style="display: -webkit-box;padding:0;">
+                        <div style="width:65%;border:1px solid #2E3D4B;margin-top:5px;" >
+                            <div style="font-size:12px;padding:10px;border-bottom:1px solid #2E3D4B;text-transform: uppercase;"><strong>REQUERIMIENTO: </strong><span t-esc="o.id_requerimiento.name"/></div>                            
+                            <div style="font-size:12px;padding:10px;border-bottom:1px solid #2E3D4B;text-transform: uppercase;"><strong>LUGAR DE ENTREGA: </strong><span t-field="o.lugar_entrega"/></div>
+                            <div style="font-size:12px;padding:10px;border-bottom:1px solid #2E3D4B;text-transform: uppercase;"><strong>TIEMPO DE ENTREGA: </strong><span t-field="o.payment_term_id"/></div>
+                            <div style="font-size:12px;padding:10px;border-bottom:1px solid #2E3D4B;text-transform: uppercase;"><strong>FACTURAR A: </strong><span t-field="company.partner_id.name"/></div>
+                            <div style="font-size:12px;padding:10px;border-bottom:1px solid #2E3D4B;text-transform: uppercase;"><strong>FORMA DE PAGO: </strong><span t-field="o.id_requerimiento.forma_pago"/></div>
+                            <div style="font-size:12px;padding:10px;border-bottom:1px solid #2E3D4B;text-transform: uppercase;"><strong>CONDIC. DE PAGO: </strong><span t-field="o.id_requerimiento.condicion_pago"/></div>
+                            <div style="font-size:12px;padding:10px;text-transform: uppercase;"><strong>OBSERVACIONES: </strong><span t-field="o.notes"/></div>
+                        </div>
+                        <div style="width: 35%; text-align: justify; font-size: 11px;border:1px solid #2E3D4B;margin-top:5px;">
+                            <div style="border-bottom:1px solid #2E3D4B;padding:10px">
+                                <strong>1.- </strong>LA FACTURA SE ENTREGARÁ CON LAS GUIAS RESPECTIVAS Y COPIA DE LA PRESENTE ORDEN DE COMPRA.
+                            </div>
+                            <div style="border-bottom:1px solid #2E3D4B;padding:10px">
+                                <strong>2.- </strong>LOS MATERIALES O INSUMOS QUE NO COINCIDAN CON LAS ESPECIFICACIONES DE LA PRESENTE O/C SERÁN DEVUELTOS.                                  
+                            </div>
+                            <div style="border-bottom:1px solid #2E3D4B;padding:10px">
+                                <strong>3.- </strong>LAS FACTURAS DEBERÁN LLEVAR LA SIGUIENTE DIRECCIÓN: CAL. MANUEL MARÍA IZAGA 556 INT. 302 - CHICLAYO.                                   
+                            </div>
+                            <div style="border-bottom:1px solid #2E3D4B;padding:10px">
+                                <strong>4.- </strong>LAS FACTURAS ELECTRONICAS DEBERÁN SER ENVIADAS AL CORREO: facturas@tq.pe.                                   
+                            </div>
+                            <div style="padding:10px">
+                                <strong>5.- </strong>LA PROGRAMACIÓN DE PAGO SERÁ LUEGO DE RECIBIR LA CONFORMIDAD DEL EQUIPAMIENTO DE LA O.C. POR PARTE DEL JEFE DE PROYECTO.                                   
+                            </div>                                
+                        </div>
+                    </div>
+                    <div class="panel panel-default" style="display: -webkit-box;padding:0;">
+                        <div style="width:65%;border:1px solid #2E3D4B;margin-top:5px;">
+                                <div class="row" style="font-size: 12px;padding-top:30px;">
+                                    <div class="col-4 text-center" style="text-transform: uppercase;padding-left:35px;">Certificados de calidad <br/><span style="font-weight:bold;border:1px solid #2E3D4B;padding-top:2px;padding-right:4px;padding-left:3px;padding-bottom:2px"><label t-if="o.doc1">X</label><label t-else="">_</label></span></div>
+                                    <div class="col-4 text-center" style="text-transform: uppercase;">Certificados de Calibración <br/><span style="font-weight:bold;border:1px solid #2E3D4B;padding-top:2px;padding-right:4px;padding-left:3px;padding-bottom:2px"><label t-if="o.doc2">X</label><label t-else="">_</label></span></div>
+                                    <div class="col-4 text-center" style="text-transform: uppercase;">Planos <br/><span style="font-weight:bold;border:1px solid #2E3D4B;padding-top:2px;padding-right:4px;padding-left:3px;padding-bottom:2px"><label t-if="o.doc3">X</label><label t-else="">_</label></span></div>
+                                </div>
+                                <div class="row" style="font-size: 12px;padding-top:30px;">
+                                    <div class="col-4 text-center" style="text-transform: uppercase;">Catálogos <br/><span style="font-weight:bold;border:1px solid #2E3D4B;padding-top:2px;padding-right:4px;padding-left:3px;padding-bottom:2px"><label t-if="o.doc4">X</label><label t-else="">_</label></span></div>
+                                    <div class="col-4 text-center" style="text-transform: uppercase;">Información Técnica <br/><span style="font-weight:bold;border:1px solid #2E3D4B;padding-top:2px;padding-right:4px;padding-left:3px;padding-bottom:2px"><label t-if="o.doc5">X</label><label t-else="">_</label></span></div>
+                                    <div class="col-4 text-center" style="text-transform: uppercase;">Otros <br/><span style="font-weight:bold;border:1px solid #2E3D4B;padding-top:2px;padding-right:4px;padding-left:3px;padding-bottom:2px"><label t-if="o.doc6">X</label><label t-else="">_</label></span></div>
+                                </div>                        
+                        </div>
+                        <div style="width: 35%; text-align: justify; font-size: 11px;border:1px solid #2E3D4B;margin-top:5px;">
+                            <div style="border-bottom:1px solid #2E3D4B;padding:10px;text-transform: uppercase;">
+                                <strong>1.- </strong>El proveedor indicará en su cotización las normas o especificaciones técnicas aplicables al suministro.
+                            </div>
+                            <div style="border-bottom:1px solid #2E3D4B;padding:10px;text-transform: uppercase;">
+                                <strong>2.- </strong>El proveedor indicará la procedencia, el nombre del fabricante y el lote de producción en los casos aplicables.                                  
+                            </div>
+                            <div style="padding:10px;text-transform: uppercase;">
+                                <strong>3.- </strong>El proveedores incluirá Garantía contra defectos de fabricación.                                   
+                            </div>                             
+                        </div>
+                    </div>
+                    <div class="panel panel-default" style="display: -webkit-box;padding:0;width:100%;">
+                                <div style="width:32.5%;text-align:center;border-left:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;padding-bottom:10px;">
+                                    <img t-if="o.firma_1" src='/techquk_requerimiento/static/src/img/1.png'/>
+                                </div>
+                                <div style="width:32.5%;text-align:center;border-left:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;padding-bottom:10px;">
+                                    <img t-if="o.firma_2" src='/techquk_requerimiento/static/src/img/2.png'/> 
+                                </div>
+                                <div style="width:35%;text-align:center;border-left:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;border-right:1px solid #2E3D4B;padding-bottom:10px;">
+                                    <img t-if="o.firma_3" src='/techquk_requerimiento/static/src/img/3.png'/> 
+                                </div>              
+                    </div>
+                    <div class="panel panel-default" style="display: -webkit-box;padding:0;width:100%;">
+                                <div style="width:32.5%;text-align:center;border-left:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;">
+                                    <span style="font-weight:bold;font-size:12px;">LOGISTICA</span>
+                                </div>
+                                <div style="width:32.5%;text-align:center;border-left:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;">
+                                    <span style="font-weight:bold;font-size:12px;">FINANZAS</span>
+                                </div>
+                                <div style="width:35%;text-align:center;border-left:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;border-right:1px solid #2E3D4B;">
+                                    <span style="font-weight:bold;font-size:12px;">GERENCIA</span>
+                                </div>              
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer o_standard_footer" style="padding-top:55px;">
+                <div class="text-center" style="border-top: 1px solid black;font-size:14px;">
+                    <ul class="list-inline mb4">
+                        <li t-if="company.phone" class="list-inline-item">TELF.: <span t-field="company.phone"/></li>
+                        <li t-if="company.email" class="list-inline-item">EMAIL: <span t-field="company.email"/></li>
+                        <li t-if="company.website" class="list-inline-item">WEB: <span t-field="company.website"/></li>
+                        <li t-if="company.vat" class="list-inline-item"><t t-esc="company.country_id.vat_label or 'RUC'"/>: <span t-field="company.vat"/></li>
+                    </ul>
+
+                    <div name="financial_infos">
+                        <span t-field="company.report_footer"/>
+                    </div>
+
+                    <div t-if="report_type == 'pdf'" class="text-muted">
+                        PÁG: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+            </xpath>
+        </template>
     </data>
 </odoo>

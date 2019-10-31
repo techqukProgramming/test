@@ -11,6 +11,15 @@ class PurchaseInherit(models.Model):
         firma_1 = fields.Boolean("Firma Logistica",default=True)
         firma_2 = fields.Boolean("Firma Finanzas")
         firma_3 = fields.Boolean("Firma Gerencia General")
+        lugar_entrega = fields.Char("Lugar de Entrega",require=True)
+        doc1 = fields.Boolean("Certificados de calidad")
+        doc2 = fields.Boolean("Certificados de calibracion")
+        doc3 = fields.Boolean("Planos")
+        doc4 = fields.Boolean("Catálogos")
+        doc5 = fields.Boolean("Información Técnica")
+        doc6 = fields.Boolean("Otros")
+        guia_remision = fields.Char("N° Guia",required=True)
+        is_abastecimiento = fields.Boolean("Es almacenable?",default=False)
 
         @api.onchange('id_requerimiento')
         def _get_suppliers(self):
