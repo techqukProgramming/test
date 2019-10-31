@@ -93,14 +93,12 @@
                     </div>
                     <div class="col-4">
                         <div class="col-12" style="text-align: right; border-radius: 10px; border:1px solid #2E3D4B;">
-                            <div class="text-center" style="border-radius: 6px; width:100%; display: inline-block;">
-                                <div class="">
+                            <div class="text-center" style="border-radius: 6px; width:100%; display: inline-block;padding-top:18px;">
                                     <div class="card-body">
                                         <h3 class="card-title pricing-card-title" style="font-size:16px" >RUC <span t-field="o.company_id.vat" style="font-size:16px"/></h3>
                                             <h4 class="my-0 font-weight-bold" style="padding-bottom: 10px; font-size:16px;">ORDEN DE COMPRA</h4>
                                         <h3 class="card-title pricing-card-title" style="font-weight:bold; font-size:22px;color:#D83310" t-field="o.name"/>                                        
                                     </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -135,7 +133,7 @@
                                 <span style="text-transform: uppercase;" t-if="o.partner_ref" t-field="o.partner_ref"/>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4" style="padding-top:20px;">
                             <div t-if="o.referencia" >
                                     <strong>REFERENCIA:</strong>
                                     <span style="text-transform: uppercase;" t-field="o.referencia"/>
@@ -202,7 +200,7 @@
                                 <td style="border-left:1px solid #2E3D4B;"></td>
                                 <td style="border-left:1px solid #2E3D4B;"></td>
                             </tr>
-                            <tr style="border-bottom:1px solid #2E3D4B;width:100%;height:20px;">
+                            <tr style="border-bottom:1px solid #2E3D4B;width:100%;height:80px;">
                                 <td style="border-left:1px solid #2E3D4B;"></td>
                                 <td style="border-left:1px solid #2E3D4B;"></td>
                                 <td style="border-left:1px solid #2E3D4B;"></td>
@@ -243,65 +241,51 @@
                     </div>
                     <div class="panel panel-default" style="display: -webkit-box;padding:0;">
                         <div style="width:65%;border:1px solid #2E3D4B;margin-top:5px;" >
-                            <div style="font-size:12px;padding:10px;border-bottom:1px solid #2E3D4B;text-transform: uppercase;"><strong>REQUERIMIENTO: </strong><span t-esc="o.id_requerimiento.name"/></div>                            
-                            <div style="font-size:12px;padding:10px;border-bottom:1px solid #2E3D4B;text-transform: uppercase;"><strong>LUGAR DE ENTREGA: </strong><span t-field="o.lugar_entrega"/></div>
-                            <div style="font-size:12px;padding:10px;border-bottom:1px solid #2E3D4B;text-transform: uppercase;"><strong>TIEMPO DE ENTREGA: </strong><span t-field="o.payment_term_id"/></div>
-                            <div style="font-size:12px;padding:10px;border-bottom:1px solid #2E3D4B;text-transform: uppercase;"><strong>FACTURAR A: </strong><span t-field="company.partner_id.name"/></div>
-                            <div style="font-size:12px;padding:10px;border-bottom:1px solid #2E3D4B;text-transform: uppercase;"><strong>FORMA DE PAGO: </strong><span t-field="o.id_requerimiento.forma_pago"/></div>
-                            <div style="font-size:12px;padding:10px;border-bottom:1px solid #2E3D4B;text-transform: uppercase;"><strong>CONDIC. DE PAGO: </strong><span t-field="o.id_requerimiento.condicion_pago"/></div>
-                            <div style="font-size:12px;padding:10px;text-transform: uppercase;"><strong>OBSERVACIONES: </strong><span t-field="o.notes"/></div>
+                            <div style="font-size:12px;padding:10px;text-transform: uppercase;">
+                            <strong>REQUERIMIENTO: </strong><span t-esc="o.id_requerimiento.name"/><br/>
+                            <strong>LUGAR DE ENTREGA: </strong><span t-field="o.lugar_entrega"/><br/>
+                            <strong>TIEMPO DE ENTREGA: </strong><span t-field="o.payment_term_id"/><br/>
+                            <strong>FACTURAR A: </strong><span t-field="company.partner_id.name"/><br/>
+                            <strong>FORMA DE PAGO: </strong><span t-field="o.id_requerimiento.forma_pago"/><br/>
+                            <strong>CONDIC. DE PAGO: </strong><span t-field="o.id_requerimiento.condicion_pago"/><br/>
+                            <strong>OBSERVACIONES: </strong><span t-field="o.notes"/>
+                            </div>                            
                         </div>
-                        <div style="width: 35%; text-align: justify; font-size: 11px;border:1px solid #2E3D4B;margin-top:5px;">
-                            <div style="border-bottom:1px solid #2E3D4B;padding:10px">
-                                <strong>1.- </strong>LA FACTURA SE ENTREGARÁ CON LAS GUIAS RESPECTIVAS Y COPIA DE LA PRESENTE ORDEN DE COMPRA.
-                            </div>
-                            <div style="border-bottom:1px solid #2E3D4B;padding:10px">
-                                <strong>2.- </strong>LOS MATERIALES O INSUMOS QUE NO COINCIDAN CON LAS ESPECIFICACIONES DE LA PRESENTE O/C SERÁN DEVUELTOS.                                  
-                            </div>
-                            <div style="border-bottom:1px solid #2E3D4B;padding:10px">
-                                <strong>3.- </strong>LAS FACTURAS DEBERÁN LLEVAR LA SIGUIENTE DIRECCIÓN: CAL. MANUEL MARÍA IZAGA 556 INT. 302 - CHICLAYO.                                   
-                            </div>
-                            <div style="border-bottom:1px solid #2E3D4B;padding:10px">
-                                <strong>4.- </strong>LAS FACTURAS ELECTRONICAS DEBERÁN SER ENVIADAS AL CORREO: facturas@tq.pe.                                   
-                            </div>
-                            <div style="padding:10px">
-                                <strong>5.- </strong>LA PROGRAMACIÓN DE PAGO SERÁ LUEGO DE RECIBIR LA CONFORMIDAD DEL EQUIPAMIENTO DE LA O.C. POR PARTE DEL JEFE DE PROYECTO.                                   
-                            </div>                                
+                        <div style="width: 35%; text-align: justify; font-size: 9px;border-top:1px solid #2E3D4B;border-right:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;margin-top:5px;padding:10px;">
+                                <strong>1.- </strong>LA FACTURA SE ENTREGARÁ CON LAS GUIAS RESPECTIVAS Y COPIA DE LA PRESENTE ORDEN DE COMPRA. <br/>
+                                <strong>2.- </strong>LOS MATERIALES O INSUMOS QUE NO COINCIDAN CON LAS ESPECIFICACIONES DE LA PRESENTE O/C SERÁN DEVUELTOS.  <br/>                                
+                                <strong>3.- </strong>LAS FACTURAS DEBERÁN LLEVAR LA SIGUIENTE DIRECCIÓN: CAL. MANUEL MARÍA IZAGA 556 INT. 302 - CHICLAYO. <br/>                                  
+                                <strong>4.- </strong>LAS FACTURAS ELECTRONICAS DEBERÁN SER ENVIADAS AL CORREO: facturas@tq.pe. <br/>                            
+                                <strong>5.- </strong>LA PROGRAMACIÓN DE PAGO SERÁ LUEGO DE RECIBIR LA CONFORMIDAD DEL EQUIPAMIENTO DE LA O.C. POR PARTE DEL JEFE DE PROYECTO.                                                              
                         </div>
                     </div>
                     <div class="panel panel-default" style="display: -webkit-box;padding:0;">
                         <div style="width:65%;border:1px solid #2E3D4B;margin-top:5px;">
-                                <div class="row" style="font-size: 12px;padding-top:30px;">
+                                <div class="row" style="font-size: 9px;padding-top:20px;">
                                     <div class="col-4 text-center" style="text-transform: uppercase;padding-left:35px;">Certificados de calidad <br/><span style="font-weight:bold;border:1px solid #2E3D4B;padding-top:2px;padding-right:4px;padding-left:3px;padding-bottom:2px"><label t-if="o.doc1">X</label><label t-else="">_</label></span></div>
                                     <div class="col-4 text-center" style="text-transform: uppercase;">Certificados de Calibración <br/><span style="font-weight:bold;border:1px solid #2E3D4B;padding-top:2px;padding-right:4px;padding-left:3px;padding-bottom:2px"><label t-if="o.doc2">X</label><label t-else="">_</label></span></div>
                                     <div class="col-4 text-center" style="text-transform: uppercase;">Planos <br/><span style="font-weight:bold;border:1px solid #2E3D4B;padding-top:2px;padding-right:4px;padding-left:3px;padding-bottom:2px"><label t-if="o.doc3">X</label><label t-else="">_</label></span></div>
                                 </div>
-                                <div class="row" style="font-size: 12px;padding-top:30px;">
+                                <div class="row" style="font-size: 9px;padding-top:20px;">
                                     <div class="col-4 text-center" style="text-transform: uppercase;">Catálogos <br/><span style="font-weight:bold;border:1px solid #2E3D4B;padding-top:2px;padding-right:4px;padding-left:3px;padding-bottom:2px"><label t-if="o.doc4">X</label><label t-else="">_</label></span></div>
                                     <div class="col-4 text-center" style="text-transform: uppercase;">Información Técnica <br/><span style="font-weight:bold;border:1px solid #2E3D4B;padding-top:2px;padding-right:4px;padding-left:3px;padding-bottom:2px"><label t-if="o.doc5">X</label><label t-else="">_</label></span></div>
                                     <div class="col-4 text-center" style="text-transform: uppercase;">Otros <br/><span style="font-weight:bold;border:1px solid #2E3D4B;padding-top:2px;padding-right:4px;padding-left:3px;padding-bottom:2px"><label t-if="o.doc6">X</label><label t-else="">_</label></span></div>
                                 </div>                        
                         </div>
-                        <div style="width: 35%; text-align: justify; font-size: 11px;border:1px solid #2E3D4B;margin-top:5px;">
-                            <div style="border-bottom:1px solid #2E3D4B;padding:10px;text-transform: uppercase;">
-                                <strong>1.- </strong>El proveedor indicará en su cotización las normas o especificaciones técnicas aplicables al suministro.
-                            </div>
-                            <div style="border-bottom:1px solid #2E3D4B;padding:10px;text-transform: uppercase;">
-                                <strong>2.- </strong>El proveedor indicará la procedencia, el nombre del fabricante y el lote de producción en los casos aplicables.                                  
-                            </div>
-                            <div style="padding:10px;text-transform: uppercase;">
-                                <strong>3.- </strong>El proveedores incluirá Garantía contra defectos de fabricación.                                   
-                            </div>                             
+                        <div style="width: 35%; text-align: justify;border-top:1px solid #2E3D4B;border-right:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;margin-top:5px;font-size: 9px;padding:10px;text-transform: uppercase;">
+                                <strong>1.- </strong>El proveedor indicará en su cotización las normas o especificaciones técnicas aplicables al suministro. <br/>
+                                <strong>2.- </strong>El proveedor indicará la procedencia, el nombre del fabricante y el lote de producción en los casos aplicables. <br/>                                  
+                                <strong>3.- </strong>El proveedores incluirá Garantía contra defectos de fabricación.                                                              
                         </div>
                     </div>
                     <div class="panel panel-default" style="display: -webkit-box;padding:0;width:100%;">
-                                <div style="width:32.5%;text-align:center;border-left:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;padding-bottom:10px;">
+                                <div style="width:32.5%;text-align:center;border-left:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;padding-bottom:10px;padding-top:20px;">
                                     <img t-if="o.firma_1" src='/techquk_requerimiento/static/src/img/1.png'/>
                                 </div>
-                                <div style="width:32.5%;text-align:center;border-left:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;padding-bottom:10px;">
+                                <div style="width:32.5%;text-align:center;border-left:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;padding-bottom:10px;padding-top:20px;">
                                     <img t-if="o.firma_2" src='/techquk_requerimiento/static/src/img/2.png'/> 
                                 </div>
-                                <div style="width:35%;text-align:center;border-left:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;border-right:1px solid #2E3D4B;padding-bottom:10px;">
+                                <div style="width:35%;text-align:center;border-left:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;border-right:1px solid #2E3D4B;padding-bottom:10px;padding-top:20px;">
                                     <img t-if="o.firma_3" src='/techquk_requerimiento/static/src/img/3.png'/> 
                                 </div>              
                     </div>
