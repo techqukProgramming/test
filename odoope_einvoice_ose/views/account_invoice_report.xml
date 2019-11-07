@@ -26,6 +26,18 @@
             groups="account.group_account_invoice"            
         />
 
+          <report 
+            id="account_einvoice_report"
+            model="account.invoice"
+            string="Electronic document"
+            report_type="qweb-html"
+            name="odoope_einvoice_ose.report_einvoice"
+            file="odoope_einvoice_ose.report_einvoice"
+            attachment="(object.state in ('open','paid')) and ('EINV'+(object.number or '').replace('/','')+'.pdf')"
+            print_report_name="((object.number or '').replace('/','')+(object.partner_id.name or ''))"             
+            groups="account.group_account_invoice"
+        />
+
         <record id="paperformat_ticket" model="report.paperformat"> 
           <field name="name">Einvoice ticket</field> 
           <field name="format">custom</field> 
