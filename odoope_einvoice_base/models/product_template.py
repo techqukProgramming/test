@@ -36,10 +36,20 @@ class ProductTemplate(models.Model):
         costo_flete = fields.Float(string="Costo Flete",digits=(10,2),default='0')
         ganancia = fields.Float(string="Ganancia",digits=(10,2),default='0')
 
+        #Validar producto que no se repita el código.
         @api.onchange('product_code')
-        def set_default_code(self):
-            if self.product_code:
-                    self.default_code = self.product_code    
+        def validate_duplicate_product(self):
+                validate = self.env['product.template'].search([('product_code','=',self.product_code)], limit=1)
+                if len(validate) > 0:
+                        self.default_code = ''
+                        self.product_code = ''
+                        return {
+                                'warning': {
+                                                'title': 'Advertencia!',
+                                                'message': 'El código del producto es duplicado. Porfavor, cambielo!'}
+                                        }
+                elif self.product_code:
+                        self.default_code = self.product_code   
 
         @api.onchange('type')
         def _get_number_aleatory(self):
