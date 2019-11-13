@@ -26,7 +26,7 @@ class Requeriment(models.Model):
 
     items_id = fields.One2many('techquk_requerimiento.item','requerimiento_id',string="Items")
     items_ids = fields.Many2many('techquk_requerimiento.item','items_id',string="Items")
-    condicion_pago = fields.Char("Condición de Pago",required=True)
+    condicion_pago = fields.Char("Condición de Pago")
 
     state = fields.Selection([
     ('observado', 'Observado'),
