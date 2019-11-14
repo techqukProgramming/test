@@ -96,6 +96,7 @@
                                 <tr style="width:100%;">
                                     <td style="width:40%;text-align:left;font-weight:bold;padding-left:10px;">Peso Bruto Total de la Guía (KGM):</td>
                                     <td t-if="o.peso_bruto_total" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span t-esc="'{0:,.2f}'.format(o.peso_bruto_total)"/></td>
+                                    <td t-else="" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span>-</span></td>
                                 </tr>
                             </table>
                         </div>
