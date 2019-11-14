@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_test_techquk_guide,test_techquk.guide,model_test_techquk_guide,base.group_user,1,1,1,1
+access_test_techquk_item,test_techquk.item,model_test_techquk_item,base.group_user,1,1,1,1
+
+

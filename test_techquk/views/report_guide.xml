@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="report_guide_document">
+            <t t-if="not o" t-set="o" t-value="doc"/>
+
+            <t t-if="not company">
+                <!-- Multicompany -->
+                <t t-if="company_id">
+                    <t t-set="company" t-value="company_id"/>
+                </t>
+                <t t-elif="o and 'company_id' in o">
+                    <t t-set="company" t-value="o.company_id.sudo()"/>
+                </t>
+                <t t-else="else">
+                    <t t-set="company" t-value="res_company"/>
+                </t>    
+            </t>
+            <div class="header o_report_layout_standard">                    
+                <div class="row">
+                    <div class="col-8" style="padding-left:0px;">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 90px;" alt="Logo"/>    
+                        <div class="col-7" name="company_address" style="font-size: 13px;">
+                            <div>
+                                <strong t-field="company.partner_id.name"/>
+                            </div>
+                            <div>
+                                <t t-if="'journal_id' in o.fields_get()">
+                                    <span t-field="o.journal_id.shop_id.partner_id.street"/>
+                                    <div >
+                                        <span t-if="o.journal_id.shop_id.partner_id.zip" t-field="o.journal_id.shop_id.partner_id.zip"/> -
+                                        <span t-if="o.journal_id.shop_id.partner_id.state_id" t-field="o.journal_id.shop_id.partner_id.state_id.name"/>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>                                
+                    </div>
+                    <div class="col-4">
+                        <div class="col-12" style="text-align: right; border-radius: 10px; border:1px solid #2E3D4B;margin-right:10px;margin-top:50px">
+                            <div class="text-center" style="border-radius: 6px; width:100%; display: inline-block;">
+                                <div class="">
+                                    <div class="card-body">
+                                        <h3 class="card-title pricing-card-title" style="font-size:16px" >RUC <span t-field="o.company_id.vat" style="font-size:16px"/></h3>
+                                        <t t-if="o.tipo_comprobante">
+                                            <h4 class="my-0 font-weight-bold" style="padding-bottom: 10px; font-size:18px;">GUÍA DE REMISIÓN - REMITENTE</h4>
+                                        </t>
+                                        <h3 class="card-title pricing-card-title" style="font-weight:bold; font-size:22px;color:#D83310" t-field="o.name"/>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            
+                </div>
+            </div>
+
+            <div class="article o_report_layout_standard"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+                <div class="page">
+                    <div class="row" style="padding-top:200px;width:100%;margin-left:1px;">
+                        <div class="col-12" style="padding:0px;">
+                            <table style="width:100%;border:1px solid #2E3D4B;padding:10px;">
+                                <tr style="width:100%;border-bottom:1px solid #2E3D4B;background-color:#2c6eb5;color:white;font-weight:bold;">
+                                    <td style="width:100%;text-align:center;" colspan="2">DATOS DEL INICIO DEL TRASLADO</td>
+                                </tr>
+                                <tr style="width:100%;">
+                                    <td style="width:40%;text-align:left;font-weight:bold;padding-left:10px;">Fecha de Emisión:</td>
+                                    <td t-if="o.fecha_emision" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span t-field="o.fecha_emision"/></td>
+                                </tr>
+                                <tr style="width:100%;">
+                                    <td style="width:40%;text-align:left;font-weight:bold;padding-left:10px;">Fecha de entrega de bienes al transportista:</td>
+                                    <td t-if="o.fecha_inicio_tras" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span t-field="o.fecha_inicio_tras"/></td>
+                                </tr>
+                                <tr style="width:100%;">
+                                    <td style="width:40%;text-align:left;font-weight:bold;padding-left:10px;">Motivo de traslado:</td>
+                                    <td t-if="o.mot_traslado == '01'" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span>VENTA</span></td>
+                                    <td t-elif="o.mot_traslado == '14'" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span>VENTA SUJETA A CONFIRMACION DEL COMPRADOR</span></td>
+                                    <td t-elif="o.mot_traslado == '02'" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span>COMPRA</span></td>
+                                    <td t-elif="o.mot_traslado == '04'" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span>TRASLADO ENTRE ESTABLECIMIENTOS DE LA EMPRESA</span></td>
+                                    <td t-elif="o.mot_traslado == '18'" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span>TRASLADO EMISOR ITINERANTE CP</span></td>
+                                    <td t-elif="o.mot_traslado == '08'" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span>IMPORTACIÓN</span></td>
+                                    <td t-elif="o.mot_traslado == '09'" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span>EXPORTACIÓN</span></td>
+                                    <td t-elif="o.mot_traslado == '19'" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span>TRASLADO A ZONA PRIMARIA</span></td>
+                                    <td t-elif="o.mot_traslado == '13'" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span>OTROS MOTIVOS - <t t-esc="o.otr_traslado"/></span></td>
+                                </tr>
+                                <tr style="width:100%;">
+                                    <td style="width:40%;text-align:left;font-weight:bold;padding-left:10px;">Modalidad de transporte:</td>
+                                    <td t-if="o.tip_transporte == '01'" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span>Transporte Público</span></td>
+                                    <td t-elif="o.tip_transporte == '02'" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span>Transporte Privado</span></td>
+                                </tr>
+                                <tr style="width:100%;">
+                                    <td style="width:40%;text-align:left;font-weight:bold;padding-left:10px;">Tipo de Traslado:</td>
+                                    <td t-if="o.trans_programado == True" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span>Transbordo Programado</span></td>
+                                    <td t-elif="o.trans_programado == False" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span>No Transbordo Programado</span></td>
+                                </tr>
+                                <tr style="width:100%;">
+                                    <td style="width:40%;text-align:left;font-weight:bold;padding-left:10px;">Peso Bruto Total de la Guía (KGM):</td>
+                                    <td t-if="o.peso_bruto_total" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span t-esc="'{0:,.2f}'.format(o.peso_bruto_total)"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br/>
+		    <div class="row" style="width:100%;margin-left:1px;">
+                        <div class="col-12" style="padding:0px;">
+                            <table style="width:100%;border:1px solid #2E3D4B;padding:10px;">
+                                <tr style="width:100%;border-bottom:1px solid #2E3D4B;background-color:#2c6eb5;color:white;font-weight:bold;">
+                                    <td style="width:100%;text-align:center;" colspan="2">DATOS DEL PUNTO DE PARTIDA Y PUNTO DE LLEGADA</td>
+                                </tr>
+                                <tr style="width:100%;">
+                                    <td style="width:40%;text-align:left;font-weight:bold;padding-left:10px;">Dirección del punto de partida:</td>
+                                    <td t-if="o.cod_ubigeo and o.cod_direccion" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span t-field="o.cod_ubigeo"/>-<span t-field="o.cod_direccion"/></td>
+                                    <td t-else="" style="width:60%;text-align:left;padding-right:10px;"><span></span></td>
+                                </tr>
+                                <tr style="width:100%;">
+                                    <td style="width:40%;text-align:left;font-weight:bold;padding-left:10px;">Dirección del punto de llegada:</td>
+                                    <td t-if="o.cod_ubigeo_pl and o.cod_direccion_pl" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span t-field="o.cod_ubigeo_pl"/>-<span t-field="o.cod_direccion_pl"/></td>
+                                    <td t-else="" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+		    <br/>
+                    <div class="row" style="width:100%;margin-left:1px;">
+                        <div class="col-12" style="padding:0px;">
+                            <table style="width:100%;border:1px solid #2E3D4B;padding:10px;">
+                                <tr style="width:100%;border-bottom:1px solid #2E3D4B;background-color:#2c6eb5;color:white;font-weight:bold;">
+                                    <td style="width:100%;text-align:center;" colspan="2">DATOS DEL DESTINATARIO</td>
+                                </tr>
+                                <tr style="width:100%;">
+                                    <td style="width:40%;text-align:left;font-weight:bold;padding-left:10px;">Apellidos y nombres, denominación o razón:</td>
+                                    <td t-if="o.nom_remitente_d" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span t-field="o.nom_remitente_d"/></td>
+                                </tr>
+                                <tr style="width:100%;">
+                                    <td style="width:40%;text-align:left;font-weight:bold;padding-left:10px;">Documento de identidad:</td>
+                                    <td t-if="o.num_documento_d" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span t-field="o.num_documento_d"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row" style="width:100%;margin-left:1px;">
+                        <div class="col-12" style="padding:0px;">
+                            <table style="width:100%;border:1px solid #2E3D4B;padding:10px;">
+                                <tr style="width:100%;border-bottom:1px solid #2E3D4B;background-color:#2c6eb5;color:white;font-weight:bold;">
+                                    <td style="width:100%;text-align:center;" colspan="2">DATOS DEL TRANSPORTISTA</td>
+                                </tr>
+                                <tr style="width:100%;">
+                                    <td style="width:40%;text-align:left;font-weight:bold;padding-left:10px;">Apellidos y nombres, denominación o razón:</td>
+                                    <td t-if="o.nom_c" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span t-field="o.nom_c"/></td>
+                                </tr>
+                                <tr style="width:100%;">
+                                    <td style="width:40%;text-align:left;font-weight:bold;padding-left:10px;">Documento de identidad:</td>
+                                    <td t-if="o.num_documento_c" style="width:60%;text-align:left;padding-left:10px;padding-right:10px;"><span t-field="o.num_documento_c"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br/>
+                    <table style="width:100%;border:1px solid #2E3D4B;padding:10px;" >
+                        <thead>
+                            <tr style="width:100%;border-bottom:1px solid #2E3D4B;background-color:#2c6eb5;color:white;font-weight:bold;">
+                                    <td style="width:100%;text-align:center;" colspan="5">DATOS DE LOS BIENES</td>
+                            </tr>
+                            <tr style="width:100%;border-bottom:1px solid #2E3D4B;background-color:#2c6eb5;color:white;font-weight:bold;">
+                                <th style="padding:10px;width:5%;text-align:center;">Nro</th>
+                                <th style="padding:10px;width:15%;text-align:center;">Cod. Bien</th>                                
+                                <th style="padding:10px;width:50%;text-align:center;">Descripción</th>
+                                <th style="padding:10px;width:15%;text-align:center;">UoM</th>
+                                <th style="padding:10px;width:15%;text-align:center;">Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.items_ids_guide" t-as="items_ids_guide">
+                                <tr style="height:20px;">
+                                        <td t-if="items_ids_guide.numero_orden"  class="text-center"><span t-field="items_ids_guide.numero_orden"/></td>
+                                        <td t-else="" class="text-center"><span>-</span></td>
+                                        <td t-if="items_ids_guide.codigo_bien" class="text-center"><span t-field="items_ids_guide.codigo_bien"/></td>
+                                        <td t-else="" class="text-center"><span>-</span></td>              
+                                        <td t-if="items_ids_guide.name" class="text-center"><span t-field="items_ids_guide.name"/></td>
+                                        <td t-else="" class="text-center"><span>-</span></td>      
+                                        <td t-if="items_ids_guide.unidad_medida" class="text-center"><span t-field="items_ids_guide.unidad_medida"/></td>
+                                        <td t-else="" class="text-center"><span>-</span></td>
+                                        <td t-if="items_ids_guide.cantidad" class="text-center"><span t-esc="'{0:,.2f}'.format(items_ids_guide.cantidad)"/></td>
+                                        <td t-else="" class="text-center"><span>-</span></td>                     
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="footer o_standard_footer">
+                <div class="text-center" style="border-top: 1px solid black;font-size:14px;">
+                    <ul class="list-inline mb4">
+                        <li t-if="company.phone" class="list-inline-item">Phone: <span t-field="company.phone"/></li>
+                        <li t-if="company.email" class="list-inline-item">Email: <span t-field="company.email"/></li>
+                        <li t-if="company.website" class="list-inline-item">Web: <span t-field="company.website"/></li>
+                        <li t-if="company.vat" class="list-inline-item"><t t-esc="company.country_id.vat_label or 'RUC'"/>: <span t-field="company.vat"/></li>
+                    </ul>
+
+                    <div name="financial_infos">
+                        <span t-field="company.report_footer"/>
+                    </div>
+
+                    <div t-if="report_type == 'pdf'" class="text-muted">
+                        Page: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="report_guide">
+            <t t-call="web.report_layout">
+            <!-- <t t-call="web.html_container"> -->
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="test_techquk.report_guide_document" t-lang="o.partner_id.lang"/>
+                </t>
+            <!-- </t> -->
+            </t>
+        </template>
+
+    </data>
+</odoo>

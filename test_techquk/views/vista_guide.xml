@@ -1,0 +1,231 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="test_techquk.tree_guide">
+            <field name="name">LISTA DE GUIAS DE REMISION</field>
+            <field name="model">test_techquk.guide</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="id_factura"/>
+                    <field name="name"/>
+                    <field name="fecha_emision"/>
+                    <field name="tipo_comprobante"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="test_techquk.tree_item">
+            <field name="name">Lista de Items de la Guía de Remisión</field>
+            <field name="model">test_techquk.item</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="numero_orden"/>
+                    <field name="codigo_bien"/>
+                    <field name="name"/>
+                    <field name="unidad_medida"/>
+                    <field name="cantidad"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="test_techquk.form_item">
+            <field name="name">Formulario de Items de la Guía de Remisión</field>
+            <field name="model">test_techquk.item</field>
+            <field name="arch" type="xml">
+                <form string="Items de la Guía de Remisión">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="codigo_bien"/>
+                            </group>
+                            <group>
+                                <field name="unidad_medida"/>
+                            </group>
+                            <group>
+                                <field name="cantidad"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="test_techquk.form_guide">
+            <field name="name">FORMULARIO GUIA DE REMISION</field>
+            <field name="model">test_techquk.guide</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <!-- <button name="SendToJSON" class="oe_highlight" type="object" string="ENVIAR AL MODULO LOGISTICO" states="enviado" attrs="{'invisible': [('state','=','cancelar')]}"/> -->
+                        <!-- <button name="SendXML" class="oe_highlight" type="object" string="ENVIAR GUIA ELECTRONICA" states="enviado" attrs="{'invisible': [('state','=','cancelar')]}"/> -->
+                        <field name="state" widget="statusbar" statusbar="enviar,cancelar" invisible="1"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="N° de Guia de Remisión"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="id_factura"/>
+                            </group>
+                            <group>
+                                <field name="fecha_emision"/>
+                            </group>
+                            <group>
+                                <field name="tipo_comprobante"/>
+                            </group>
+                             <group>
+                                <field name="fecha_inicio_tras"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="items_ids_guide"/>
+                        </group>
+                        <group>
+                            <group col="3">
+                                <field name="peso_bruto_total"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="REMITENTE">
+                                <group>
+                                    <group>
+                                        <field name="tipo_documento"/>
+                                    </group>
+                                    <group>
+                                        <field name="num_documento"/>
+                                    </group>
+                                    <group>
+                                        <field name="nom_remitente"/>
+                                    </group>
+                                    <group>
+                                        <field name="mot_traslado"/>
+                                    </group>
+                                    <group>
+                                        <field name="des_traslado"/>
+                                    </group>
+                                    <group>
+                                        <field name="otr_traslado" attrs="{'invisible': [('mot_traslado','!=','13')]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="num_dam"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="DESTINATARIO">
+                                <group>
+                                    <group>
+                                        <field name="tipo_documento_d"/>
+                                    </group>
+                                    <group>
+                                        <field name="num_documento_d"/>
+                                    </group>
+                                    <group>
+                                        <field name="nom_remitente_d"/>
+                                    </group>
+                                    <group>
+                                        <field name="tip_transporte"/>
+                                    </group>
+                                    <group>
+                                        <field name="mul_destinos"/>
+                                    </group>
+                                    <group>
+                                        <field name="otr_documentos" widget="many2many_binary"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="DIRECCIÓN">
+                                <group>
+                                    <group string="Ubigeo del punto de partida" col="2">
+                                        <field name="cod_departamento"/>
+                                        <field name="cod_provincia"/>
+                                        <field name="cod_distrito"/>
+                                        <field name="cod_ubigeo"/>
+                                        <field name="cod_direccion"/>    
+                                    </group>
+                                    <group string="Ubigeo del punto de llegada" col="2">
+                                        <field name="cod_departamento_pl"/>
+                                        <field name="cod_provincia_pl"/>
+                                        <field name="cod_distrito_pl"/>
+                                        <field name="cod_ubigeo_pl"/>
+                                        <field name="cod_direccion_pl"/>    
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="TRANSPORTE PRIVADO">
+                                <group>
+                                    <group string="Vehículo">
+                                            <field name="num_placa"/>    
+                                    </group>
+                                    <group string="Conductores">
+                                            <field name="tipo_documento_c"/>
+                                            <field name="num_documento_c"/>
+                                            <field name="nom_c"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="EXTRAS">
+                                <group>
+                                        <group>
+                                            <field name="trans_programado"/>
+                                        </group>    
+                                        <group>
+                                            <field name="obs"/>
+                                        </group>  
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="test_techquk.search_guide">
+            <field name="name">BUSCAR GUIA DE REMISION</field>
+            <field name="model">test_techquk.guide</field>
+            <field name="arch" type="xml">
+                <search string="GUIAS">
+                    <field name="id_factura" string="FACTURA" filter_domain="[('id_factura', 'ilike', self)]"/>
+                    <field name="name" string="GUIA" filter_domain="[('name', 'ilike', self)]"/>
+                    <filter name="tipo_comprobante" string="FACTURA" domain="[('tipo_comprobante', '=', 'FACTURA')]"/>
+                    <filter name="tipo_comprobante" string="BOLETA" domain="[('tipo_comprobante', '=', 'BOLETA')]"/>
+                    <group string="Agrupado por">
+                        <filter name="group_by_cargo" string="TIPO DE COMPROBANTE" context="{'group_by': 'tipo_comprobante'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="product_uom_form_view_inherit">
+            <field name="name">uom.uom.form.inherit</field>
+            <field name="model">uom.uom</field>
+            <field name="inherit_id" ref="uom.product_uom_form_view"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="codigo"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="product_uom_tree_view_inherit">
+            <field name="name">uom.uom.tree.inherit</field>
+            <field name="model">uom.uom</field>
+            <field name="inherit_id" ref="uom.product_uom_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="codigo"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

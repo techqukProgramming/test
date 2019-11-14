@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+    <record model="ir.actions.act_window" id="test_techquk.action_guide">
+      <field name="name">GUIA DE REMISION</field>
+      <field name="res_model">test_techquk.guide</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Crear tu primera Guía de Remisión!
+        </p>
+      </field>
+    </record>
+
+    <!-- actions -->
+    <menuitem name="Guía de Remisión" id="test_techquk.guide" parent="account.menu_finance_receivables" action="test_techquk.action_guide"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+       <!--
+            Resource: uom.uom
+        -->
+        <record id="4A" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">BOBINAS</field>
+            <field name="codigo">4A</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="BJ" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">BALDE</field>
+            <field name="codigo">BJ</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="BLL" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">BARRILES</field>
+            <field name="codigo">BLL</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="BG" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">BOLSA</field>
+            <field name="codigo">BG</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="BO" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">BOTELLAS</field>
+            <field name="codigo">BO</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="BX" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">CAJA</field>
+            <field name="codigo">BX</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="CT" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">CARTONES</field>
+            <field name="codigo">CT</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="CMK" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">CENTIMETRO CUADRADO</field>
+            <field name="codigo">CMK</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="CMQ" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_vol"/>
+            <field name="name">CENTIMETRO CUBICO</field>
+            <field name="codigo">CMQ</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="CMT" model="uom.uom">
+            <field name="category_id" ref="uom.uom_categ_length"/>
+            <field name="name">CENTIMETRO LINEAL</field>
+            <field name="codigo">CMT</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="CEN" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">CIENTO DE UNIDADES</field>
+            <field name="codigo">CEN</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="CY" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">CILINDRO</field>
+            <field name="codigo">CY</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="CJ" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">CONOS</field>
+            <field name="codigo">CJ</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="DZN" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">DOCENA</field>
+            <field name="codigo">DZN</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="DZP" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">DOCENA POR 10**6</field>
+            <field name="codigo">DZP</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="BE" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">FARDO</field>
+            <field name="codigo">BE</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="GLI" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_vol"/>
+            <field name="name">GALON INGLES (4,545956L)</field>
+            <field name="codigo">GLI</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="GRM" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_kgm"/>
+            <field name="name">GRAMO</field>
+            <field name="codigo">GRM</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="GRO" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">GRUESA</field>
+            <field name="codigo">GRO</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="HLT" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_vol"/>
+            <field name="name">HECTOLITRO</field>
+            <field name="codigo">HLT</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="LEF" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">HOJA</field>
+            <field name="codigo">LEF</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="SET" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">JUEGO</field>
+            <field name="codigo">SET</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="KGM" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_kgm"/>
+            <field name="name">KILOGRAMO</field>
+            <field name="codigo">KGM</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="KTM" model="uom.uom">
+            <field name="category_id" ref="uom.uom_categ_length"/>
+            <field name="name">KILOMETRO</field>
+            <field name="codigo">KTM</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="KWH" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">KILOVATIO HORA</field>
+            <field name="codigo">KWH</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="KT" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">KIT</field>
+            <field name="codigo">KT</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="CA" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">LATAS</field>
+            <field name="codigo">CA</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="LBR" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_kgm"/>
+            <field name="name">LIBRAS</field>
+            <field name="codigo">LBR</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="LTR" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_vol"/>
+            <field name="name">LITRO</field>
+            <field name="codigo">LTR</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="MWH" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">MEGAWATT HORA</field>
+            <field name="codigo">MWH</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="MTR" model="uom.uom">
+            <field name="category_id" ref="uom.uom_categ_length"/>
+            <field name="name">METRO</field>
+            <field name="codigo">MTR</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="MTK" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">METRO CUADRADO</field>
+            <field name="codigo">MTK</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="MTQ" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_vol"/>
+            <field name="name">METRO CUBICO</field>
+            <field name="codigo">MTQ</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="MGM" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_kgm"/>
+            <field name="name">MILIGRAMOS</field>
+            <field name="codigo">MGM</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="MLT" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_vol"/>
+            <field name="name">MILILITRO</field>
+            <field name="codigo">MLT</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="MMT" model="uom.uom">
+            <field name="category_id" ref="uom.uom_categ_length"/>
+            <field name="name">MILIMETRO</field>
+            <field name="codigo">MMT</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="MMK" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">MILIMETRO CUADRADO</field>
+            <field name="codigo">MMK</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="MMQ" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_vol"/>
+            <field name="name">MILIMETRO CUBICO</field>
+            <field name="codigo">MMQ</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="MLL" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">MILLARES</field>
+            <field name="codigo">MLL</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="UM" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">MILLON DE UNIDADES</field>
+            <field name="codigo">UM</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="ONZ" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_vol"/>
+            <field name="name">ONZAS</field>
+            <field name="codigo">ONZ</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="PF" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">PALETAS</field>
+            <field name="codigo">PF</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="PK" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">PAQUETE</field>
+            <field name="codigo">PK</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="PR" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">PAR</field>
+            <field name="codigo">PR</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="FOT" model="uom.uom">
+            <field name="category_id" ref="uom.uom_categ_length"/>
+            <field name="name">PIES</field>
+            <field name="codigo">FOT</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="FTK" model="uom.uom">
+            <field name="category_id" ref="uom.uom_categ_length"/>
+            <field name="name">PIES CUADRADOS</field>
+            <field name="codigo">FTK</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="FTQ" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_vol"/>
+            <field name="name">PIES CUBICOS</field>
+            <field name="codigo">FTQ</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="C62" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">PIEZAS</field>
+            <field name="codigo">C62</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="PG" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">PLACAS</field>
+            <field name="codigo">PG</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="ST" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">PLIEGO</field>
+            <field name="codigo">ST</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="INH" model="uom.uom">
+            <field name="category_id" ref="uom.uom_categ_length"/>
+            <field name="name">PULGADAS</field>
+            <field name="codigo">INH</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="RM" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">RESMA</field>
+            <field name="codigo">RM</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="DR" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">TAMBOR</field>
+            <field name="codigo">DR</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="STN" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_kgm"/>
+            <field name="name">TONELADA CORTA</field>
+            <field name="codigo">STN</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="LTN" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_kgm"/>
+            <field name="name">TONELADA LARGA</field>
+            <field name="codigo">LTN</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="TNE" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_kgm"/>
+            <field name="name">TONELADAS</field>
+            <field name="codigo">TNE</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="TU" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">TUBOS</field>
+            <field name="codigo">TU</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="NIU" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">UNIDAD (BIENES)</field>
+            <field name="codigo">NIU</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="ZZ" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_unit"/>
+            <field name="name">UNIDAD (SERVICIOS)</field>
+            <field name="codigo">ZZ</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="GLL" model="uom.uom">
+            <field name="category_id" ref="uom.product_uom_categ_vol"/>
+            <field name="name">US GALON (3,7843 L)</field>
+            <field name="codigo">GLL</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="YRD" model="uom.uom">
+            <field name="category_id" ref="uom.uom_categ_length"/>
+            <field name="name">YARDA</field>
+            <field name="codigo">YRD</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+        <record id="YDK" model="uom.uom">
+            <field name="category_id" ref="uom.uom_categ_length"/>
+            <field name="name">YARDA CUADRADA</field>
+            <field name="codigo">YDK</field>
+            <field name="factor_inv" eval="1000"/>
+            <field name="uom_type">bigger</field>
+        </record>
+    </data>
+</odoo>

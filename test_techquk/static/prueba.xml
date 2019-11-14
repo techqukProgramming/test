@@ -1,0 +1,189 @@
+<DespatchAdvice  xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" 
+    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" 
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
+    xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2">
+    <!-- Version del UBL -->
+    <cbc:UBLVersionID>2.0</cbc:UBLVersionID>
+    <!--Version de la estructura del documento-->
+    <cbc:CustomizationID>1.0</cbc:CustomizationID>
+    <!--Numeración, conformada por serie y número correlativo-->
+    <cbc:ID>T001-00000008</cbc:ID>
+    <!--Fecha de emisión-->
+    <cbc:IssueDate>2015-10-22</cbc:IssueDate>
+    <!--Tipo de documento (Guía) Catalogo N° 01-->
+    <cbc:DespatchAdviceTypeCode>09</cbc:DespatchAdviceTypeCode>
+    <!--Observaciones-->
+    <cbc:Note>Transporto bolsas para basura</cbc:Note>
+    <!--Guía de remisión dada de baja-->
+    <cac:OrderReference>
+    <!--Serie y Número de documento-->
+        <cbc:ID>T001-00000008</cbc:ID>
+    <!--Código del tipo de documento @name (tipo de documento)-->
+        <cbc:OrderTypeCode name="">09</cbc:OrderTypeCodename>
+    </cac:OrderReference>
+    <!--Documento relacionado-->
+    <cac:AdditionalDocumentReference>
+    <!--Numero de documento-->
+        <cbc:ID>F001-00000001</cbc:ID>
+    <!--Codigo del tipo de documento-->
+        <cbc:DocumentTypeCode>09</cbc:DocumentTypeCode>
+    </cac:AdditionalDocumentReference>
+    <!--Firma Digital-->
+    <ext:UBLExtensions>
+        <ext:UBLExtension>
+            <ext:ExtensionContent>
+                <ds:Signature Id="SignSUNAT">
+                    <ds:SignedInfo>
+                        <ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+                        <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+                        <ds:Reference URI="">
+                            <ds:Transforms>
+                                <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            </ds:Transforms>
+                            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+                            <ds:DigestValue>nLFuQRohWE1MrGvEg1v2KDBupkA=</ds:DigestValue>
+                        </ds:Reference>
+                    </ds:SignedInfo>
+                    <ds:SignatureValue>L5icPKz8v//tJzVrKBj+blhrVgQ7Je4co7cLMjrDcGd+7MKL+FZVy6dX13xkv+F0goxiwSrX/8JueAQehjSSIxnNVbWvWbksKphfouRdHpsaGKw0eIaGpghvNFSPclkqhAB5UF9JLnuOnx/S1f4HRNCRPNNTibKtlJXLl4eynwWzM5AhL8DIJkRP03ZlI3kNQuM8Eq5wvDvD+BsNcuTW4BNaXyZ/8A154wEqJKBr7BUvTqfynIKuWT4yvVdfhhXV3a9tWUGW3I13Lc+Eg9cJLQSCG6gOX9n+6nuMVmMSUHZFIl2owvhdnrKf1+lP8AL2ptuGVsP4rBY5LUNTGmTS+A==</ds:SignatureValue>
+                    <ds:KeyInfo>
+                        <cac:X509Data>
+                            <cac:X509Certificate>MIIDozCCAougAwIBAgIJAP64AgtnA90PMA0GCSqGSIb3DQEBBQUAMIGSMQswCQYDVQQGEwJwZTENMAsGA1UECBMEbGltYTENMAsGA1UEBxMEbGltYTEOMAwGA1UEChMFU1VOQVQxFTATBgNVBAsTDElOU0ktQ0FMSURBRDEZMBcGA1UEAxMQd3d3LnN1bmF0LmdvYi5wZTEjMCEGCSqGSIb3DQEJARYUbnF1aXNwZUBzdW5hdC5nb2IucGUwHhcNMTMxMTIwMjE1MjE1WhcNMTMxMTIyMjE1MjE1WjBRMSAwHgYKCZImiZPyLGQBGRYQd3cuc3VuYXQuZ29iLnBlIDESMBAGA1UECxQJUlVDX1NVTkFUMRkwFwYDVQQDExB3d3cuc3VuYXQuZ29iLnBlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuEIr9arLYfax9Mjd1seWF5toTAHx7bs4yhPPeHXIphcrDY/M1tsV1wSYfzW380KzbsWbno8U8yv2Y3FRJHqzPeN88pvi3766+U3hW9UCs0Sf4tB1NJCdWfx6qJhikBBFAlMCiV8xCH+yr60tN2kvU04Gg/AjbxjKDdfZhNp4k8Tog5aoEVFAJQ+1rCSbYzPuxZjn/YBGqXhw9o7uNmwrjC4reFSTCDhuw1jMKstdOt4tzcQnxHAr0FmLGWfxx+7PDUHiH+Uk6A7erxJvG1D62syUJg/FkpCHKYNbpi2zuUEcjq8cTQbr0AFLbIPHbYOO6F8RPbWW+tZZ0KuRe4QlWQIDAQABozwwOjArBgNVHR8EJDAiMCCgHqAchhpodHRwOi8vZXhhbXBsZS5jb20vY3JsLmNybDALBgNVHQ8EBAMCBsAwDQYJKoZIhvcNAQEFBQADggEBAJjWfKOLien6Fwxte+G77+2LDtUY2XhAg65VyN++uDKAlxq99/O8CS59a0BUTOENHddfOvFxTUrR/P9xz/9XDgpCCIzbdxcnLvNKMkdaK8/YKpyLeJFUrLeJnFu5b1OruhHme0KerjBcCYf3/dnWMn8KtmFTtRBvsO4DsM7v5NsTWZAE9alXZrTYvn9JpXu7c6NowmZ0DESf+Byd1NiieABVVzHzAuKp1heLId/58D8V9AqVNh5ypynmv4OlSBhVXj5sBtYkvPmiANiM7NamoihnPwkOfsdmPVBO2VgWlTEKyevwA66KS0DicoWrAqu7YL6VfKbpoJ6+1eNWUNbSh/8=</cac:X509Certificate>
+                        </cac:X509Data>
+                    </ds:KeyInfo>
+                </ds:Signature>
+            </ext:ExtensionContent>
+        </ext:UBLExtension>
+    </ext:UBLExtensions>
+    <cac:Signature>
+        <cbc:ID>T001-00000001</cbc:ID>
+        <cac:SignatoryParty>
+            <cac:PartyIdentification>
+                <cbc:ID>20131312955</cbc:ID>
+            </cac:PartyIdentification>
+            <cac:PartyName>
+                <cbc:Name>SUNAT</cbc:Name>
+            </cac:PartyName>
+        </cac:SignatoryParty>
+        <cac:DigitalSignatureAttachment>
+            <cac:ExternalReference>
+                <cbc:URI>SignSUNAT</cbc:URI>
+            </cac:ExternalReference>
+        </cac:DigitalSignatureAttachment>
+    </cac:Signature>
+    <!--Datos del remitente-->
+    <cac:DespatchSupplierParty>
+    <!--Numero de documento de identidad y tipo de documento de identidad-->
+        <cbc:CustomerAssignedAccountID schemeID="6">20487913791</cbc:CustomerAssignedAccountID>
+    <!--Apellidos y nombres, denominacion o razon social del destinatario-->
+        <cac:Party>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName>TECHQUK S.A.C</cbc:RegistrationName>
+            </cac:PartyLegalEntity>
+        </cac:Party>
+    </cac:DespatchSupplierParty>
+    <!--Datos del destinatario-->
+    <cac:DeliveryCustomerParty>
+    <!--Numero de documento de identidad y tipo de documento de identidad-->
+        <cbc:CustomerAssignedAccountID schemeID="1">73130710</cbc:CustomerAssignedAccountID>
+        <cac:Party>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName>JUAN FRANCISCO MEJIA SAMAME</cbc:RegistrationName>
+            </cac:PartyLegalEntity>
+        </cac:Party>
+    </cac:DeliveryCustomerParty>
+    <!--Datos del establecimiento del tercero (cuando se ingrese)-->
+    <cac:SellerSupplierParty>
+    <!--Numero de documento de identidad-->
+        <cbc:CustomerAssignedAccountID schemeID="1">73130709</cbc:CustomerAssignedAccountID>
+        <cac:Party>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName>ROLANDO JOSE MEJIA SAMAME</cbc:RegistrationName>
+            </cac:PartyLegalEntity>
+        </cac:Party>
+    </cac:SellerSupplierParty>
+    <!--Datos del envío-->
+    <cac:Shipment>
+    <!--Motivo del translado-->
+        <cbc:HandlingCode>01</cbc:HandlingCode>
+    <!--Descripcion de motivo de traslado-->
+        <cbc:Information>VENTA</cbc:Information>
+    <!--Indicador de transbordo programado (observado)-->
+        <cbc:SplitConsignmentIndicator>true</cbc:SplitConsignmentIndicator>
+    <!--Peso bruto total de los bienes-->
+        <cbc:GrossWeightMeasure unitCode="KGM">10000.00</cbc:GrossWeightMeasure>
+    <!--Número de bultos o pallets-->
+        <cbc:TotalTransportHandlingUnitQuantity>5</cbc:TotalTransportHandlingUnitQuantity>
+        <cac:ShipmentStage>
+    <!--Modalidad de traslado-->
+            <cbc:TransportModeCode>1</cbc:TransportModeCode>
+    <!--Fecha de inicio de traslado-->
+            <cac:TransitPeriod>
+                <cbc:StartDate>2015-10-23</cbc:StartDate>
+            </cac:TransitPeriod>
+    <!--Transporte público (transportista)-->
+            <cac:CarrierParty>
+    <!--Numero de RUC transportista-->
+                <cac:PartyIdentification>
+                    <cbc:ID schemeID="6"/>20487913791</cbc:ID>
+                </cac:PartyIdentification>
+                <cac:PartyName>
+    <!--Apellidos y Nombres o denominacion o razon social del transportista-->
+                    <cbc:Name>TECHQUK S.A.C</cbc:Name>
+                </cac:PartyName>
+            </cac:CarrierParty>
+    <!--Transporte Privado (vehiculo)-->
+            <cac:TransportMeans>
+    <!--Numero de placa del vehículo-->
+                <cac:RoadTransport>
+                    <cbc:LicensePlateID>PGY-0988</cbc:LicensePlateID>
+                </cac:RoadTransport>
+            </cac:TransportMeans>
+    <!--Tipo y numero de documento de identidad del conductor-->
+            <cac:DriverPerson>
+                <cbc:ID schemeID="6">73130710</cbc:ID>
+            </cac:DriverPerson>
+        </cac:ShipmentStage>
+        <cac:Delivery>
+    <!--Direccion punto de llegada-->
+            <cac:DeliveryAddress>
+    <!--Ubigeo-->
+                <cbc:ID>120606</cbc:ID>
+    <!--Direccion completa y detallada-->
+                <cbc:StreetName>JR. MANTARO NRO. 257</cbc:StreetName>
+            </cac:DeliveryAddress>
+        </cac:Delivery>
+    <!--Datos del contenedor (Motivo Importación)-->
+        <cac:TransportHandlingUnit>
+    <!--Numero de contenedor-->
+            <cac:TransportEquipment>
+                <cbc:ID>PGY-0988</cbc:ID>
+            </cac:TransportEquipment>
+        </cac:TransportHandlingUnit>
+    <!--Direccion del punto de partida-->
+        <cac:OriginAddress>
+    <!--Ubigeo-->
+            <cbc:ID>150123</cbc:ID>
+    <!--Direccion completa y detallada-->
+            <cbc:StreetName>CAR. PANAM SUR KM 25 NO. 25050 NRO. 050 Z.I. CONCHAN</cbc:StreetName>
+        </cac:OriginAddress>
+    <!--Puerto o Aeropuerto de embarque/desembarque-->
+        <cbc:FirstArrivalPortLocation>
+    <!--Codigo del puerto-->
+            <cbc:ID>PAI</cbc:ID>
+        </cbc:FirstArrivalPortLocation>
+    </cac:Shipment>
+    <!--Bienes a transportar-->
+    <cac:DespatchLine>
+        <cbc:ID>1</cbc:ID>
+        <cac:OrderLineReference>
+            <cbc:ID>1</cbc:ID>
+        </cac:OrderLineReference>
+        <cbc:DeliveredQuantity unitCode="KGM">10</cbc:DeliveredQuantity>
+        <cac:Item>
+            <cbc:Name>ACETONA - 500.50 BALDE - 500.50 BALAS</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>COD1</cbc:ID>
+            </cac:SellersItemIdentification>
+        </cac:Item>
+    </cac:DespatchLine>
+</DespatchAdvice>

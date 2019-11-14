@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- QWeb Reports -->
+        <report 
+            id="guide_referral_report"
+            model="test_techquk.guide"
+            string="Guía de Remisión - Remitente"
+            report_type="qweb-pdf"
+            name="test_techquk.report_guide"
+            file="test_techquk.report_guide"
+            attachment="(object.state in ('enviar')) and ('EINV'+(object.name or '').replace('/','')+'.pdf')"
+            print_report_name="((object.num_documento_d or '')+('-')+(object.name or '').replace('/',''))"             
+            groups="techquk_requerimiento.group_auth"
+        />
+
+        <report 
+            id="guide_referral_report"
+            model="test_techquk.guide"
+            string="Guía de Remisión - Remitente"
+            report_type="qweb-html"
+            name="test_techquk.report_guide"
+            file="test_techquk.report_guide"
+            attachment="(object.state in ('enviar')) and ('EINV'+(object.name or '').replace('/','')+'.pdf')"
+            print_report_name="((object.num_documento_d or '')+('-')+(object.name or '').replace('/',''))"            
+            groups="techquk_requerimiento.group_auth"
+        />
+
+        <record id="paperformat_A4" model="report.paperformat"> 
+          <field name="name">Einvoice A4</field>
+          <field name="format">custom</field> 
+          <field name="page_height">297</field> 
+          <field name="page_width">210</field> 
+          <field name="orientation">Portrait</field> 
+          <field name="margin_top">8</field> 
+          <field name="margin_bottom">14</field> 
+          <field name="margin_left">4</field> 
+          <field name="margin_right">4</field> 
+          <field name="header_line" eval="False"/> 
+          <field name="header_spacing">1</field> 
+          <field name="dpi">100</field> 
+        </record>
+
+        <record id="guide_referral_report" model="ir.actions.report">
+            <field name="paperformat_id" ref="test_techquk.paperformat_A4"/>
+        </record>
+
+    </data>
+</odoo>
