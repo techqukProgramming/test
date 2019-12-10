@@ -600,7 +600,7 @@ msgstr "Tipo de Nota de Crédito"
 #. module: odoope_einvoice_base
 #: model:ir.model.fields,field_description:odoope_einvoice_base.field_account_invoice__credit_note_type
 msgid "Credit note type"
-msgstr "Tipo de nota de Débito"
+msgstr "Tipo de Nota de Crédito"
 
 #. module: odoope_einvoice_base
 #: model:ir.actions.act_window,name:odoope_einvoice_base.catalog_07_action
