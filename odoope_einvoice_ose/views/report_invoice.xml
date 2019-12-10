@@ -99,6 +99,10 @@
                                     <strong style="text-transform: uppercase;">Referencia:</strong>
                                     <span t-field="o.origin_document_serie"/>-<span t-field="o.origin_document_number"/>
                             </div>
+                            <div t-if="o.credit_note_type" >
+                                    <strong style="text-transform: uppercase;">TIPO DE NOTA DE CRÉDITO:</strong></br>
+                                    <span t-field="o.credit_note_type"/>
+                            </div>
                         </div>                        
                                                                    
                     </div>
@@ -200,7 +204,7 @@
                     <div class="panel panel-default" style="display: -webkit-box;padding:0;">
                         <div style="width:65%;border:1px solid #2E3D4B;margin-top:5px;" >
                             <div style="font-size:12px;border-bottom:1px solid #2E3D4B;padding:10px;"><strong>AMOUNT IN WORDS: </strong><span t-esc="o.currency_id.amount_to_text(o.amount_total)"/></div>                            
-                            <div style="font-size:12px;padding:10px;"><strong>COMMENTS: </strong><span t-field="o.comment"/></div>
+                            <div style="font-size:12px;padding:10px;"><strong>OBSERVACIONES: </strong><span t-field="o.comment"/></div>
                         </div>
                         <div style="width: 35%; text-align: right; padding: 10px; font-size: 13px;border-right:1px solid #2E3D4B;border-bottom:1px solid #2E3D4B;border-top:1px solid #2E3D4B;margin-top:5px;">
                             <div>
