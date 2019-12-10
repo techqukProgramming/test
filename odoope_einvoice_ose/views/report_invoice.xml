@@ -100,7 +100,7 @@
                                     <span t-field="o.origin_document_serie"/>-<span t-field="o.origin_document_number"/>
                             </div>
                             <div t-if="o.credit_note_type" >
-                                    <strong style="text-transform: uppercase;">TIPO DE NOTA DE CRÉDITO:</strong></br>
+                                    <strong style="text-transform: uppercase;">TIPO DE NOTA DE CRÉDITO:</strong>
                                     <span t-field="o.credit_note_type"/>
                             </div>
                         </div>                        
