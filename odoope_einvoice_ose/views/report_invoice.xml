@@ -58,7 +58,7 @@
             <div class="article o_report_layout_standard"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
                 <t t-call="web.address_layout"/>
                 <div class="page">
-                    <div class="row" style="padding-top:150px;font-size: 12px;">
+                    <div class="row" style="padding-top:180px;font-size: 12px;">
                         <div class="col-8" >
                             <strong style="text-transform: uppercase;">CLIENT: </strong> 
                             <div >
@@ -101,6 +101,8 @@
                             </div>
                             <div t-if="o.credit_note_type" >
                                     <strong style="text-transform: uppercase;">TIPO DE NOTA DE CRÉDITO:</strong>
+                            </div>
+                            <div t-if="o.credit_note_type" >
                                     <span t-field="o.credit_note_type"/>
                             </div>
                         </div>                        
