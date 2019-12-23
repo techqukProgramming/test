@@ -76,6 +76,12 @@ class AccountInvoice(models.Model):
     einvoice_vat = fields.Char(string="RUC/DNI", compute="_get_partner_document")
     is_contingency = fields.Boolean('Is Contingency', related='journal_id.is_contingency', store=True)
     is_einvoice = fields.Boolean('Is E-invoice', related='journal_id.is_einvoice', store=True)
+    state_payment = fields.Selection(
+                        [(1,'NO COBRADO'),
+                        (2,'COBRADO'),
+                        (3,'PARCIALMENTE COBRADO'),
+                        (4,'ANULADO'),
+                        ],string='Estado de cobro', help='Estados de cobro de la factura.', default=1)
 
     @api.depends('partner_id')
     def _get_partner_document(self):    

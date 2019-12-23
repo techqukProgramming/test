@@ -10,6 +10,7 @@
                 <field name="einvoice_ose_accepted" />
                 <field name="einvoice_sunat_accepted" />
                 <field name="is_contingency" />
+                <field name="state_payment" />
             </field>
         </field>
     </record>
@@ -112,6 +113,15 @@
             <xpath expr="//field[@name='comment']" position="before">
                 <field name="einv_amount_untaxed" invisible="True"/>
                 <button name="%(action_account_global_discount)d" type="action" string="Add global discount" context="{'default_amount_untaxed': einv_amount_untaxed}" class="btn btn-default" attrs="{'invisible':[('state','!=','draft')]}"/>
+            </xpath>
+             <xpath expr="//page[5]" position='after'>
+                <page string="Estado de pagos y cobros">
+                    <group>
+                        <group string="Proceso de Cobros">
+                            <field name="state_payment"/>
+                        </group>
+                    </group>
+                </page>
             </xpath>            
 		</field>
 	</record>
@@ -143,6 +153,7 @@
                 <field name="einvoice_error"/>
                 <field name="einvoice_sunat_accepted"/>
                 <field name="is_contingency"/>
+                <field name="state_payment"/>
             </tree>            
         </field>
     </record>
