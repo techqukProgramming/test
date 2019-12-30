@@ -11,6 +11,8 @@
                 <attribute name="decoration-success">state_payment==2</attribute>
                 <attribute name="decoration-warning">state_payment==3</attribute>
                 <attribute name="decoration-muted">state_payment==4</attribute>
+                <attribute name="decoration-muted">state==draft</attribute>
+                <attribute name="decoration-muted">state==cancel</attribute>
             </xpath>
             <field name="state" position="after">
                 <field name="einvoice_ose_accepted" />
