@@ -21,6 +21,17 @@
         </field>
     </record>
 
+    <record id="view_account_invoice_filter" model="ir.ui.view">
+        <field name="name">account.invoice.select</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search/group/filter[@name='duedate']" position="after">
+                <filter string="Estado de Pago" name="state_payment" context="{'group_by':'state_payment'}"/>
+            </xpath>
+        </field>
+    </record>
+
     <record model="ir.ui.view" id="invoice_form_cancel_inherit_inherit">
 		<field name="name">invoice.form.cancel.inherit.inherit</field>
 		<field name="model">account.invoice</field>
