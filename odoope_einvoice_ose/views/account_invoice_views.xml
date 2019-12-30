@@ -6,36 +6,18 @@
         <field name="model">account.invoice</field>
         <field name="inherit_id" ref="account.invoice_tree"/>
         <field name="arch" type="xml">
-            <tree position='replace'>
-                <tree decoration-danger="state_payment==1" decoration-muted="state_payment==4" decoration-warning="state_payment==3" decoration-success="state_payment==2">
-                    <field name="partner_id" groups="base.group_user" string="Customer"/>
-                    <field name="date_invoice"/>
-                    <field name="number"/>
-                    <field name="commercial_partner_id" invisible="1"/>
-                    <field name="reference" invisible="1"/>
-                    <field name="name" invisible="1"/>
-                    <field name="journal_id" invisible="1"/>
-                    <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
-                    <field name="user_id"/>
-                    <field name="date_due"/>
-                    <field name="origin"/>
-                    <field name="amount_untaxed_invoice_signed" string="Tax Excluded" sum="Total"/>
-                    <field name="amount_tax_signed" string="Tax" sum="Total"/>
-                    <field name="amount_total_signed" string="Total" sum="Total"/>
-                    <field name="residual_signed" string="Amount Due" sum="Amount Due"/>
-                    <field name="currency_id" invisible="1"/>
-                    <field name="company_currency_id" invisible="1"/>
-                    <field name="state"/>
-                    <field name="einvoice_ose_accepted" />
-                    <field name="einvoice_sunat_accepted" />
-                    <field name="is_contingency" />
-                    <field name="state_payment" />
-                    <field name="type" invisible="context.get('type',True)"/>
-                </tree>
-            </tree>    
-            <!-- <field name="state" position="after">
-                
-            </field> -->
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-danger">state_payment==1</attribute>
+                <attribute name="decoration-success">state_payment==2</attribute>
+                <attribute name="decoration-warning">state_payment==3</attribute>
+                <attribute name="decoration-muted">state_payment==4</attribute>
+            </xpath>
+            <field name="state" position="after">
+                <field name="einvoice_ose_accepted" />
+                <field name="einvoice_sunat_accepted" />
+                <field name="is_contingency" />
+                <field name="state_payment" />
+            </field>
         </field>
     </record>
 
