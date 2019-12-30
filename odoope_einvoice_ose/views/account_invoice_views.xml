@@ -24,15 +24,16 @@
                 <field name="residual_signed" string="Amount Due" sum="Amount Due"/>
                 <field name="currency_id" invisible="1"/>
                 <field name="company_currency_id" invisible="1"/>
-                <!-- <field name="state"/> -->
-                <field name="type" invisible="context.get('type',True)"/>
-            </xpath>    
-            <field name="state" position="after">
+                <field name="state"/>
                 <field name="einvoice_ose_accepted" />
                 <field name="einvoice_sunat_accepted" />
                 <field name="is_contingency" />
                 <field name="state_payment" />
-            </field>
+                <field name="type" invisible="context.get('type',True)"/>
+            </xpath>    
+            <!-- <field name="state" position="after">
+                
+            </field> -->
         </field>
     </record>
 
