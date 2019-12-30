@@ -27,7 +27,7 @@
         <field name="inherit_id" ref="account.view_account_invoice_filter"/>
         <field name="arch" type="xml">
             <xpath expr="//search/group/filter[@name='duedate']" position="after">
-                <filter string="Estado de Pago" name="state_payment" context="{'group_by':'state_payment'}" domain="['|',('state', '!=' , 'cancel'),('state', '!=' , 'draft')]"/>
+                <filter string="Estado de Pago" name="state_payment" context="{'group_by':'state_payment'}" domain="[('state', '!=' , 'cancel')]"/>
             </xpath>
         </field>
     </record>
