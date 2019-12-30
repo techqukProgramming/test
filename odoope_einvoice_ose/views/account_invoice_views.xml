@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="account.invoice_tree"/>
         <field name="arch" type="xml">
             <tree position='replace'>
-                <tree decoration-danger="state_payment=='1'" decoration-muted="state_payment=='4'" decoration-warning="state_payment=='3'" decoration-success="state_payment=='2'">
+                <tree decoration-danger="state_payment==1" decoration-muted="state_payment==4" decoration-warning="state_payment==3" decoration-success="state_payment==2">
                     <field name="partner_id" groups="base.group_user" string="Customer"/>
                     <field name="date_invoice"/>
                     <field name="number"/>
