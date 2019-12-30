@@ -6,8 +6,8 @@
         <field name="model">account.invoice</field>
         <field name="inherit_id" ref="account.invoice_tree"/>
         <field name="arch" type="xml">
-            <xpath expr="//tree[@name='account.invoice.tree.with.onboarding']" position="replace" decoration-danger="state_payment==1">
-            </xpath>
+            <!-- <xpath expr="//tree[@banner_route='/account/account_invoice_onboarding']" position="replace" decoration-danger="state_payment=='1'">
+            </xpath> -->
             <field name="state" position="after">
                 <field name="einvoice_ose_accepted" />
                 <field name="einvoice_sunat_accepted" />
