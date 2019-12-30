@@ -6,8 +6,27 @@
         <field name="model">account.invoice</field>
         <field name="inherit_id" ref="account.invoice_tree"/>
         <field name="arch" type="xml">
-            <!-- <xpath expr="//tree[@banner_route='/account/account_invoice_onboarding']" position="replace" decoration-danger="state_payment=='1'">
-            </xpath> -->
+            <xpath expr="//tree" position='replace' decoration-danger="state_payment=='1'" decoration-muted="state_payment=='4'" decoration-warning="state_payment=='3'" decoration-success="state_payment=='2'">
+                <field name="partner_id" groups="base.group_user" string="Customer"/>
+                <field name="date_invoice"/>
+                <field name="number"/>
+                <field name="commercial_partner_id" invisible="1"/>
+                <field name="reference" invisible="1"/>
+                <field name="name" invisible="1"/>
+                <field name="journal_id" invisible="1"/>
+                <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                <field name="user_id"/>
+                <field name="date_due"/>
+                <field name="origin"/>
+                <field name="amount_untaxed_invoice_signed" string="Tax Excluded" sum="Total"/>
+                <field name="amount_tax_signed" string="Tax" sum="Total"/>
+                <field name="amount_total_signed" string="Total" sum="Total"/>
+                <field name="residual_signed" string="Amount Due" sum="Amount Due"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="company_currency_id" invisible="1"/>
+                <field name="state"/>
+                <field name="type" invisible="context.get('type',True)"/>
+            </xpath>    
             <field name="state" position="after">
                 <field name="einvoice_ose_accepted" />
                 <field name="einvoice_sunat_accepted" />
@@ -117,7 +136,7 @@
                 <button name="%(action_account_global_discount)d" type="action" string="Add global discount" context="{'default_amount_untaxed': einv_amount_untaxed}" class="btn btn-default" attrs="{'invisible':[('state','!=','draft')]}"/>
             </xpath>
              <xpath expr="//page[5]" position='after'>
-                <page string="Estado de pagos y cobros">
+                <page string="Estado de pagos - Factura">
                     <group>
                         <group string="Proceso de Cobros">
                             <field name="state_payment"/>
@@ -125,7 +144,7 @@
                     </group>
                 </page>
             </xpath>            
-		</field>
+		</field>    
 	</record>
 
     <record model="ir.ui.view" id="einvoice_ose_account_invoice_button_inherit">
