@@ -29,6 +29,12 @@
             <field name="communication" position="after">
                 <field name="medio_pago" />
             </field>
+            <field name="communication" position="replace">
+                <field name="communication" invisible="1"/>
+            </field>    
+            <field name="payment_transaction_id" position="replace">
+                <field name="payment_transaction_id" invisible="1"/>
+            </field>    
         </field>
     </record>
 
