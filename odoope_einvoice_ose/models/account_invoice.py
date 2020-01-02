@@ -560,7 +560,7 @@ class AccountEinvoiceLog(models.Model):
 
 class AccountPayment(models.Model):
 
-    _inherit = 'account.invoice'
+    _inherit = 'account.payment'
 
     medio_pago = fields.Selection(
                         [('Depósito','DEPÓSITO'),
