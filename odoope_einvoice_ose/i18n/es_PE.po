@@ -118,6 +118,14 @@ msgstr "<strong>Base imponible:</strong>"
 msgid "<strong>COMMENTS: </strong>"
 msgstr "<strong>COMENTARIOS: </strong>"
 
+#. module: account
+#. openerp-web
+#: code:addons/account/static/src/js/reconciliation/reconciliation_action.js:326
+#: model:ir.actions.client,name:account.action_manual_reconcile
+#, python-format
+msgid "Journal Items to Reconcile"
+msgstr "Apuntes a conciliar"
+
 #. module: odoope_einvoice_ose
 #: model_terms:ir.ui.view,arch_db:odoope_einvoice_ose.report_einvoice_document
 msgid "<strong>Discount:</strong>"
