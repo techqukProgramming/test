@@ -49,6 +49,9 @@
             <xpath expr="//tree/field[@name='journal_id']" position="after">
                 <field name="medio_pago" />
             </xpath>
+            <xpath expr="//tree/field[@name='partner_id']" position="after">
+                <field name="factura_id" />
+            </xpath>
         </field>
     </record>
 
