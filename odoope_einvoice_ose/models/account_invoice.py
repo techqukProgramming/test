@@ -574,13 +574,11 @@ class AccountPayment(models.Model):
     @api.onchange('partner_id')
     def _get_invoice(self):
             if self.partner_id:
-                    arr = []
-                    for x in self.partner_id:      
-                            for invoice_id in x.invoice_ids:
-                                    arr.append(invoice_id.name)
-
-                    # if len(unico) == 1:       
-                    #         return {'domain':{'partner_id':[('id','=',unico[0].id)]}}
+                    # arr = []
+                    # for x in self.partner_id:      
+                    #         for invoice_id in x.invoice_ids:
+                    #                 arr.append(invoice_id.name)      
+                    return {'domain':{'factura_id':[('partner_id','=',self.partner_id)]}}
                     # elif len(unico) == 2:       
                     #         return {'domain':{'partner_id':['|',('id','=',unico[0].id),('id','=',unico[1].id)]}}
                     # elif len(unico) == 3:       
