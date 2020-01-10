@@ -568,3 +568,34 @@ class AccountPayment(models.Model):
                         ('Canje','CANJE'),
                         ('Transferencia','TRANSFERENCIA'),
                         ],string='Medio de Pago', help='Medios de pago por parte del cliente.', default='Depósito')
+
+    factura_id = fields.Many2one('account.invoice', string='N° de Factura')
+
+    # @api.onchange('partner_id')
+    # def _get_invoice(self):
+    #         if self.partner_id:
+    #                 arr = []
+    #                 unico = []
+    #                 for x in self.id_requerimiento:      
+    #                         for item in x.items_ids:
+    #                                 arr.append(item.proveedorsugerido)
+    #                 for x in arr:
+    #                         if x not in unico:
+    #                                 unico.append(x)
+
+    #                 if len(unico) == 1:       
+    #                         return {'domain':{'partner_id':[('id','=',unico[0].id)]}}
+    #                 elif len(unico) == 2:       
+    #                         return {'domain':{'partner_id':['|',('id','=',unico[0].id),('id','=',unico[1].id)]}}
+    #                 elif len(unico) == 3:       
+    #                         return {'domain':{'partner_id':['|',('id','=',unico[0].id),('id','=',unico[1].id),('id','=',unico[2].id)]}}
+    #                 elif len(unico) == 4:       
+    #                         return {'domain':{'partner_id':['|',('id','=',unico[0].id),('id','=',unico[1].id),('id','=',unico[2].id),('id','=',unico[3].id)]}}
+    #                 elif len(unico) == 5:       
+    #                         return {'domain':{'partner_id':['|',('id','=',unico[0].id),('id','=',unico[1].id),('id','=',unico[2].id),('id','=',unico[3].id),('id','=',unico[4].id)]}}
+    #                 else:
+    #                         return {
+    #                         'warning': {
+    #                                 'title': 'Advertencia!',
+    #                                 'message': 'No puede seleccionar requermiento que tengan mas de 5 proveedores!'}
+    #                         }

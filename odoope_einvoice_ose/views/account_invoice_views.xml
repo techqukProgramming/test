@@ -29,6 +29,9 @@
             <field name="communication" position="after">
                 <field name="medio_pago" />
             </field>
+            <field name="medio_pago" position="after">
+                <field name="id_factura" />
+            </field>
             <field name="communication" position="replace">
                 <field name="communication" invisible="1"/>
             </field>    
