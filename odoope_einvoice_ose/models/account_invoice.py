@@ -578,7 +578,7 @@ class AccountPayment(models.Model):
                     # for x in self.partner_id:      
                     #         for invoice_id in x.invoice_ids:
                     #                 arr.append(invoice_id.name)      
-                    return {'domain':{'factura_id':[('partner_id','=',self.partner_id)]}}
+                    return {'domain':{'factura_id':[('partner_id.id','=',self.partner_id.id)]}}
                     # elif len(unico) == 2:       
                     #         return {'domain':{'partner_id':['|',('id','=',unico[0].id),('id','=',unico[1].id)]}}
                     # elif len(unico) == 3:       
