@@ -567,6 +567,8 @@ class AccountPayment(models.Model):
                         ('Cheque','CHEQUE'),
                         ('Canje','CANJE'),
                         ('Transferencia','TRANSFERENCIA'),
+                        ('Retención Sunat','RETENCIÓN SUNAT'),
+                        ('Penalidad','PENALIDAD'),
                         ],string='Medio de Pago', help='Medios de pago por parte del cliente.', default='Depósito')
 
     factura_id = fields.Many2one('account.invoice', string='N° de Factura')
