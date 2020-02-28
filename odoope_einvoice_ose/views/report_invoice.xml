@@ -72,6 +72,10 @@
                                 <span t-if="o.partner_id.zip" t-field="o.partner_id.zip"/> -
                                 <span t-if="o.partner_id.state_id" t-field="o.partner_id.state_id.name"/>
                             </div>
+                            <div>
+                                <strong style="text-transform: uppercase;">Motivo/Sustento: </strong>
+                                <span t-if="o.motivo_sustento" t-field="o.motivo_sustento"/>
+                            </div>
                         </div>
 
                         <div class="col-4">
