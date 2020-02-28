@@ -74,7 +74,7 @@
                             </div>
                             <div>
                                 <strong style="text-transform: uppercase;">Motivo/Sustento: </strong>
-                                <span t-if="o.motivo_sustento and o.type == 'out_refund'" t-field="o.motivo_sustento"/>
+                                <span t-if="o.motivo_sustento" t-field="o.motivo_sustento"/>
                             </div>
                         </div>
 
