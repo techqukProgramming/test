@@ -73,7 +73,7 @@
                                 <span t-if="o.partner_id.state_id" t-field="o.partner_id.state_id.name"/>
                             </div>
                             <div>
-                                <strong style="text-transform: uppercase;">Motivo/Sustento: </strong>
+                                <strong t-if="o.motivo_sustento" style="text-transform: uppercase;">Motivo/Sustento: </strong>
                                 <span t-if="o.motivo_sustento" t-field="o.motivo_sustento"/>
                             </div>
                         </div>
