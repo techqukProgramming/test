@@ -93,6 +93,7 @@ class AccountInvoice(models.Model):
                         (3, 'PARCIALMENTE PAGADO'),
                         (4, 'ANULADO'),
                         ], string='Estado de Pago', help='Estados de pago de la factura por cliente.', default=1)
+    motivo_sustento = fields.Char('Motivo o Sustento', copy=False)
 
     @api.depends('partner_id')
     def _get_partner_document(self):

@@ -102,7 +102,10 @@
             </field>              
             <field name="date_invoice" position="before">
                 <field name="sunat_transaction"/>
-            </field>              
+            </field>
+            <field name="credit_note_type" position="after">
+                <field name="motivo_sustento" attrs="{'invisible': [('type','!=','out_refund')]}"/>
+            </field>                 
             <page name="other_info" position="before">
                 <page name="einvoice_status" string="E-invoice status">
                     <group name="einvoice_status">  
