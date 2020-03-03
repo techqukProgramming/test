@@ -121,14 +121,14 @@
                                 <t t-set="colspan" t-value="7"/>
                                 <th style="padding: 6px;width:10%;">Code</th>
                                 <th style="padding: 6px;width:7%;border-left:1px solid #2E3D4B">UoM</th>                                
-                                <th style="padding: 6px;width:47.6%;border-left:1px solid #2E3D4B">Description</th>
+                                <th style="padding: 6px;width:57%;border-left:1px solid #2E3D4B">Description</th>
                                 <th style="padding: 6px;width:6%;border-left:1px solid #2E3D4B">Qty</th>
-                                <th t-attf-class="{{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="border-left:1px solid #2E3D4B;width:14.7%"><span>Precio</span></th>                                
+                                <th t-attf-class="{{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="border-left:1px solid #2E3D4B;width:10%"><span>Precio</span></th>                                
                                 <th t-if="display_discount" t-attf-class=" {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="border-left:1px solid #2E3D4B">
                                     <span>Disc.(%)</span>
                                     <t t-set="colspan" t-value="colspan+1"/>
                                 </th>                                
-                                <th style="padding: 6px;padding-right:10px;border-left:1px solid #2E3D4B;width:14.7%">Amount</th>   
+                                <th style="padding: 6px;padding-right:10px;border-left:1px solid #2E3D4B;width:10%">Amount</th>   
                             </tr>
                         </thead>
 
