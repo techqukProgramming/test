@@ -19,7 +19,7 @@
                 <field name="product_code" options="{'no_create_edit': True,'no_open':True}" required="True"/>
             </field>
             <field name="product_code" position="after">
-                <field name="product_marca" options="{'no_create_edit': True,'no_open':True}" required="True"/>
+                <field name="product_marca" />
             </field>
             <field name="standard_price" position="after">
                 <field name="margen"/>
@@ -54,7 +54,7 @@
                 <field name="default_code" required="True"/>
             </field>
             <field name="product_code" position="after">
-                <field name="product_marca" options="{'no_create_edit': True,'no_open':True}" required="True"/>
+                <field name="product_marca" />
             </field>
             <field name="taxes_id" position="after">
                 <field name="margen"/>
