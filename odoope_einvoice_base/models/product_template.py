@@ -29,7 +29,7 @@ class ProductTemplate(models.Model):
         igv_type = fields.Many2one("einvoice.catalog.07", string='IGV type')
         product_code_sunat = fields.Many2one("einvoice.catalog.25", string='Product code SUNAT')
         product_code = fields.Char("Codigo")
-        product_marca = fields.Char("Marca",default='-')
+        product_marca = fields.Many2one("x_marca_producto", string='Marca')
         margen = fields.Float(string="Margen(%)",digits=(10,2),default='20')
         descuento = fields.Float(string="Descuento(%)",digits=(10,2),default='0')
         gasto_administrativo = fields.Float(string="Gasto Adm.(%)",digits=(10,2),default='2')
@@ -135,4 +135,3 @@ class ProductTemplate(models.Model):
                                                 'title': 'Advertencia!',
                                                 'message': 'Debe ingresar el costo(precio de compra), el margen de ganancia debe ser MAYOR a 20% y el gasto administrativo MAYOR al 2%!'}
                                         }
-
