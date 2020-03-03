@@ -152,7 +152,7 @@
                                             <span t-field="line.discount"/>
                                         </td>
                                         <td style="border-left:1px solid #2E3D4B;padding-right:5px;" class="text-right">
-                                            <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                                            <span t-esc="'{0:,.2f}'.format(float(line.price_subtotal))" groups="account.group_show_line_subtotals_tax_excluded"/>
                                             <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
                                         </td>
                                     </t>                                    
