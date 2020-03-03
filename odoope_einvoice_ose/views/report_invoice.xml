@@ -119,10 +119,10 @@
                         <thead>
                             <tr style="font-size: 12px; text-transform: uppercase; padding: 6px; text-align: center; border:1px solid #2E3D4B;">
                                 <t t-set="colspan" t-value="7"/>
-                                <th style="padding: 6px;width:10%;">Code</th>
-                                <th style="padding: 6px;width:7%;border-left:1px solid #2E3D4B">UoM</th>                                
+                                <th style="padding: 6px;width:10%;">Code</th>    
                                 <th style="padding: 6px;width:57%;border-left:1px solid #2E3D4B">Description</th>
                                 <th style="padding: 6px;width:6%;border-left:1px solid #2E3D4B">Qty</th>
+                                <th style="padding: 6px;width:7%;border-left:1px solid #2E3D4B">UoM</th>
                                 <th t-attf-class="{{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="border-left:1px solid #2E3D4B;width:10%"><span>Precio</span></th>                                
                                 <th t-if="display_discount" t-attf-class=" {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="border-left:1px solid #2E3D4B">
                                     <span>Disc.(%)</span>
@@ -141,11 +141,11 @@
                                 <tr t-att-class="'font-weight-bold' if line.display_type == 'line_section' else 'font-italic' if line.display_type == 'line_note' else ''" style="height:20px;">
                                     <t t-if="not line.display_type" name="account_invoice_line_accountable">
                                         <td t-if="line.product_id" class="text-center"><span t-field="line.product_id.default_code"/></td> 
-                                        <td style="border-left:1px solid #2E3D4B;padding-left:5px;" t-if="not line.product_id"><span>-</span></td>               
-                                        <td t-if="line.uom_id.name == 'Unidad(es)'" style="border-left:1px solid #2E3D4B;" class="text-center"><span>UND</span></td>
-                                        <td t-else="" style="border-left:1px solid #2E3D4B;" class="text-center"><span t-field="line.uom_id.name"/></td>       
+                                        <td style="border-left:1px solid #2E3D4B;padding-left:5px;" t-if="not line.product_id"><span>-</span></td>                
                                         <td style="border-left:1px solid #2E3D4B;padding-left:5px;" name="account_invoice_line_name"><span t-field="line.product_id.product_marca"/> <span t-field="line.product_id.name"/></td>
-                                        <td style="border-left:1px solid #2E3D4B;padding-right:5px;" class="text-right"><span t-esc="int(round(line.quantity,0))"/></td>   
+                                        <td style="border-left:1px solid #2E3D4B;padding-right:5px;" class="text-right"><span t-esc="int(round(line.quantity,0))"/></td>
+                                        <td t-if="line.uom_id.name == 'Unidad(es)'" style="border-left:1px solid #2E3D4B;" class="text-center"><span>UND</span></td>
+                                        <td t-else="" style="border-left:1px solid #2E3D4B;" class="text-center"><span t-field="line.uom_id.name"/></td>         
                                         <td style="border-left:1px solid #2E3D4B;padding-right:5px;" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
                                             <span t-field="line.price_unit"/>
                                         </td>                                       
