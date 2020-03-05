@@ -92,7 +92,7 @@
                                     <strong style="text-transform: uppercase;">Currency:</strong>
                                     <span t-field="o.currency_id.currency_unit_label"/><br/>
                                     <strong style="text-transform: uppercase;">Guía de Remision:</strong>
-                                    <span t-if="o.picking_number"/><t t-esc="o.picking_number"/></span>
+                                    <span t-if="o.picking_number"><t t-esc="o.picking_number"/></span>
                             </div>
                             <div name="payment_term_id" t-if="o.payment_term_id" >
                                     <strong style="text-transform: uppercase;">Condición de Pago:</strong>
