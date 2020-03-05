@@ -87,10 +87,10 @@
                                     <strong style="text-transform: uppercase;">Due date:</strong>
                                     <span t-field="o.date_due" />
                             </div>
-                            <!-- <div t-if="o.currency_id">
+                            <div t-if="o.currency_id">
                                     <strong style="text-transform: uppercase;">Currency:</strong>
                                     <span t-field="o.currency_id.currency_unit_label"/>
-                            </div> -->
+                            </div>
                             <div t-if="o.picking_number">
                                     <strong style="text-transform: uppercase;">Guía de Remision:</strong>
                                     <span  t-field="o.picking_number"/> 
@@ -112,6 +112,7 @@
                         </div>                        
                                                                    
                     </div>
+                    <br/>
                     
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
 
