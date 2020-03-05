@@ -93,11 +93,11 @@
                             </div>
                             <div t-if="o.picking_number" >
                                     <strong style="text-transform: uppercase;">Guía de Remision:</strong>
-                                    <span  t-field="o.picking_number"/><span></span>  
+                                    <span  t-field="o.picking_number"/> 
                             </div>
                             <div name="payment_term_id" t-if="o.payment_term_id" >
                                     <strong style="text-transform: uppercase;">Condición de Pago:</strong>
-                                    <span t-field="o.payment_term_id"/><span></span>  
+                                    <span t-field="o.payment_term_id"/>
                             </div>
                             <div name="origin_document_serie" t-if="o.origin_document_serie" >
                                     <strong style="text-transform: uppercase;">Referencia:</strong>
@@ -120,9 +120,9 @@
                             <tr style="font-size: 12px; text-transform: uppercase; padding: 6px; text-align: center; border:1px solid #2E3D4B;">
                                 <t t-set="colspan" t-value="7"/>
                                 <th style="padding: 6px;width:10%;">Code</th>    
-                                <th style="padding: 6px;width:51%;border-left:1px solid #2E3D4B">Description</th>
-                                <th style="padding: 6px;width:6%;border-left:1px solid #2E3D4B">Qty</th>
-                                <th style="padding: 6px;width:7%;border-left:1px solid #2E3D4B">UoM</th>
+                                <th style="padding: 6px;width:54%;border-left:1px solid #2E3D4B">Description</th>
+                                <th style="padding: 6px;width:8%;border-left:1px solid #2E3D4B">Qty</th>
+                                <th style="padding: 6px;width:8%;border-left:1px solid #2E3D4B">UoM</th>
                                 <th t-attf-class="{{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="border-left:1px solid #2E3D4B;width:10%"><span>Precio</span></th>                                
                                 <th t-if="display_discount" t-attf-class=" {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="border-left:1px solid #2E3D4B">
                                     <span>Disc.(%)</span>
