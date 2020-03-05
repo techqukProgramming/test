@@ -113,6 +113,7 @@
                                                                    
                     </div>
                     <br/>
+                    <br/>
                     
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
 
