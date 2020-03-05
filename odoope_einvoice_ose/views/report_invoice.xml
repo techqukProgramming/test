@@ -144,9 +144,9 @@
                                         <td style="border-left:1px solid #2E3D4B;padding-left:5px;" t-if="not line.product_id"><span>-</span></td>                
                                         <td style="border-left:1px solid #2E3D4B;padding-left:5px;" name="account_invoice_line_name"><span t-field="line.product_id.name"/> <span t-field="line.product_id.product_marca"/></td>
                                         <td style="border-left:1px solid #2E3D4B;padding-right:5px;" class="text-right"><span t-esc="int(round(line.quantity,0))"/></td>
-                                        <td t-if="line.uom_id.name == 'Unidad(es)'" style="border-left:1px solid #2E3D4B;" class="text-center"><span>UND</span></td>
-                                        <td t-else="line.uom_id.name == 'UNIDAD (SERVICIOS)'" style="border-left:1px solid #2E3D4B;" class="text-center"><span>SERVICIOS</span></td>
-                                        <td t-else="" style="border-left:1px solid #2E3D4B;" class="text-center"><span t-field="line.uom_id.name"/></td>         
+                                        <!-- <td t-if="line.uom_id.name == 'Unidad(es)'" style="border-left:1px solid #2E3D4B;" class="text-center"><span>UND</span></td>
+                                        <td t-else="line.uom_id.name == 'UNIDAD (SERVICIOS)'" style="border-left:1px solid #2E3D4B;" class="text-center"><span>SERVICIOS</span></td> -->
+                                        <td t-if="line.uom_id.name" style="border-left:1px solid #2E3D4B;" class="text-center"><span t-field="line.uom_id.name"/></td>         
                                         <td style="border-left:1px solid #2E3D4B;padding-right:5px;" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
                                             <span t-field="line.price_unit"/>
                                         </td>                                       
