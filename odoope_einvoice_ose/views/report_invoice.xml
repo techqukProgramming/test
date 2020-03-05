@@ -79,6 +79,7 @@
                         </div>
 
                         <div class="col-4">
+                            <strong t-if="o.picking_number" style="text-transform: uppercase;">Guía de Remision: <span  t-field="o.picking_number"/></strong> 
                             <div  t-if="o.date_invoice">
                                     <strong style="text-transform: uppercase;">Invoice date:</strong>
                                     <span t-field="o.date_invoice" />
@@ -90,10 +91,6 @@
                             <div t-if="o.currency_id">
                                     <strong style="text-transform: uppercase;">Currency:</strong>
                                     <span t-field="o.currency_id.currency_unit_label"/>
-                            </div>
-                            <div t-if="o.picking_number">
-                                    <strong style="text-transform: uppercase;">Guía de Remision:</strong>
-                                    <span  t-field="o.picking_number"/> 
                             </div>
                             <div name="payment_term_id" t-if="o.payment_term_id" >
                                     <strong style="text-transform: uppercase;">Condición de Pago:</strong>
@@ -112,8 +109,6 @@
                         </div>                        
                                                                    
                     </div>
-                    <br/>
-                    <br/>
                     
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
 
